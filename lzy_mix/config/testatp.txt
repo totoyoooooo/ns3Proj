@@ -1,0 +1,15 @@
+ENABLE_CC 1
+ENABLE_ASYCC 1
+ENABLE_LZYCC 1
+ENABLE_AWNDCC 0
+ENABLE_PS 1
+INIT_CWND 680
+MAX_CWND 680
+MAX_BUFFER 10000000p
+ECN_THRE 128
+MAX_AGGR_POOL 975
+TOPO_FILE ./lzy_mix/topology/testtopo.txt
+JOB_FILE ./lzy_mix/job/testjob.txt
+BGFLOW_FILE ./lzy_mix/workloads/eurosys/testbg.txt
+ENABLE_TRACE 0
+TRACE_FILE  lzy_mix/lzytrace/

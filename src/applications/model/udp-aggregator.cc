@@ -160,9 +160,8 @@ UdpAggregator::StartApplication (void)
   initmem(pool_size,max_host_num);
   m_timeLogFile.open(m_timeDataFile, std::ios::app);
   // 写入和读取只能打开一个
-
-  LoadCachedSamples(); // 读取sample.txt
-    EstimateAndUpdateT(0, 10); // 用appid=0,key=10 的数据进行计算
+  // LoadCachedSamples(); // 读取sample.txt
+  //   EstimateAndUpdateT(0, 10); // 用appid=0,key=10 的数据进行计算
   minspace = 0;
   if (m_socket == 0)
     {
@@ -514,9 +513,18 @@ UdpAggregator::HandleRead (Ptr<Socket> socket)
       uint32_t syn_urgent = tmp_header.GetDelta();
       uint8_t set_ecn = tmp_header.GetMACK();
 
-      // 存取
-      // if (app_id == 0)
-      //   LogArrivalTime(app_id, recv_key);
+      // Time now = Simulator::Now();
+      // auto key = std::make_pair(app_id, recv_key);
+      // m_arrivalTimes[key].push_back(now);
+      // LogArrivalTime(app_id, recv_key);
+
+      // 当样本足够时触发参数更新
+      // if (m_arrivalTimes[key].size() >= m_sampleThreshold) {
+      //     EstimateAndUpdateT(app_id, recv_key);
+      //     m_arrivalTimes[key].clear();  // 清空历史数据
+      // }
+      // SwmlRouteTag temptag;
+      // packet->RemovePacketTag(temptag);
 
 
       NS_LOG_INFO("rec: ["<<app_id<<", "<<recv_id<<", "<<recv_key<<"], ack :"<<isAck);
@@ -840,8 +848,12 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
 void 
 UdpAggregator::LogArrivalTime(uint16_t appId, uint32_t key) {
     if (!m_timeLogFile.is_open()) return;
-    double timestamp = Simulator::Now().GetSeconds();
-    m_timeLogFile << appId << " " << key << " " << timestamp << "\n";
+    if (appId == 0 ) {
+
+      double timestamp = Simulator::Now().GetSeconds();
+      m_timeLogFile << appId << " " << key << " " << timestamp << "\n";
+    }
+
 }
 void 
 UdpAggregator::LoadCachedSamples() {
