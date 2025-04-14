@@ -1,21 +1,21 @@
 137 1 136
 0
-0 1 100Mbps 2us 0
-0 2 100Mbps 2us 0
-0 3 100Mbps 2us 0
-0 4 100Mbps 2us 0
-0 5 100Mbps 2us 0
-0 6 100Mbps 2us 0
-0 7 100Mbps 2us 0
-0 8 100Mbps 2us 0
-0 9 100Mbps 2us 0
-0 10 100Mbps 2us 0
-0 11 100Mbps 2us 0
-0 12 100Mbps 2us 0
-0 13 100Mbps 2us 0
-0 14 100Mbps 2us 0
-0 15 100Mbps 2us 0
-0 16 100Mbps 2us 0
+0 1 100Mbps 1ms 0
+0 2 100Mbps 2ms 0
+0 3 80Mbps  3ms 0
+0 4 60Mbps  4ms 0
+0 5 100Mbps 1ms 0
+0 6 100Mbps 2ms 0
+0 7 80Mbps  5ms 0
+0 8 60Mbps  10ms 0
+0 9 90Mbps  6ms 0
+0 10 70Mbps 8ms 0
+0 11 85Mbps 4ms 0
+0 12 75Mbps 7ms 0
+0 13 95Mbps 3ms 0
+0 14 65Mbps 9ms 0
+0 15 80Mbps 5ms 0
+0 16 70Mbps 6ms 0
 0 17 100Mbps 2us 0
 0 18 100Mbps 2us 0
 0 19 100Mbps 2us 0

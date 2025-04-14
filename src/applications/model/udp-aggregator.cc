@@ -44,6 +44,8 @@
 #include <algorithm>
 #include <cmath>
 #include <functional>
+#include <numeric>
+#include <sstream>
 
 #define LYJ_SAATP 0
 #define LYJ_SAATP_RATE 0
@@ -160,10 +162,13 @@ UdpAggregator::StartApplication (void)
   NS_LOG_FUNCTION (this);
   collision_marking = 0;
   initmem(pool_size,max_host_num);
-  m_timeLogFile.open(m_timeDataFile, std::ios::app);
-  // 写入和读取只能打开一个
-  // LoadCachedSamples(); // 读取sample.txt
-  //   EstimateAndUpdateT(0, 10); // 用appid=0,key=10 的数据进行计算
+  
+  // 注释掉写入功能，改为读取功能
+  // m_timeLogFile.open(m_timeDataFile, std::ios::app);
+  
+  // 读取样本并计算最优时间窗口
+  LoadCachedSamples();
+  
   minspace = 0;
   if (m_socket == 0)
     {
@@ -678,6 +683,10 @@ UdpAggregator::HandleRead (Ptr<Socket> socket)
           }
         }
       }
+
+      if(!isAck) {  // 只在收到非ACK包时记录
+        // LogArrivalTime(app_id, recv_key);  // Commented out as we're using cached samples
+      }
     }
 }
 
@@ -726,34 +735,34 @@ UdpAggregator::initmem (uint32_t size, uint16_t host)
       m_count_key.push_back(0);
     }
 }
-//UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint32_t host, Ptr<Packet> packet)
 bool
 UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8_t hostnum, Ptr<Packet> packet, Ptr<Socket> socket, Address from, uint8_t is_bpAggr, uint32_t syn_urgent)
 {
     uint32_t index = 0;
-  if (appid == 1){
-    // printf("aggr debug host %d seq %d\n", hostid, key);
-    ;
-  }
-  if (onofftimewindow && hasForwarded(appid, key)) {
-    SwitchHeader tmp_header;
-     tmp_header.SetKey (key); //set the key in header
-     tmp_header.SetHostid(hostid);
-     tmp_header.SetHostnum(hostnum);
-     tmp_header.SetACK(0);
-     tmp_header.SetCollision(0);
-     tmp_header.SetAppID(appid);
-     tmp_header.SetDelta(syn_urgent);
-     tmp_header.SetTotal(1);
-     tmp_header.SetMerged(0);
-     
-     packet->AddHeader(tmp_header);
-     m_forwarded+=1;
-     m_timeout_forwarded+=1;
-     m_socket_for_up[appid]->Send (packet);
-     return false;
-   }
-  if (is_bpAggr){
+    if (appid == 1){
+        NS_LOG_INFO("Aggregating packet for app1: host=" << (int)hostid << " key=" << key);
+    }
+    
+    if (onofftimewindow && hasForwarded(appid, key)) {
+        SwitchHeader tmp_header;
+        tmp_header.SetKey (key);
+        tmp_header.SetHostid(hostid);
+        tmp_header.SetHostnum(hostnum);
+        tmp_header.SetACK(0);
+        tmp_header.SetCollision(0);
+        tmp_header.SetAppID(appid);
+        tmp_header.SetDelta(syn_urgent);
+        tmp_header.SetTotal(1);
+        tmp_header.SetMerged(0);
+        
+        packet->AddHeader(tmp_header);
+        m_forwarded+=1;
+        m_timeout_forwarded+=1;
+        m_socket_for_up[appid]->Send (packet);
+        return false;
+    }
+
+    if (is_bpAggr){
 
       SwitchHeader tmp_header;
       tmp_header.SetKey (key); //set the key in header
@@ -882,115 +891,188 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
     NS_LOG_INFO("time "<<Simulator::Now ().As (Time::S)<<" rec: ["<<appid<<", "<<hostid<<", "<<key<<"] update bitmap in index:("<<index<<","<<hostid<<")");
     //std::cout<<"time "<<Simulator::Now ().As (Time::S)<<" rec: ["<<appid<<", "<<hostid<<", "<<key<<"] update bitmap in index:("<<index<<","<<hostid<<")"<<std::endl;
     if(bitmap[index][hostid]==false){
-
         bitmap[index][hostid] = true;
         count_pkt[index]++;
 
-         //std::cout<<"APP "<<appid<<" count "<<count_pkt[index]<<" num "<<(uint32_t)hostnum<<std::endl;
-        if(count_pkt[index]== hostnum){
-          // std::cout << "full\n";
-          if (onofftimewindow) {
-            if (m_units[appid].count(key)) {
-              Simulator::Cancel(m_units[appid][key].timer);
-              m_units[appid].erase(key); // 防止残留
+        if (appid == 1) {
+            NS_LOG_INFO("App1 progress: " << count_pkt[index] << "/" << (int)hostnum);
+            
+            // 检查是否长时间没有进展
+            static Time lastProgressTime = Simulator::Now();
+            static uint32_t lastProgressCount = 0;
+            
+            if (count_pkt[index] > lastProgressCount) {
+                lastProgressCount = count_pkt[index];
+                lastProgressTime = Simulator::Now();
+            } else if ((Simulator::Now() - lastProgressTime).GetSeconds() > 1.0) {
+                NS_LOG_WARN("App1 aggregation stalled at " << count_pkt[index] << "/" << (int)hostnum);
+                // 强制完成聚合
+                if (onofftimewindow) {
+                    if (m_units[appid].count(key)) {
+                        Simulator::Cancel(m_units[appid][key].timer);
+                        m_units[appid].erase(key);
+                    }
+                }
+                return true;
             }
-          }
-            //std::cout<<"aggr success "<<(uint32_t)hostnum<<std::endl;
-            return true; //finish aggregation
         }
-        // record the interval between straggler and noraml interval
+
+        if(count_pkt[index]== hostnum){
+            if (onofftimewindow) {
+                if (m_units[appid].count(key)) {
+                    Simulator::Cancel(m_units[appid][key].timer);
+                    m_units[appid].erase(key);
+                }
+            }
+            NS_LOG_INFO("Aggregation complete for app " << appid << " key " << key);
+            return true;
+        }
     }
     return false;
 }
 void 
 UdpAggregator::LogArrivalTime(uint16_t appId, uint32_t key) {
     if (!m_timeLogFile.is_open()) return;
-    if (appId == 0 ) {
-
-      double timestamp = Simulator::Now().GetSeconds();
-      m_timeLogFile << appId << " " << key << " " << timestamp << "\n";
+    
+    // 只记录 appId 0,1,2 且 key=10 的数据
+    if (appId <= 2 && key == 10) {
+        double timestamp = Simulator::Now().GetSeconds() * 1000.0;
+        timestamp -= 2000.0;  // 减去2000毫秒
+        m_timeLogFile << appId << " " << key << " " << timestamp << "\n";
+        m_timeLogFile.flush(); // 确保数据立即写入文件
+        
+        m_cachedSamples[{appId, key}].push_back(timestamp);
+        
+        std::cout << "Recorded gradient for appId=" << appId 
+                  << " key=" << key 
+                  << " at time=" << timestamp 
+                  << std::endl;
     }
-
 }
 void 
 UdpAggregator::LoadCachedSamples() {
-    std::ifstream infile(m_timeDataFile);
-    if (!infile) return;
+    std::ifstream file("samples.txt");
+    if (!file.is_open()) {
+        NS_LOG_ERROR("Failed to open samples.txt");
+        return;
+    }
 
-    NS_LOG_INFO("Loading cached time samples from: " << m_timeDataFile);
+    // Clear existing samples
+    m_cachedSamples.clear();
+
+    uint16_t appId;
+    uint32_t key;
+    double timestamp;
     
-    std::string line;
-    while (std::getline(infile, line)) {
-        std::istringstream iss(line);
-        uint16_t appId;
-        uint32_t key;
-        double timestamp;
-        
-        if (iss >> appId  >> key  >> timestamp) {
-            m_cachedSamples[{appId, key}].push_back(timestamp);
+    // 读取数据并按应用ID分组
+    std::map<uint16_t, std::vector<double>> arrivalTimes;
+    
+    while (file >> appId >> key >> timestamp) {
+        if (appId <= 2 && key == 10) {  // 只处理 appId 0,1,2 且 key=10 的数据
+            arrivalTimes[appId].push_back(timestamp);
         }
     }
-    
-    NS_LOG_INFO("Loaded " << m_cachedSamples.size() << " sample sets");
+    file.close();
+
+    // 对每个应用计算lambda和最优T
+    for (auto& [appId, times] : arrivalTimes) {
+        if (times.size() < 2) continue;
+
+        // 按时间排序
+        std::sort(times.begin(), times.end());
+
+        // 计算相邻到达时间间隔
+        std::vector<double> intervals;
+        for (size_t i = 1; i < times.size(); ++i) {
+            intervals.push_back(times[i] - times[i-1]);
+        }
+
+        // 计算平均到达间隔（毫秒）
+        double avgInterval = std::accumulate(intervals.begin(), intervals.end(), 0.0) / intervals.size();
+        
+        // 计算到达率 lambda（每毫秒的数据包数）
+        double lambda = 1.0 / avgInterval;
+
+        // 计算最优时间窗口 T（毫秒）
+        // 使用公式：T = sqrt(2C/λh)，这里假设 C=1（聚合成本）和 h=1（持有成本）
+        double optimalT = std::sqrt(2.0 / lambda);
+
+        // 将最优T从毫秒转换为秒
+        double optimalT_seconds = optimalT / 1000.0;
+
+        // 更新应用的时间窗口
+        m_currentT[appId] = optimalT_seconds;
+
+        NS_LOG_INFO("App " << appId << ": lambda=" << lambda << " packets/ms, optimal T=" 
+                   << optimalT << "ms (" << optimalT_seconds << "s)");
+        
+        std::cout << "App " << appId << ": lambda=" << lambda << " packets/ms, optimal T=" 
+                 << optimalT << "ms (" << optimalT_seconds << "s)" << std::endl;
+    }
 }
 void 
 UdpAggregator::ForceFlush(uint16_t appid, uint32_t key) {
-  // std::cout << m_timeWindow << " timewindow\n";
-  // std::cout << "### ForceFlush TRIGGERED for appid=" << appid << " key=" << key << '\n';
-  
-  auto& appMap = m_units[appid];
-  if (appMap.find(key) == appMap.end()) return;
+    auto& appMap = m_units[appid];
+    if (appMap.find(key) == appMap.end()) return;
 
-  AggregatorUnit& unit = appMap[key];
-  if (unit.isFlushing) return; // 防止重复处理
-  upload(unit.mergedPacket, appid, key, 0, 0);
-  unit.isFlushing = true;
-  // std::cout << "forceflush" << appid << " " << key << " " << count_pkt[app_and_key_to_bitmap_index[appid][key]] << std::endl;
-  app_and_key_forwarded[appid][key] = 1;
-  cleanaggregator(appid, key);
+    AggregatorUnit& unit = appMap[key];
+    if (unit.isFlushing) return;
+
+    uint32_t index = app_and_key_to_bitmap_index[appid][key];
+    if (appid == 1) {
+        NS_LOG_WARN("Force flushing app1 key " << key << " with " << count_pkt[index] << "/" << n << " packets");
+    }
+
+    upload(unit.mergedPacket, appid, key, 0, 0);
+    unit.isFlushing = true;
+    app_and_key_forwarded[appid][key] = 1;
+    cleanaggregator(appid, key);
 }
 
 void 
 UdpAggregator::cleanaggregator(uint16_t appid, uint32_t key)
 {
-
-  if(!isexist(appid,key)){
-    return ;
-  }
-  
-  uint32_t index = app_and_key_to_bitmap_index[appid][key];
-  if (onofftimewindow) {
-    m_merged += 1;
-    m_merged_packet += count_pkt[index];
-      // 取消定时器
-    if (m_units.count(appid)) {
-      auto& app_units = m_units[appid];
-      if (app_units.count(key)) {
-        Simulator::Cancel(app_units[key].timer);
-        app_units.erase(key);
-      }
+    if(!isexist(appid,key)){
+        return;
     }
-  }
-  count_pkt[index] = 0;
-  aggr_collision[index] = 0;
-  idx_appid[index] = 65534;
-    //printf("back key: %d,timestamp:",key);
-  for(uint32_t i=0; i < max_host_num; i++){
-      bitmap[index][i] = false;
-      //printf("[%d]:%ld ",i,interval[index][i]);
-      interval[index][i] = -1;
-  }
-  //printf("\n");
-  app_and_key_to_bitmap_index[appid].erase(key);
-  unused.push_back(index);
-  //set time
-  start_time_index[index] = -1;
+    
+    uint32_t index = app_and_key_to_bitmap_index[appid][key];
+    
+    // 确保所有定时器都被取消
+    if (onofftimewindow) {
+        m_merged += 1;
+        m_merged_packet += count_pkt[index];
+        
+        if (m_units.count(appid)) {
+            auto& app_units = m_units[appid];
+            if (app_units.count(key)) {
+                Simulator::Cancel(app_units[key].timer);
+                app_units.erase(key);
+            }
+        }
+    }
 
-  if(key%1300==0){
-    NS_LOG_LYJ("APP"<< appid << " RStime "<<Simulator::Now ().As (Time::S) <<" RestAggregator "<<unused.size());
-    //std::cout<<"RStime "<<Simulator::Now ().As (Time::S) <<" RestAggregator "<<unused.size()<<std::endl;
-  }
-  
+    // 重置所有状态
+    count_pkt[index] = 0;
+    aggr_collision[index] = 0;
+    idx_appid[index] = 65534;
+    
+    for(uint32_t i=0; i < max_host_num; i++){
+        bitmap[index][i] = false;
+        interval[index][i] = -1;
+    }
+    
+    app_and_key_to_bitmap_index[appid].erase(key);
+    unused.push_back(index);
+    start_time_index[index] = -1;
+
+    if (appid == 1) {
+        NS_LOG_INFO("Cleaned aggregator for app1 key " << key);
+    }
+    
+    if(key%1300==0){
+        NS_LOG_LYJ("APP"<< appid << " RStime "<<Simulator::Now ().As (Time::S) <<" RestAggregator "<<unused.size());
+    }
 }
 
 void 
