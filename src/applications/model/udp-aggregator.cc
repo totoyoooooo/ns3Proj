@@ -163,7 +163,7 @@ UdpAggregator::StartApplication (void)
   collision_marking = 0;
   initmem(pool_size,max_host_num);
   
-  // 注释掉写入功能，改为读取功能
+  // 写入功能
   // m_timeLogFile.open(m_timeDataFile, std::ios::app);
   
   // 读取样本并计算最优时间窗口
