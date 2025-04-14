@@ -29,6 +29,7 @@
  #include <vector>
  #include <fstream>
  #include <set>
+ #include <queue>
  
  namespace ns3 {
  
@@ -128,8 +129,12 @@
   void LoadCachedSamples();// 样本加载
   std::vector<double> estimateLomaxParameters(const std::vector<double>& samples);
   void LogArrivalTime(uint16_t appId, uint32_t key);
-  double GoldenSectionSearch(double lambda, int Y, int n, double alpha, double mu,
-                          double a, double b, double tol = 1e-5);
+  std::map<uint16_t, std::deque<Time>> m_arrivalWindows;  // 每个应用的到达时间窗口
+  std::map<uint16_t, double> m_lambda;  // 每个应用的估计到达率
+  uint32_t m_windowSize;  // 滑动窗口大小
+  double m_ewmaAlpha;  // EWMA平滑因子
+  std::map<uint16_t, std::set<uint8_t>> m_observedHosts;  // 每个应用观察到的主机ID
+  void UpdateLambdaEstimate(uint16_t appId, Time arrivalTime);
    
    // std::vector< Ptr<Socket> > m_socket_for_up; //!< IPv4 Socket
    // std::vector< Address > multiple_address_for_up;

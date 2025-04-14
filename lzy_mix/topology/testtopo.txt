@@ -7,11 +7,11 @@
 0 5 100Mbps 2us 0
 0 6 100Mbps 2us 0
 0 7 100Mbps 2us 0
-0 8 100Mbps 20us 0
+0 8 100Mbps 2us 0
 0 9 100Mbps 2us 0
 0 10 100Mbps 2us 0
 0 11 100Mbps 2us 0
-0 12 100Mbps 20us 0
+0 12 100Mbps 2us 0
 0 13 100Mbps 2us 0
 0 14 100Mbps 2us 0
 0 15 100Mbps 2us 0

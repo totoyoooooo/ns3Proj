@@ -132,6 +132,8 @@ UdpAggregator::UdpAggregator ()
   minspace = 0;
   collision_marking = 0;
   m_timeDataFile = "samples.txt";
+  m_windowSize = 100;  // 默认窗口大小
+  m_ewmaAlpha = 0.2;   // EWMA平滑因子
   NS_LOG_FUNCTION (this);
 }
 
@@ -343,7 +345,57 @@ UdpAggregator::StopApplication ()
     }
 }
 
+void 
+UdpAggregator::UpdateLambdaEstimate(uint16_t appId, Time arrivalTime)
+{
+  auto& window = m_arrivalWindows[appId];
+  window.push_back(arrivalTime);
 
+  if (window.size() > m_windowSize) {
+    window.pop_front();
+  }
+
+  if (window.size() < 2) {
+    return;
+  }
+
+  double totalIntervalSeconds = 0.0;
+  for (size_t i = 1; i < window.size(); ++i) {
+    double intervalSeconds = (window[i] - window[i-1]).GetSeconds();
+    // 添加保护，避免间隔时间为0
+    if (intervalSeconds < 1e-9) {  // 小于1纳秒的当作1纳秒处理
+      intervalSeconds = 1e-9;
+    }
+    totalIntervalSeconds += intervalSeconds;
+  }
+  
+  double avgIntervalSeconds = totalIntervalSeconds / (window.size() - 1);
+  // 添加保护，避免除零
+  if (avgIntervalSeconds < 1e-9) {
+    avgIntervalSeconds = 1e-9;
+  }
+
+  double currentLambda = 1.0 / avgIntervalSeconds;
+  
+  // 添加上限保护
+  if (currentLambda > 1e9) {  // 限制最大到达率
+    currentLambda = 1e9;
+  }
+
+  if (m_lambda.find(appId) == m_lambda.end()) {
+    m_lambda[appId] = currentLambda;
+  } else {
+    m_lambda[appId] = m_ewmaAlpha * currentLambda + (1 - m_ewmaAlpha) * m_lambda[appId];
+  }
+
+  NS_LOG_INFO("App " << appId << " lambda estimate: " << m_lambda[appId] << " packets/sec");
+
+
+  // std::cout << "App " << appId 
+  //           << " lambda=" << m_lambda[appId] 
+  //           << " packets/sec, n=" << n 
+  //           << " nodes" << std::endl;
+}
 // 自适应辛普森积分
 template<typename Func>
 double integrate(Func f, double a, double b, double eps = 1e-6, int max_depth = 20) {
@@ -433,7 +485,7 @@ UdpAggregator::EstimateAndUpdateT(uint16_t appid, uint32_t key) {
   for (auto x : samples) {
     Tmax = std::max(Tmax, x);
   }
-  double optimalT = goldenSectionSearch(lambda, Y, n,
+  double optimalT = goldenSectionSearch(m_lambda[appid], Y, n,
                                       params[0], params[1], 0, Tmax);
   
   // 更新当前T值（时间窗口）
@@ -513,16 +565,21 @@ UdpAggregator::HandleRead (Ptr<Socket> socket)
       uint32_t syn_urgent = tmp_header.GetDelta();
       uint8_t set_ecn = tmp_header.GetMACK();
 
-      // Time now = Simulator::Now();
-      // auto key = std::make_pair(app_id, recv_key);
-      // m_arrivalTimes[key].push_back(now);
-      // LogArrivalTime(app_id, recv_key);
-
-      // 当样本足够时触发参数更新
-      // if (m_arrivalTimes[key].size() >= m_sampleThreshold) {
-      //     EstimateAndUpdateT(app_id, recv_key);
-      //     m_arrivalTimes[key].clear();  // 清空历史数据
-      // }
+      // 只处理非背景流量的包
+      if (!is_bpAggr && !isAck) {  // 如果不是背景聚合流量且不是ACK
+        m_observedHosts[app_id].insert(recv_id);
+        Time now = Simulator::Now();
+        n = recv_num;  // 使用包中的实际节点数
+        
+        // 可以添加验证
+        if (m_observedHosts[app_id].size() > recv_num) {
+          std::cout << "Warning: App " << app_id 
+                    << " observed more hosts (" << m_observedHosts[app_id].size() 
+                    << ") than reported in packet (" << (int)recv_num << ")" << std::endl;
+        }
+        
+        UpdateLambdaEstimate(app_id, now);
+      }
       // SwmlRouteTag temptag;
       // packet->RemovePacketTag(temptag);
 
@@ -806,7 +863,7 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
               // unit.timer = Simulator::Schedule(Seconds(currentT),
               //               &UdpAggregator::ForceFlush, this, appid, key);
 
-              unit.timer = Simulator::Schedule(Seconds(m_timeWindow),
+              unit.timer = Simulator::Schedule(Seconds(currentT),
                             &UdpAggregator::ForceFlush, this, appid, key);
              }
             // key_to_bitmap_index.insert(std::pair<uint32_t, uint32_t>(key,index));
