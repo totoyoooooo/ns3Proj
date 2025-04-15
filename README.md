@@ -1,5 +1,19 @@
 # ns3proj
 
+### 编译构建
+设置权限为可执行
+```
+chmod +x ./waf
+```
+configure
+```
+CXXFLAGS=-Wno-error CC=g++-10 GCC=g++-10 CXX=g++-10 ./waf configure
+```
+build
+```
+sudo ./waf build
+```
+
 ### 测试命令
 测 `timewindow`
 ```
