@@ -163,8 +163,8 @@ UdpAggregator::StartApplication (void)
   collision_marking = 0;
   initmem(pool_size,max_host_num);
   
-  // 写入功能
-  // m_timeLogFile.open(m_timeDataFile, std::ios::app);
+  // 写入功能 - 使用截断模式打开文件
+  // m_timeLogFile.open(m_timeDataFile, std::ios::trunc);
   
   // 读取样本并计算最优时间窗口
   LoadCachedSamples();
@@ -685,7 +685,7 @@ UdpAggregator::HandleRead (Ptr<Socket> socket)
       }
 
       if(!isAck) {  // 只在收到非ACK包时记录
-        // LogArrivalTime(app_id, recv_key);  // Commented out as we're using cached samples
+        // LogArrivalTime(app_id, recv_key);  
       }
     }
 }
