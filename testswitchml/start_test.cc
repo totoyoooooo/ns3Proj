@@ -145,7 +145,7 @@ main (int argc, char *argv[])
   //LogComponentEnable("FifoQueueDisc",LOG_LYJ);
   //LogComponentEnable("Ipv4QueueDiscItem",LOG_LYJ);
 
-  std::string configpath="./lzy_mix/config/testa2tp.txt";
+  std::string configpath="./lzy_mix/config/testtime.txt";
   std::string jobpath="./lzy_mix/job/testjob.txt";
   int cmd_max_pool_size = 0;
   std::string modelType = "ResNet";  // Default model type

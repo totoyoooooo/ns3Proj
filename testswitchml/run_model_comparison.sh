@@ -51,7 +51,7 @@ if [[ "$MODEL_CHOICE" == "1" || "$MODEL_CHOICE" == "3" ]]; then
 
   # Low tail
   echo "  - Low tail intensity"
-  ./waf --run "testswitchml/start_test --model=ResNet --tail=low --topology=lzy_mix/topology/testtopo_low_tail.txt" > ResNet_low_out.log
+  ./waf --run "testswitchml/start_test --model=ResNet --tail=low --topology=lzy_mix/topology/testtopo_low_tail.txt --configpath=./lzy_mix/config/testtime.txt" > ResNet_low_out.log
   # Make sure file exists and has content
   if [ -f "ResNet_low_traffic.txt" ]; then
     echo "    - Traffic data saved to ResNet_low_traffic.txt ($(wc -l < ResNet_low_traffic.txt) lines)"
@@ -62,7 +62,7 @@ if [[ "$MODEL_CHOICE" == "1" || "$MODEL_CHOICE" == "3" ]]; then
 
   # Medium tail
   echo "  - Medium tail intensity"
-  ./waf --run "testswitchml/start_test --model=ResNet --tail=medium --topology=lzy_mix/topology/testtopo_medium_tail.txt" > ResNet_medium_out.log
+  ./waf --run "testswitchml/start_test --model=ResNet --tail=medium --topology=lzy_mix/topology/testtopo_medium_tail.txt --configpath=./lzy_mix/config/testtime.txt" > ResNet_medium_out.log
   # Make sure file exists and has content
   if [ -f "ResNet_medium_traffic.txt" ]; then
     echo "    - Traffic data saved to ResNet_medium_traffic.txt ($(wc -l < ResNet_medium_traffic.txt) lines)"
@@ -73,7 +73,7 @@ if [[ "$MODEL_CHOICE" == "1" || "$MODEL_CHOICE" == "3" ]]; then
 
   # High tail
   echo "  - High tail intensity"
-  ./waf --run "testswitchml/start_test --model=ResNet --tail=high --topology=lzy_mix/topology/testtopo_high_tail.txt" > ResNet_high_out.log
+  ./waf --run "testswitchml/start_test --model=ResNet --tail=high --topology=lzy_mix/topology/testtopo_high_tail.txt --configpath=./lzy_mix/config/testtime.txt" > ResNet_high_out.log
   # Make sure file exists and has content
   if [ -f "ResNet_high_traffic.txt" ]; then
     echo "    - Traffic data saved to ResNet_high_traffic.txt ($(wc -l < ResNet_high_traffic.txt) lines)"
@@ -89,7 +89,7 @@ if [[ "$MODEL_CHOICE" == "2" || "$MODEL_CHOICE" == "3" ]]; then
 
   # Low tail
   echo "  - Low tail intensity"
-  ./waf --run "testswitchml/start_test --model=VGG --tail=low --topology=lzy_mix/topology/testtopo_low_tail.txt" > VGG_low_out.log
+  ./waf --run "testswitchml/start_test --model=VGG --tail=low --topology=lzy_mix/topology/testtopo_low_tail.txt --configpath=./lzy_mix/config/testtime.txt" > VGG_low_out.log
   # Make sure file exists and has content
   if [ -f "VGG_low_traffic.txt" ]; then
     echo "    - Traffic data saved to VGG_low_traffic.txt ($(wc -l < VGG_low_traffic.txt) lines)"
@@ -100,7 +100,7 @@ if [[ "$MODEL_CHOICE" == "2" || "$MODEL_CHOICE" == "3" ]]; then
 
   # Medium tail
   echo "  - Medium tail intensity"
-  ./waf --run "testswitchml/start_test --model=VGG --tail=medium --topology=lzy_mix/topology/testtopo_medium_tail.txt" > VGG_medium_out.log
+  ./waf --run "testswitchml/start_test --model=VGG --tail=medium --topology=lzy_mix/topology/testtopo_medium_tail.txt --configpath=./lzy_mix/config/testtime.txt" > VGG_medium_out.log
   # Make sure file exists and has content
   if [ -f "VGG_medium_traffic.txt" ]; then
     echo "    - Traffic data saved to VGG_medium_traffic.txt ($(wc -l < VGG_medium_traffic.txt) lines)"
@@ -111,7 +111,7 @@ if [[ "$MODEL_CHOICE" == "2" || "$MODEL_CHOICE" == "3" ]]; then
 
   # High tail
   echo "  - High tail intensity"
-  ./waf --run "testswitchml/start_test --model=VGG --tail=high --topology=lzy_mix/topology/testtopo_high_tail.txt" > VGG_high_out.log
+  ./waf --run "testswitchml/start_test --model=VGG --tail=high --topology=lzy_mix/topology/testtopo_high_tail.txt --configpath=./lzy_mix/config/testtime.txt" > VGG_high_out.log
   # Make sure file exists and has content
   if [ -f "VGG_high_traffic.txt" ]; then
     echo "    - Traffic data saved to VGG_high_traffic.txt ($(wc -l < VGG_high_traffic.txt) lines)"
