@@ -21,8 +21,11 @@
 #include "ns3/applications-module.h"
 #include "ns3/traffic-control-module.h"
 #include "ns3/stats-module.h"
+#include "ns3/flow-monitor-module.h"
 #include <string>
 #include <math.h>
+#include <fstream>
+#include <map>
 
 // Default Network Topology
 //
@@ -35,11 +38,11 @@
 //this is a test file
 std::size_t numberworker = 4; // 2 jobs, and 2 workers of each job  
 int numberaggregator = 2;
-int pool_size = 40000;
-int max_pool_size = 4000000;
-int cwnd = 10;
-int maxcwnd = 650;
-int ecn_thre = 128;
+int pool_size = 100000;
+int max_pool_size = 10000000;
+int cwnd = 20;
+int maxcwnd = 1000;
+int ecn_thre = 256;
 int onoffcc = 1;
 int onoffasycc = 1;
 int onofflzycc = 1;
@@ -60,17 +63,34 @@ std::string trace_file = "./lzy_mix/lzytrace";
 
 std::ifstream topof, jobf, bgf;
 
-std::string max_buffer = "10000p";
+std::string max_buffer = "20000p";
 
-
-// std::string rates = "100Gbps";
-// std::string bgrates = "90Gbps";
-
-
-
-//read config file
-
-
+// Function to sample flow statistics periodically
+void SampleFlowStats(Ptr<FlowMonitor> monitor, std::ofstream* outFile, double interval)
+{
+  monitor->CheckForLostPackets();
+  
+  // Get current time
+  double now = Simulator::Now().GetSeconds();
+  
+  // Calculate total traffic in this sampling interval
+  std::map<FlowId, FlowMonitor::FlowStats> stats = monitor->GetFlowStats();
+  double totalThroughputMbps = 0.0;
+  
+  for (auto it = stats.begin(); it != stats.end(); ++it) {
+    // Calculate instantaneous throughput based on received bytes
+    if (it->second.rxBytes > 0) {
+      // Calculate bytes received in last interval
+      totalThroughputMbps += it->second.rxBytes * 8.0 / 1024 / 1024;
+    }
+  }
+  
+  // Write time and throughput to file
+  *outFile << now << "\t" << totalThroughputMbps << std::endl;
+  
+  // Schedule next sampling
+  Simulator::Schedule(Seconds(interval), &SampleFlowStats, monitor, outFile, interval);
+}
 
 // the simple cc can convergen to 8396Mbps when 
 // cwnd = 100, poll_size = 1000, rates= "10Gbps", threshold = 4, Delay = 20us
@@ -95,9 +115,16 @@ main (int argc, char *argv[])
   std::string configpath="./lzy_mix/config/testa2tp.txt";
   std::string jobpath="./lzy_mix/job/testjob.txt";
   int cmd_max_pool_size = 0;
+  std::string modelType = "ResNet"; // Default model type
+  std::string tailIntensity = "normal"; // Default tail intensity
+  bool enableFlowMonitor = true; // Enable flow monitoring by default
+  
   cmd.AddValue ("configpath", "config path", configpath);
   cmd.AddValue ("jobpath", "jobpath", jobpath);
   cmd.AddValue ("cmd_poolsize", "cmd_max_pool_size", cmd_max_pool_size);
+  cmd.AddValue ("model", "Model type (ResNet or VGG)", modelType);
+  cmd.AddValue ("tail", "Tail intensity (normal, medium, high)", tailIntensity);
+  cmd.AddValue ("flowmon", "Enable flow monitoring", enableFlowMonitor);
   cmd.Parse (argc, argv);
   std::cout<<"config path "<<configpath<<std::endl;
 
@@ -393,7 +420,7 @@ main (int argc, char *argv[])
       serverApps[aggregator_node] = aggregator.Install (nodes.Get(aggregator_node));
       udpAggregator[aggregator_node] = DynamicCast<UdpAggregator> (serverApps[aggregator_node].Get(0));
       serverApps[aggregator_node].Start (Seconds (1.0));
-      serverApps[aggregator_node].Stop (Seconds (10.0)); 
+      serverApps[aggregator_node].Stop (Seconds (100.0)); 
     }
     std::vector<ns3::Address> remotes;
     std::vector<uint16_t> port; 
@@ -424,7 +451,7 @@ main (int argc, char *argv[])
     PSer.SetAttribute ("Toalworker",UintegerValue(workernum));
     ApplicationContainer PsApps = PSer.Install (nodes.Get(ps_node));
     PsApps.Start (Seconds (1.0));
-    PsApps.Stop (Seconds (10.0));
+    PsApps.Stop (Seconds (100.0));
 
     ns3::Ipv4Address aggr_address;
     link_index = node_link_table[aggregator_node][ps_node];
@@ -472,7 +499,7 @@ main (int argc, char *argv[])
       clientApps[appid][j] = workers.Install (nodes.Get (worker_node));
       std::cout<<"app"<<appid<<" wnode "<<worker_node <<"-->"<<aggregator_node<<" ip "<<aggr_address<<std::endl;
       clientApps[appid][j].Start (Seconds (start_time));
-      clientApps[appid][j].Stop (Seconds (10.0)); 
+      clientApps[appid][j].Stop (Seconds (100.0)); 
     }
 
 
@@ -518,7 +545,7 @@ main (int argc, char *argv[])
       // UdpServerHelper server (dlport);
       ApplicationContainer udpserverapps = server.Install (nodes.Get(bgdst));
       udpserverapps.Start (Seconds (1.0));
-      udpserverapps.Stop (Seconds (10.0));
+      udpserverapps.Stop (Seconds (100.0));
 
       // std::cout<<"node "<<bgdst<<" ip "<<node_ip[bgdst]<<std::endl;
 
@@ -535,7 +562,7 @@ main (int argc, char *argv[])
       // onoff.SetAttribute ("Interval", TimeValue (Seconds(0)));
       onoff.SetAttribute ("PacketSize", UintegerValue (1024));
       udpclientapps.Start (Seconds (start_time));
-      udpclientapps.Stop (Seconds (10.0));
+      udpclientapps.Stop (Seconds (100.0));
 
 
       fflush(stdout);
@@ -544,12 +571,88 @@ main (int argc, char *argv[])
     k++;    
   }
 
-  Simulator::Stop(Seconds(10.1));
+  Simulator::Stop(Seconds(100.1));
+
+  // After Simulator::Stop but before Simulator::Run, set up flow monitoring
+  // Initialize Flow Monitor
+  FlowMonitorHelper flowHelper;
+  Ptr<FlowMonitor> flowMonitor;
+  std::ofstream flowFile;
+  std::map<std::string, std::ofstream> timeSeriesFiles;
+  
+  if (enableFlowMonitor) {
+    flowMonitor = flowHelper.InstallAll();
+    
+    // Create the main flow stats file
+    flowFile.open("Flow.txt", std::ios::out);
+    flowFile << "# Flow statistics for model: " << modelType << ", tail intensity: " << tailIntensity << std::endl;
+    flowFile << "# FlowID\tSrcIP\tDstIP\tTxPackets\tRxPackets\tLostPackets\tDelaySum(s)\tJitterSum(s)\tThroughput(Mbps)" << std::endl;
+    
+    // Create time series file for this model and tail intensity
+    std::string timeSeriesFileName = modelType + "_" + tailIntensity + "_traffic.txt";
+    timeSeriesFiles[timeSeriesFileName].open(timeSeriesFileName, std::ios::out);
+    timeSeriesFiles[timeSeriesFileName] << "# Time(s)\tTraffic(Mbps)" << std::endl;
+    
+    // Set up periodic flow sampling for time series data
+    Simulator::Schedule(Seconds(0.01), &SampleFlowStats, flowMonitor, &timeSeriesFiles[timeSeriesFileName], 0.01);
+  }
+
   Simulator::Run ();
+  
+  // After simulation finishes, collect and save flow statistics
+  if (enableFlowMonitor) {
+    flowMonitor->CheckForLostPackets();
+    
+    Ptr<Ipv4FlowClassifier> classifier = DynamicCast<Ipv4FlowClassifier>(flowHelper.GetClassifier());
+    std::map<FlowId, FlowMonitor::FlowStats> stats = flowMonitor->GetFlowStats();
+    
+    for (auto it = stats.begin(); it != stats.end(); ++it) {
+      Ipv4FlowClassifier::FiveTuple t = classifier->FindFlow(it->first);
+      
+      // Calculate metrics
+      FlowId flowId = it->first;
+      uint32_t txPackets = it->second.txPackets;
+      uint32_t rxPackets = it->second.rxPackets;
+      uint32_t lostPackets = txPackets - rxPackets;
+      double delaySum = it->second.delaySum.GetSeconds();
+      double jitterSum = it->second.jitterSum.GetSeconds();
+      
+      double throughput = 0;
+      if (it->second.rxBytes > 0 && 
+          it->second.timeLastRxPacket.GetSeconds() > it->second.timeFirstTxPacket.GetSeconds()) {
+        throughput = it->second.rxBytes * 8.0 / 
+                    (it->second.timeLastRxPacket.GetSeconds() - it->second.timeFirstTxPacket.GetSeconds()) / 1024 / 1024;
+      }
+      
+      // Write to file
+      flowFile << flowId << "\t"
+               << t.sourceAddress << "\t"
+               << t.destinationAddress << "\t"
+               << txPackets << "\t"
+               << rxPackets << "\t"
+               << lostPackets << "\t"
+               << delaySum << "\t"
+               << jitterSum << "\t"
+               << throughput << std::endl;
+    }
+    
+    flowFile.close();
+    
+    // Close time series files
+    for (auto& file : timeSeriesFiles) {
+      file.second.close();
+    }
+    
+    // Generate a summary file with model and tail intensity information
+    std::ofstream summaryFile("FlowSummary.txt", std::ios::app);
+    summaryFile << "Model: " << modelType << ", Tail Intensity: " << tailIntensity 
+               << ", Total Flows: " << stats.size() << std::endl;
+    summaryFile.close();
+  }
+
   Simulator::Destroy ();
   return 0;
 }
-
 
 //ECMP not used
 // std::vector<ns3::Ipv4Address> ecmpaddr;
