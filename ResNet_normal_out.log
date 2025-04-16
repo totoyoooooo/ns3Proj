@@ -1,0 +1,5955 @@
+Waf: Entering directory `/home/w/TimeWindow/ns3Proj/build'
+Waf: Leaving directory `/home/w/TimeWindow/ns3Proj/build'
+Build commands will be stored in build/compile_commands.json
+'build' finished successfully (0.166s)
+config path ./lzy_mix/config/testa2tp.txt
+ENABLE_CC	Yes
+ENABLE_ASYCC	Yes
+ENABLE_LZYCC	Yes
+ENABLE_AWNDCC	Yes
+ENABLE_PS	Yes
+INIT_CWND	340
+MAX_CWND	340
+MAX_BUFFER	10000000p
+ECN_THRE	128
+MAX_AGGR_POOL	975
+TOPO_FILE	./lzy_mix/topology/testtopo.txt
+JOB_FILE	./lzy_mix/job/testjob.txt
+BGFLOW_FILE	./lzy_mix/workloads/eurosys/testbg.txt
+ENABLE_TRACE	0
+TRACE_FILE	lzy_mix/lzytrace/
+ENABLE_TIMEWINDOW	0
+StartAPP 0 start 2.000000 
+debug setremotes remotesize 1 port size 1 appid 0
+debug udp-aggregator.cc setremotes address 03-07-0a:01:20:02:09:00:00 appid 0
+debug udp-aggregator.cc setremotes port 9 appid 0
+app0 wnode 1-->0 ip 10.1.32.1
+app0 wnode 2-->0 ip 10.1.32.1
+app0 wnode 3-->0 ip 10.1.32.1
+app0 wnode 4-->0 ip 10.1.32.1
+app0 wnode 5-->0 ip 10.1.32.1
+app0 wnode 6-->0 ip 10.1.32.1
+app0 wnode 7-->0 ip 10.1.32.1
+app0 wnode 8-->0 ip 10.1.32.1
+StartAPP 1 start 2.000000 
+debug setremotes remotesize 1 port size 1 appid 1
+debug udp-aggregator.cc setremotes address 03-07-0a:01:1f:02:09:00:00 appid 1
+debug udp-aggregator.cc setremotes port 9 appid 1
+app1 wnode 9-->0 ip 10.1.31.1
+app1 wnode 10-->0 ip 10.1.31.1
+app1 wnode 11-->0 ip 10.1.31.1
+app1 wnode 12-->0 ip 10.1.31.1
+StartAPP 2 start 2.000000 
+debug setremotes remotesize 1 port size 1 appid 2
+debug udp-aggregator.cc setremotes address 03-07-0a:01:1e:02:09:00:00 appid 2
+debug udp-aggregator.cc setremotes port 9 appid 2
+app2 wnode 13-->0 ip 10.1.30.1
+app2 wnode 14-->0 ip 10.1.30.1
+app2 wnode 15-->0 ip 10.1.30.1
+app2 wnode 16-->0 ip 10.1.30.1
+App 0: lambda=0.762567 packets/ms, optimal T=1.61948ms (0.00161948s)
+App 1: lambda=0.737485 packets/ms, optimal T=1.64679ms (0.00164679s)
+App 2: lambda=0.489331 packets/ms, optimal T=2.02169ms (0.00202169s)
+APP 0 thrtime +2s aggregate throughput 0 Gbps [(0/15625),0%]
+APP 1 thrtime +2s aggregate throughput 0 Gbps [(0/15625),0%]
+APP 2 thrtime +2s aggregate throughput 0 Gbps [(0/15625),0%]
+AGGR TIME +2s minutil 1
+AGGR TIME +2s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+2s] Total Received: 0 Merged Sum: 0 mergetimes:0 ans:0
+finish_time +0s total=0
+[+2s] Total Received: 0 Merged Sum: 0 mergetimes:0 ans:0
+finish_time +0s total=0
+[+2s] Total Received: 0 Merged Sum: 0 mergetimes:0 ans:0
+finish_time +0s total=0
+APP 0 thrtime +2.001s aggregate throughput 14.2746 Gbps [(6970/15625),44.608%]
+APP 1 thrtime +2.001s aggregate throughput 17.0598 Gbps [(8330/15625),53.312%]
+APP 2 thrtime +2.001s aggregate throughput 15.6672 Gbps [(7650/15625),48.96%]
+Finish 1 node 9 at +2.00185s
+APP 0 thrtime +2.002s aggregate throughput 14.6022 Gbps [(14100/15625),90.24%]
+APP 2 thrtime +2.002s aggregate throughput 15.6672 Gbps [(15300/15625),97.92%]
+Finish 2 node 13 at +2.00203s
+Finish 0 node 1 at +2.00222s
+[+3s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+3s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+3s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +3s minutil 0.00102564
+AGGR TIME +3s minutil 0.00102564
+empty:975
+app0:0
+app1:0
+app2:0
+[+3s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+3s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+3s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+4s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+4s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+4s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+4s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+4s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+4s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+4s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+4s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+4s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+4s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+4s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+4s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+4s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+4s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+4s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+4s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +4s minutil 1
+AGGR TIME +4s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+4s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+4s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+4s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+5s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+5s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+5s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+5s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+5s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+5s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+5s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+5s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+5s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+5s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+5s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+5s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+5s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+5s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+5s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+5s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +5s minutil 1
+AGGR TIME +5s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+5s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+5s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+5s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+6s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+6s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+6s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+6s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+6s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+6s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+6s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+6s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+6s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+6s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+6s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+6s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+6s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+6s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+6s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+6s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +6s minutil 1
+AGGR TIME +6s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+6s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+6s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+6s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+7s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+7s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+7s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+7s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+7s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+7s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+7s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+7s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+7s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+7s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+7s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+7s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+7s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+7s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+7s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+7s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +7s minutil 1
+AGGR TIME +7s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+7s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+7s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+7s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+8s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+8s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+8s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+8s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+8s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+8s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+8s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+8s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+8s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+8s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+8s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+8s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+8s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+8s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+8s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+8s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +8s minutil 1
+AGGR TIME +8s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+8s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+8s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+8s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+9s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+9s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+9s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+9s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+9s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+9s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+9s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+9s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+9s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+9s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+9s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+9s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+9s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+9s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+9s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+9s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +9s minutil 1
+AGGR TIME +9s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+9s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+9s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+9s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+10s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+10s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+10s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+10s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+10s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+10s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+10s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+10s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+10s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+10s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+10s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+10s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+10s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+10s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+10s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+10s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +10s minutil 1
+AGGR TIME +10s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+10s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+10s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+10s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+11s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+11s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+11s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+11s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+11s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+11s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+11s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+11s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+11s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+11s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+11s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+11s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+11s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+11s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+11s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+11s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +11s minutil 1
+AGGR TIME +11s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+11s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+11s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+11s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+12s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+12s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+12s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+12s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+12s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+12s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+12s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+12s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+12s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+12s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+12s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+12s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+12s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+12s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+12s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+12s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +12s minutil 1
+AGGR TIME +12s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+12s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+12s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+12s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+13s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+13s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+13s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+13s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+13s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+13s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+13s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+13s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+13s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+13s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+13s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+13s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+13s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+13s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+13s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+13s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +13s minutil 1
+AGGR TIME +13s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+13s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+13s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+13s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+14s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+14s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+14s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+14s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+14s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+14s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+14s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+14s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+14s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+14s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+14s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+14s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+14s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+14s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+14s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+14s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +14s minutil 1
+AGGR TIME +14s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+14s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+14s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+14s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+15s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+15s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+15s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+15s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+15s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+15s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+15s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+15s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+15s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+15s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+15s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+15s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+15s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+15s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+15s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+15s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +15s minutil 1
+AGGR TIME +15s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+15s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+15s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+15s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+16s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+16s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+16s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+16s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+16s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+16s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+16s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+16s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+16s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+16s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+16s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+16s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+16s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+16s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+16s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+16s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +16s minutil 1
+AGGR TIME +16s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+16s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+16s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+16s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+17s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+17s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+17s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+17s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+17s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+17s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+17s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+17s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+17s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+17s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+17s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+17s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+17s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+17s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+17s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+17s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +17s minutil 1
+AGGR TIME +17s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+17s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+17s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+17s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+18s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+18s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+18s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+18s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+18s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+18s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+18s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+18s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+18s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+18s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+18s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+18s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+18s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+18s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+18s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+18s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +18s minutil 1
+AGGR TIME +18s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+18s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+18s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+18s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+19s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+19s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+19s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+19s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+19s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+19s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+19s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+19s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+19s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+19s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+19s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+19s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+19s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+19s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+19s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+19s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +19s minutil 1
+AGGR TIME +19s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+19s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+19s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+19s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+20s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+20s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+20s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+20s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+20s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+20s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+20s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+20s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+20s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+20s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+20s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+20s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+20s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+20s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+20s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+20s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +20s minutil 1
+AGGR TIME +20s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+20s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+20s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+20s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+21s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+21s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+21s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+21s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+21s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+21s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+21s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+21s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+21s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+21s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+21s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+21s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+21s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+21s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+21s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+21s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +21s minutil 1
+AGGR TIME +21s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+21s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+21s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+21s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+22s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+22s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+22s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+22s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+22s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+22s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+22s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+22s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+22s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+22s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+22s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+22s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+22s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+22s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+22s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+22s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +22s minutil 1
+AGGR TIME +22s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+22s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+22s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+22s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+23s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+23s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+23s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+23s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+23s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+23s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+23s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+23s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+23s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+23s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+23s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+23s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+23s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+23s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+23s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+23s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +23s minutil 1
+AGGR TIME +23s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+23s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+23s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+23s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+24s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+24s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+24s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+24s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+24s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+24s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+24s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+24s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+24s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+24s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+24s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+24s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+24s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+24s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+24s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+24s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +24s minutil 1
+AGGR TIME +24s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+24s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+24s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+24s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+25s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+25s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+25s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+25s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+25s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+25s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+25s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+25s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+25s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+25s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+25s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+25s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+25s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+25s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+25s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+25s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +25s minutil 1
+AGGR TIME +25s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+25s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+25s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+25s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+26s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+26s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+26s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+26s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+26s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+26s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+26s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+26s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+26s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+26s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+26s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+26s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+26s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+26s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+26s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+26s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +26s minutil 1
+AGGR TIME +26s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+26s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+26s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+26s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+27s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+27s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+27s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+27s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+27s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+27s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+27s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+27s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+27s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+27s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+27s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+27s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+27s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+27s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+27s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+27s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +27s minutil 1
+AGGR TIME +27s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+27s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+27s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+27s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+28s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+28s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+28s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+28s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+28s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+28s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+28s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+28s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+28s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+28s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+28s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+28s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+28s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+28s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+28s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+28s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +28s minutil 1
+AGGR TIME +28s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+28s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+28s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+28s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+29s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+29s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+29s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+29s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+29s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+29s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+29s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+29s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+29s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+29s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+29s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+29s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+29s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+29s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+29s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+29s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +29s minutil 1
+AGGR TIME +29s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+29s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+29s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+29s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+30s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+30s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+30s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+30s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+30s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+30s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+30s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+30s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+30s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+30s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+30s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+30s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+30s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+30s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+30s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+30s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +30s minutil 1
+AGGR TIME +30s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+30s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+30s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+30s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+31s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+31s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+31s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+31s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+31s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+31s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+31s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+31s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+31s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+31s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+31s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+31s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+31s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+31s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+31s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+31s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +31s minutil 1
+AGGR TIME +31s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+31s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+31s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+31s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+32s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+32s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+32s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+32s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+32s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+32s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+32s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+32s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+32s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+32s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+32s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+32s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+32s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+32s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+32s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+32s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +32s minutil 1
+AGGR TIME +32s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+32s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+32s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+32s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+33s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+33s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+33s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+33s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+33s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+33s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+33s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+33s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+33s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+33s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+33s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+33s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+33s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+33s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+33s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+33s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +33s minutil 1
+AGGR TIME +33s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+33s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+33s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+33s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+34s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+34s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+34s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+34s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+34s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+34s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+34s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+34s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+34s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+34s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+34s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+34s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+34s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+34s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+34s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+34s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +34s minutil 1
+AGGR TIME +34s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+34s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+34s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+34s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+35s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+35s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+35s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+35s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+35s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+35s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+35s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+35s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+35s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+35s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+35s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+35s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+35s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+35s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+35s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+35s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +35s minutil 1
+AGGR TIME +35s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+35s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+35s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+35s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+36s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+36s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+36s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+36s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+36s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+36s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+36s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+36s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+36s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+36s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+36s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+36s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+36s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+36s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+36s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+36s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +36s minutil 1
+AGGR TIME +36s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+36s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+36s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+36s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+37s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+37s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+37s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+37s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+37s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+37s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+37s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+37s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+37s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+37s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+37s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+37s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+37s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+37s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+37s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+37s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +37s minutil 1
+AGGR TIME +37s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+37s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+37s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+37s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+38s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+38s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+38s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+38s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+38s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+38s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+38s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+38s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+38s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+38s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+38s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+38s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+38s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+38s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+38s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+38s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +38s minutil 1
+AGGR TIME +38s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+38s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+38s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+38s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+39s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+39s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+39s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+39s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+39s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+39s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+39s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+39s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+39s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+39s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+39s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+39s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+39s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+39s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+39s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+39s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +39s minutil 1
+AGGR TIME +39s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+39s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+39s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+39s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+40s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+40s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+40s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+40s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+40s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+40s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+40s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+40s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+40s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+40s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+40s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+40s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+40s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+40s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+40s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+40s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +40s minutil 1
+AGGR TIME +40s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+40s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+40s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+40s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+41s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+41s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+41s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+41s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+41s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+41s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+41s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+41s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+41s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+41s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+41s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+41s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+41s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+41s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+41s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+41s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +41s minutil 1
+AGGR TIME +41s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+41s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+41s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+41s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+42s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+42s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+42s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+42s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+42s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+42s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+42s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+42s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+42s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+42s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+42s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+42s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+42s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+42s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+42s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+42s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +42s minutil 1
+AGGR TIME +42s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+42s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+42s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+42s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+43s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+43s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+43s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+43s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+43s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+43s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+43s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+43s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+43s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+43s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+43s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+43s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+43s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+43s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+43s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+43s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +43s minutil 1
+AGGR TIME +43s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+43s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+43s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+43s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+44s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+44s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+44s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+44s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+44s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+44s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+44s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+44s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+44s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+44s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+44s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+44s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+44s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+44s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+44s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+44s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +44s minutil 1
+AGGR TIME +44s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+44s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+44s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+44s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+45s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+45s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+45s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+45s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+45s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+45s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+45s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+45s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+45s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+45s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+45s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+45s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+45s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+45s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+45s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+45s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +45s minutil 1
+AGGR TIME +45s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+45s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+45s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+45s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+46s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+46s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+46s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+46s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+46s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+46s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+46s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+46s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+46s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+46s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+46s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+46s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+46s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+46s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+46s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+46s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +46s minutil 1
+AGGR TIME +46s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+46s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+46s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+46s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+47s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+47s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+47s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+47s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+47s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+47s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+47s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+47s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+47s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+47s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+47s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+47s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+47s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+47s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+47s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+47s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +47s minutil 1
+AGGR TIME +47s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+47s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+47s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+47s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+48s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+48s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+48s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+48s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+48s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+48s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+48s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+48s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+48s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+48s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+48s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+48s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+48s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+48s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+48s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+48s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +48s minutil 1
+AGGR TIME +48s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+48s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+48s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+48s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+49s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+49s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+49s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+49s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+49s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+49s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+49s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+49s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+49s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+49s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+49s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+49s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+49s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+49s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+49s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+49s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +49s minutil 1
+AGGR TIME +49s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+49s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+49s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+49s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+50s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+50s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+50s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+50s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+50s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+50s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+50s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+50s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+50s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+50s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+50s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+50s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+50s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+50s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+50s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+50s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +50s minutil 1
+AGGR TIME +50s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+50s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+50s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+50s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+51s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+51s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+51s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+51s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+51s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+51s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+51s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+51s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+51s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+51s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+51s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+51s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+51s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+51s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+51s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+51s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +51s minutil 1
+AGGR TIME +51s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+51s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+51s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+51s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+52s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+52s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+52s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+52s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+52s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+52s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+52s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+52s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+52s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+52s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+52s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+52s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+52s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+52s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+52s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+52s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +52s minutil 1
+AGGR TIME +52s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+52s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+52s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+52s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+53s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+53s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+53s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+53s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+53s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+53s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+53s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+53s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+53s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+53s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+53s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+53s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+53s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+53s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+53s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+53s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +53s minutil 1
+AGGR TIME +53s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+53s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+53s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+53s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+54s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+54s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+54s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+54s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+54s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+54s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+54s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+54s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+54s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+54s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+54s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+54s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+54s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+54s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+54s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+54s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +54s minutil 1
+AGGR TIME +54s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+54s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+54s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+54s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+55s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+55s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+55s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+55s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+55s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+55s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+55s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+55s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+55s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+55s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+55s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+55s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+55s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+55s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+55s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+55s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +55s minutil 1
+AGGR TIME +55s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+55s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+55s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+55s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+56s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+56s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+56s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+56s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+56s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+56s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+56s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+56s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+56s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+56s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+56s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+56s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+56s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+56s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+56s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+56s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +56s minutil 1
+AGGR TIME +56s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+56s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+56s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+56s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+57s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+57s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+57s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+57s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+57s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+57s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+57s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+57s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+57s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+57s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+57s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+57s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+57s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+57s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+57s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+57s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +57s minutil 1
+AGGR TIME +57s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+57s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+57s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+57s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+58s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+58s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+58s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+58s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+58s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+58s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+58s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+58s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+58s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+58s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+58s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+58s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+58s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+58s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+58s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+58s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +58s minutil 1
+AGGR TIME +58s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+58s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+58s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+58s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+59s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+59s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+59s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+59s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+59s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+59s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+59s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+59s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+59s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+59s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+59s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+59s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+59s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+59s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+59s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+59s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +59s minutil 1
+AGGR TIME +59s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+59s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+59s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+59s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+60s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+60s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+60s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+60s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+60s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+60s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+60s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+60s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+60s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+60s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+60s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+60s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+60s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+60s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+60s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+60s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +60s minutil 1
+AGGR TIME +60s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+60s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+60s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+60s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+61s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+61s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+61s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+61s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+61s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+61s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+61s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+61s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+61s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+61s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+61s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+61s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+61s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+61s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+61s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+61s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +61s minutil 1
+AGGR TIME +61s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+61s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+61s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+61s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+62s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+62s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+62s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+62s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+62s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+62s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+62s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+62s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+62s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+62s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+62s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+62s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+62s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+62s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+62s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+62s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +62s minutil 1
+AGGR TIME +62s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+62s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+62s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+62s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+63s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+63s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+63s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+63s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+63s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+63s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+63s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+63s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+63s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+63s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+63s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+63s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+63s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+63s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+63s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+63s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +63s minutil 1
+AGGR TIME +63s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+63s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+63s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+63s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+64s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+64s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+64s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+64s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+64s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+64s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+64s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+64s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+64s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+64s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+64s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+64s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+64s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+64s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+64s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+64s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +64s minutil 1
+AGGR TIME +64s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+64s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+64s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+64s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+65s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+65s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+65s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+65s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+65s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+65s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+65s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+65s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+65s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+65s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+65s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+65s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+65s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+65s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+65s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+65s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +65s minutil 1
+AGGR TIME +65s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+65s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+65s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+65s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+66s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+66s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+66s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+66s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+66s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+66s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+66s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+66s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+66s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+66s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+66s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+66s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+66s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+66s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+66s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+66s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +66s minutil 1
+AGGR TIME +66s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+66s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+66s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+66s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+67s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+67s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+67s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+67s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+67s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+67s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+67s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+67s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+67s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+67s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+67s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+67s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+67s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+67s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+67s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+67s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +67s minutil 1
+AGGR TIME +67s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+67s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+67s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+67s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+68s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+68s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+68s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+68s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+68s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+68s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+68s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+68s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+68s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+68s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+68s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+68s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+68s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+68s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+68s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+68s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +68s minutil 1
+AGGR TIME +68s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+68s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+68s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+68s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+69s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+69s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+69s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+69s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+69s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+69s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+69s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+69s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+69s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+69s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+69s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+69s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+69s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+69s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+69s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+69s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +69s minutil 1
+AGGR TIME +69s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+69s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+69s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+69s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+70s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+70s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+70s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+70s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+70s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+70s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+70s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+70s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+70s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+70s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+70s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+70s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+70s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+70s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+70s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+70s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +70s minutil 1
+AGGR TIME +70s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+70s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+70s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+70s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+71s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+71s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+71s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+71s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+71s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+71s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+71s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+71s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+71s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+71s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+71s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+71s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+71s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+71s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+71s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+71s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +71s minutil 1
+AGGR TIME +71s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+71s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+71s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+71s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+72s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+72s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+72s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+72s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+72s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+72s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+72s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+72s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+72s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+72s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+72s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+72s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+72s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+72s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+72s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+72s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +72s minutil 1
+AGGR TIME +72s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+72s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+72s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+72s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+73s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+73s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+73s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+73s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+73s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+73s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+73s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+73s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+73s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+73s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+73s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+73s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+73s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+73s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+73s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+73s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +73s minutil 1
+AGGR TIME +73s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+73s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+73s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+73s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+74s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+74s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+74s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+74s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+74s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+74s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+74s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+74s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+74s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+74s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+74s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+74s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+74s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+74s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+74s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+74s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +74s minutil 1
+AGGR TIME +74s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+74s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+74s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+74s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+75s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+75s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+75s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+75s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+75s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+75s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+75s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+75s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+75s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+75s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+75s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+75s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+75s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+75s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+75s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+75s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +75s minutil 1
+AGGR TIME +75s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+75s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+75s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+75s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+76s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+76s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+76s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+76s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+76s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+76s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+76s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+76s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+76s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+76s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+76s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+76s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+76s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+76s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+76s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+76s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +76s minutil 1
+AGGR TIME +76s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+76s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+76s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+76s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+77s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+77s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+77s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+77s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+77s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+77s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+77s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+77s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+77s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+77s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+77s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+77s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+77s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+77s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+77s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+77s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +77s minutil 1
+AGGR TIME +77s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+77s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+77s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+77s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+78s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+78s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+78s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+78s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+78s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+78s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+78s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+78s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+78s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+78s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+78s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+78s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+78s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+78s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+78s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+78s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +78s minutil 1
+AGGR TIME +78s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+78s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+78s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+78s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+79s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+79s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+79s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+79s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+79s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+79s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+79s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+79s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+79s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+79s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+79s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+79s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+79s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+79s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+79s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+79s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +79s minutil 1
+AGGR TIME +79s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+79s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+79s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+79s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+80s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+80s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+80s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+80s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+80s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+80s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+80s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+80s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+80s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+80s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+80s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+80s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+80s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+80s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+80s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+80s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +80s minutil 1
+AGGR TIME +80s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+80s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+80s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+80s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+81s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+81s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+81s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+81s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+81s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+81s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+81s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+81s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+81s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+81s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+81s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+81s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+81s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+81s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+81s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+81s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +81s minutil 1
+AGGR TIME +81s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+81s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+81s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+81s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+82s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+82s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+82s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+82s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+82s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+82s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+82s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+82s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+82s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+82s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+82s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+82s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+82s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+82s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+82s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+82s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +82s minutil 1
+AGGR TIME +82s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+82s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+82s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+82s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+83s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+83s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+83s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+83s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+83s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+83s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+83s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+83s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+83s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+83s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+83s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+83s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+83s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+83s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+83s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+83s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +83s minutil 1
+AGGR TIME +83s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+83s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+83s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+83s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+84s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+84s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+84s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+84s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+84s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+84s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+84s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+84s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+84s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+84s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+84s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+84s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+84s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+84s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+84s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+84s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +84s minutil 1
+AGGR TIME +84s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+84s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+84s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+84s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+85s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+85s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+85s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+85s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+85s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+85s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+85s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+85s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+85s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+85s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+85s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+85s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+85s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+85s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+85s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+85s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +85s minutil 1
+AGGR TIME +85s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+85s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+85s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+85s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+86s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+86s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+86s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+86s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+86s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+86s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+86s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+86s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+86s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+86s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+86s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+86s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+86s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+86s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+86s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+86s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +86s minutil 1
+AGGR TIME +86s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+86s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+86s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+86s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+87s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+87s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+87s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+87s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+87s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+87s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+87s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+87s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+87s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+87s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+87s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+87s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+87s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+87s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+87s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+87s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +87s minutil 1
+AGGR TIME +87s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+87s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+87s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+87s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+88s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+88s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+88s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+88s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+88s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+88s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+88s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+88s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+88s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+88s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+88s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+88s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+88s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+88s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+88s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+88s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +88s minutil 1
+AGGR TIME +88s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+88s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+88s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+88s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+89s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+89s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+89s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+89s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+89s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+89s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+89s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+89s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+89s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+89s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+89s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+89s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+89s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+89s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+89s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+89s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +89s minutil 1
+AGGR TIME +89s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+89s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+89s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+89s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+90s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+90s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+90s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+90s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+90s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+90s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+90s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+90s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+90s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+90s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+90s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+90s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+90s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+90s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+90s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+90s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +90s minutil 1
+AGGR TIME +90s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+90s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+90s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+90s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+91s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+91s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+91s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+91s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+91s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+91s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+91s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+91s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+91s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+91s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+91s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+91s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+91s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+91s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+91s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+91s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +91s minutil 1
+AGGR TIME +91s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+91s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+91s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+91s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+92s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+92s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+92s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+92s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+92s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+92s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+92s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+92s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+92s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+92s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+92s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+92s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+92s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+92s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+92s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+92s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +92s minutil 1
+AGGR TIME +92s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+92s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+92s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+92s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+93s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+93s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+93s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+93s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+93s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+93s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+93s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+93s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+93s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+93s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+93s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+93s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+93s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+93s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+93s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+93s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +93s minutil 1
+AGGR TIME +93s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+93s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+93s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+93s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+94s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+94s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+94s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+94s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+94s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+94s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+94s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+94s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+94s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+94s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+94s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+94s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+94s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+94s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+94s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+94s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +94s minutil 1
+AGGR TIME +94s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+94s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+94s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+94s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+95s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+95s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+95s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+95s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+95s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+95s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+95s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+95s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+95s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+95s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+95s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+95s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+95s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+95s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+95s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+95s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +95s minutil 1
+AGGR TIME +95s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+95s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+95s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+95s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+96s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+96s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+96s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+96s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+96s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+96s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+96s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+96s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+96s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+96s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+96s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+96s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+96s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+96s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+96s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+96s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +96s minutil 1
+AGGR TIME +96s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+96s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+96s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+96s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+97s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+97s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+97s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+97s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+97s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+97s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+97s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+97s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+97s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+97s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+97s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+97s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+97s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+97s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+97s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+97s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +97s minutil 1
+AGGR TIME +97s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+97s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+97s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+97s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+98s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+98s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+98s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+98s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+98s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+98s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+98s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+98s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+98s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+98s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+98s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+98s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+98s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+98s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+98s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+98s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +98s minutil 1
+AGGR TIME +98s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+98s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+98s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+98s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+99s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+99s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+99s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+99s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+99s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+99s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+99s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+99s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+99s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+99s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+99s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+99s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+99s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+99s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+99s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+99s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +99s minutil 1
+AGGR TIME +99s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+99s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+99s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+99s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
+[+100s] Total Send: 15625
+finish_send_time +2.002s total=14100
+last_ack_time +2.00222s total=14100
+[+100s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+100s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+100s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+100s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+100s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+100s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00222s total=0
+[+100s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00223s total=0
+[+100s] Total Send: 15625
+finish_send_time +2.001s total=8330
+last_ack_time +2.00185s total=8330
+[+100s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00186s total=0
+[+100s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+100s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00185s total=0
+[+100s] Total Send: 15625
+finish_send_time +2.002s total=15300
+last_ack_time +2.00203s total=15300
+[+100s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+100s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+[+100s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00204s total=0
+AGGR TIME +100s minutil 1
+AGGR TIME +100s minutil 1
+empty:975
+app0:0
+app1:0
+app2:0
+[+100s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00203s total=62500
+[+100s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00185s total=62500
+[+100s] Total Received: 15625 Merged Sum: 125000 mergetimes:15625 ans:109375
+finish_time +2.00221s total=125000
