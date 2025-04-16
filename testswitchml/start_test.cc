@@ -38,15 +38,15 @@
 //this is a test file
 std::size_t numberworker = 4; // 2 jobs, and 2 workers of each job  
 int numberaggregator = 2;
-int pool_size = 100000;
-int max_pool_size = 10000000;
-int cwnd = 20;
-int maxcwnd = 1000;
-int ecn_thre = 256;
-int onoffcc = 1;
-int onoffasycc = 1;
-int onofflzycc = 1;
-int onoffawndcc = 1;
+int pool_size = 200000;
+int max_pool_size = 20000000;
+int cwnd = 50;
+int maxcwnd = 2000;
+int ecn_thre = 512;
+int onoffcc = 0;
+int onoffasycc = 0;
+int onofflzycc = 0;
+int onoffawndcc = 0;
 int onoffps = 0;
 int onofftrace = 0;
 int onofftimewindow = 0;
@@ -63,33 +63,41 @@ std::string trace_file = "./lzy_mix/lzytrace";
 
 std::ifstream topof, jobf, bgf;
 
-std::string max_buffer = "20000p";
+std::string max_buffer = "50000p";
 
-// Function to sample flow statistics periodically
-void SampleFlowStats(Ptr<FlowMonitor> monitor, std::ofstream* outFile, double interval)
+// Add topology file parameter
+std::string topologyFile = "lzy_mix/topology/testtopo.txt";
+
+// Static variables to store cumulative traffic data
+static std::map<std::string, uint64_t> totalTrafficBytes;
+
+void 
+SampleFlowStats(Ptr<FlowMonitor> flowMonitor, std::string fileName)
 {
-  monitor->CheckForLostPackets();
+  // Get flow statistics
+  std::map<FlowId, FlowMonitor::FlowStats> stats = flowMonitor->GetFlowStats();
   
-  // Get current time
-  double now = Simulator::Now().GetSeconds();
+  // Calculate cumulative traffic (in MB)
+  uint64_t currentTotalBytes = 0;
   
-  // Calculate total traffic in this sampling interval
-  std::map<FlowId, FlowMonitor::FlowStats> stats = monitor->GetFlowStats();
-  double totalThroughputMbps = 0.0;
-  
-  for (auto it = stats.begin(); it != stats.end(); ++it) {
-    // Calculate instantaneous throughput based on received bytes
-    if (it->second.rxBytes > 0) {
-      // Calculate bytes received in last interval
-      totalThroughputMbps += it->second.rxBytes * 8.0 / 1024 / 1024;
-    }
+  for (std::map<FlowId, FlowMonitor::FlowStats>::const_iterator i = stats.begin(); i != stats.end(); ++i)
+  {
+    // Sum up all transmitted bytes
+    currentTotalBytes += i->second.txBytes;
   }
   
-  // Write time and throughput to file
-  *outFile << now << "\t" << totalThroughputMbps << std::endl;
+  // Convert bytes to MB (1 MB = 1024 * 1024 bytes)
+  double totalTrafficMB = currentTotalBytes / (1024.0 * 1024.0);
+  
+  // Write to file
+  std::ofstream outFile;
+  outFile.open(fileName.c_str(), std::ios::app);
+  outFile << Simulator::Now().GetSeconds() << "\t" 
+          << totalTrafficMB << std::endl;
+  outFile.close();
   
   // Schedule next sampling
-  Simulator::Schedule(Seconds(interval), &SampleFlowStats, monitor, outFile, interval);
+  Simulator::Schedule(Seconds(0.1), &SampleFlowStats, flowMonitor, fileName);
 }
 
 // the simple cc can convergen to 8396Mbps when 
@@ -125,6 +133,7 @@ main (int argc, char *argv[])
   cmd.AddValue ("model", "Model type (ResNet or VGG)", modelType);
   cmd.AddValue ("tail", "Tail intensity (normal, medium, high)", tailIntensity);
   cmd.AddValue ("flowmon", "Enable flow monitoring", enableFlowMonitor);
+  cmd.AddValue ("topology", "Topology file path", topologyFile);
   cmd.Parse (argc, argv);
   std::cout<<"config path "<<configpath<<std::endl;
 
@@ -240,10 +249,18 @@ main (int argc, char *argv[])
  
   
   //generate topo
-  topof.open(topofile.c_str());
+  std::cout << "Loading topology from: " << topologyFile << std::endl;
+  topof.open(topologyFile.c_str());
+  if (!topof.is_open()) {
+    std::cerr << "ERROR: Could not open topology file: " << topologyFile << std::endl;
+    return 1;
+  }
 
   uint32_t node_num, switch_num, link_num;
-	topof >> node_num >> switch_num >> link_num;
+  topof >> node_num >> switch_num >> link_num;
+  
+  std::cout << "Simulating " << modelType << " model with " << tailIntensity << " tail intensity" << std::endl;
+  std::cout << "Topology has " << node_num << " nodes, " << switch_num << " switches, " << link_num << " links" << std::endl;
   
   NodeContainer nodes;
   nodes.Create (node_num);
@@ -291,9 +308,16 @@ main (int argc, char *argv[])
     node_to_node[i].dst = dst;
 
     Ptr<Node> snode = nodes.Get(src), dnode = nodes.Get(dst);
+    
+    // Check if this link uses microseconds or milliseconds
+    bool isMicroseconds = (link_delay.find("us") != std::string::npos);
+    
+    // Print for verification
+    std::cout << "Link " << i << ": " << src << " -> " << dst << ", Rate: " << data_rate
+              << ", Delay: " << link_delay << " (is microseconds: " << (isMicroseconds ? "yes" : "no") << ")" << std::endl;
+    
     pointToPoint.SetDeviceAttribute ("DataRate", StringValue (data_rate));
     pointToPoint.SetChannelAttribute ("Delay", StringValue (link_delay));
-    // pointToPoint.SetChannelAttribute ("Delay", StringValue ("2us"));
 
     node_to_node[i].dev = pointToPoint.Install (snode, dnode);
     // std::cout<<"snodeID "<<snode->GetId()<<" sDeviceID "\
@@ -343,6 +367,12 @@ main (int argc, char *argv[])
     address.NewNetwork ();
 
   }
+  
+  // Print a summary instead
+  std::cout << "=== Topology Summary: " << modelType << " with " << tailIntensity << " tail ===" << std::endl;
+  std::cout << "Total nodes: " << node_num << ", Total links: " << link_num << std::endl;
+  std::cout << "===============================" << std::endl;
+  
   Ipv4GlobalRoutingHelper::PopulateRoutingTables ();
   std::string probeType;
   std::string tracePath;
@@ -420,7 +450,7 @@ main (int argc, char *argv[])
       serverApps[aggregator_node] = aggregator.Install (nodes.Get(aggregator_node));
       udpAggregator[aggregator_node] = DynamicCast<UdpAggregator> (serverApps[aggregator_node].Get(0));
       serverApps[aggregator_node].Start (Seconds (1.0));
-      serverApps[aggregator_node].Stop (Seconds (100.0)); 
+      serverApps[aggregator_node].Stop (Seconds (50.0)); 
     }
     std::vector<ns3::Address> remotes;
     std::vector<uint16_t> port; 
@@ -451,7 +481,7 @@ main (int argc, char *argv[])
     PSer.SetAttribute ("Toalworker",UintegerValue(workernum));
     ApplicationContainer PsApps = PSer.Install (nodes.Get(ps_node));
     PsApps.Start (Seconds (1.0));
-    PsApps.Stop (Seconds (100.0));
+    PsApps.Stop (Seconds (50.0));
 
     ns3::Ipv4Address aggr_address;
     link_index = node_link_table[aggregator_node][ps_node];
@@ -499,7 +529,7 @@ main (int argc, char *argv[])
       clientApps[appid][j] = workers.Install (nodes.Get (worker_node));
       std::cout<<"app"<<appid<<" wnode "<<worker_node <<"-->"<<aggregator_node<<" ip "<<aggr_address<<std::endl;
       clientApps[appid][j].Start (Seconds (start_time));
-      clientApps[appid][j].Stop (Seconds (100.0)); 
+      clientApps[appid][j].Stop (Seconds (50.0)); 
     }
 
 
@@ -545,7 +575,7 @@ main (int argc, char *argv[])
       // UdpServerHelper server (dlport);
       ApplicationContainer udpserverapps = server.Install (nodes.Get(bgdst));
       udpserverapps.Start (Seconds (1.0));
-      udpserverapps.Stop (Seconds (100.0));
+      udpserverapps.Stop (Seconds (50.0));
 
       // std::cout<<"node "<<bgdst<<" ip "<<node_ip[bgdst]<<std::endl;
 
@@ -562,7 +592,7 @@ main (int argc, char *argv[])
       // onoff.SetAttribute ("Interval", TimeValue (Seconds(0)));
       onoff.SetAttribute ("PacketSize", UintegerValue (1024));
       udpclientapps.Start (Seconds (start_time));
-      udpclientapps.Stop (Seconds (100.0));
+      udpclientapps.Stop (Seconds (50.0));
 
 
       fflush(stdout);
@@ -571,7 +601,7 @@ main (int argc, char *argv[])
     k++;    
   }
 
-  Simulator::Stop(Seconds(100.1));
+  Simulator::Stop(Seconds(50.1));
 
   // After Simulator::Stop but before Simulator::Run, set up flow monitoring
   // Initialize Flow Monitor
@@ -589,12 +619,19 @@ main (int argc, char *argv[])
     flowFile << "# FlowID\tSrcIP\tDstIP\tTxPackets\tRxPackets\tLostPackets\tDelaySum(s)\tJitterSum(s)\tThroughput(Mbps)" << std::endl;
     
     // Create time series file for this model and tail intensity
+    // Create distinct filenames for each run
     std::string timeSeriesFileName = modelType + "_" + tailIntensity + "_traffic.txt";
-    timeSeriesFiles[timeSeriesFileName].open(timeSeriesFileName, std::ios::out);
-    timeSeriesFiles[timeSeriesFileName] << "# Time(s)\tTraffic(Mbps)" << std::endl;
+    
+    // Remove any existing file with the same name to ensure fresh data
+    std::remove(timeSeriesFileName.c_str());
+    
+    timeSeriesFiles[timeSeriesFileName].open(timeSeriesFileName.c_str(), std::ios::out);
+    timeSeriesFiles[timeSeriesFileName] << "# Time(s)\tCumulative_Traffic(MB)" << std::endl;
     
     // Set up periodic flow sampling for time series data
-    Simulator::Schedule(Seconds(0.01), &SampleFlowStats, flowMonitor, &timeSeriesFiles[timeSeriesFileName], 0.01);
+    Simulator::Schedule(Seconds(0.01), &SampleFlowStats, flowMonitor, timeSeriesFileName);
+    
+    std::cout << "Flow monitoring output will be written to: " << timeSeriesFileName << std::endl;
   }
 
   Simulator::Run ();

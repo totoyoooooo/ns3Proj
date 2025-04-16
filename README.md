@@ -62,3 +62,16 @@ m_timeLogFile.open(m_timeDataFile, std::ios::trunc);
 ```
 LogArrivalTime(app_id, recv_key);  
 ```
+
+### 流量监测图
+```
+chmod +x testswitchml/run_model_comparison.sh
+./testswitchml/run_model_comparison.sh
+```
+编译成功后，会弹出以下选择
+```
+Which model would you like to run? (1 for ResNet, 2 for VGG, 3 for both)
+```
+之后输入对应的数字来运行对应代码，得到对应图像
+
+生成的图像在 `plots` 文件夹下
