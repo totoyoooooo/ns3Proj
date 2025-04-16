@@ -1,21 +1,21 @@
 137 1 136
 0
-0 1 100Gbps 10ms 0
-0 2 100Gbps 20ms 0
-0 3 70Gbps  30ms 0
-0 4 50Gbps  40ms 0
-0 5 100Gbps 10ms 0
-0 6 100Gbps 20ms 0
-0 7 70Gbps  50ms 0
-0 8 50Gbps  60ms 0
-0 9 80Gbps  50ms 0
-0 10 60Gbps 60ms 0
-0 11 75Gbps 40ms 0
-0 12 65Gbps 50ms 0
-0 13 85Gbps 30ms 0
-0 14 55Gbps 60ms 0
-0 15 70Gbps 40ms 0
-0 16 60Gbps 50ms 0
+0 1 50Gbps 40ms 0
+0 2 40Gbps 50ms 0
+0 3 30Gbps 60ms 0
+0 4 20Gbps 70ms 0
+0 5 45Gbps 35ms 0
+0 6 35Gbps 45ms 0
+0 7 25Gbps 80ms 0
+0 8 15Gbps 90ms 0
+0 9 40Gbps 70ms 0
+0 10 30Gbps 80ms 0
+0 11 35Gbps 60ms 0
+0 12 25Gbps 70ms 0
+0 13 45Gbps 50ms 0
+0 14 20Gbps 90ms 0
+0 15 30Gbps 60ms 0
+0 16 25Gbps 80ms 0
 0 17 100Gbps 2us 0
 0 18 100Gbps 2us 0
 0 19 100Gbps 2us 0

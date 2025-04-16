@@ -1,7 +1,7 @@
 Waf: Entering directory `/home/w/TimeWindow/ns3Proj/build'
 Waf: Leaving directory `/home/w/TimeWindow/ns3Proj/build'
 Build commands will be stored in build/compile_commands.json
-'build' finished successfully (0.217s)
+'build' finished successfully (0.170s)
 config path ./lzy_mix/config/testa2tp.txt
 ENABLE_CC	Yes
 ENABLE_ASYCC	Yes

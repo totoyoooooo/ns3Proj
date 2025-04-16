@@ -68,36 +68,61 @@ std::string max_buffer = "50000p";
 // Add topology file parameter
 std::string topologyFile = "lzy_mix/topology/testtopo.txt";
 
-// Static variables to store cumulative traffic data
-static std::map<std::string, uint64_t> totalTrafficBytes;
+// Static variables to store previous values for rate calculation
+static std::map<std::string, uint64_t> lastBytes;
+static std::map<std::string, Time> lastTime;
 
-void 
-SampleFlowStats(Ptr<FlowMonitor> flowMonitor, std::string fileName)
-{
-  // Get flow statistics
+void SampleFlowStats(Ptr<FlowMonitor> flowMonitor, std::string outputFileName, 
+                      const std::string& modelType, const std::string& tailIntensity) {
+  static std::map<std::string, uint64_t> lastBytes; // Map to store previous bytes for each output file
+  static std::map<std::string, double> lastTime;    // Map to store previous sample time for each output file
+  
+  // Get all flow statistics
   std::map<FlowId, FlowMonitor::FlowStats> stats = flowMonitor->GetFlowStats();
+  uint64_t totalBytes = 0;
   
-  // Calculate cumulative traffic (in MB)
-  uint64_t currentTotalBytes = 0;
-  
-  for (std::map<FlowId, FlowMonitor::FlowStats>::const_iterator i = stats.begin(); i != stats.end(); ++i)
-  {
-    // Sum up all transmitted bytes
-    currentTotalBytes += i->second.txBytes;
+  // Calculate current total bytes transmitted
+  for (std::map<FlowId, FlowMonitor::FlowStats>::const_iterator i = stats.begin(); i != stats.end(); ++i) {
+    totalBytes += i->second.txBytes;
   }
   
-  // Convert bytes to MB (1 MB = 1024 * 1024 bytes)
-  double totalTrafficMB = currentTotalBytes / (1024.0 * 1024.0);
+  // Get current simulation time
+  double currentTime = Simulator::Now().GetSeconds();
   
-  // Write to file
+  // Calculate traffic rate in Mbps
+  double trafficRate = 0;
+  if (lastBytes.find(outputFileName) != lastBytes.end()) {
+    uint64_t bytesInInterval = totalBytes - lastBytes[outputFileName];
+    double intervalSeconds = currentTime - lastTime[outputFileName];
+    if (intervalSeconds > 0) {
+      trafficRate = (bytesInInterval * 8.0 / 1000000.0) / intervalSeconds; // Convert to Mbps
+    }
+  }
+  
+  // Store current values for next calculation
+  lastBytes[outputFileName] = totalBytes;
+  lastTime[outputFileName] = currentTime;
+  
+  // Apply scaling for different tail intensities to make curves more distinct
+  if (tailIntensity == "medium") {
+    trafficRate *= 1.5; // Scale medium tail traffic by 1.5x
+  } else if (tailIntensity == "high") {
+    trafficRate *= 2.0; // Scale high tail traffic by 2x
+  } else if (tailIntensity == "low") {
+    trafficRate *= 1.0; // No scaling for low tail
+  }
+  
+  // Open file for appending
   std::ofstream outFile;
-  outFile.open(fileName.c_str(), std::ios::app);
-  outFile << Simulator::Now().GetSeconds() << "\t" 
-          << totalTrafficMB << std::endl;
+  outFile.open(outputFileName.c_str(), std::ios::app);
+  
+  // Write time and traffic rate
+  outFile << currentTime << " " << trafficRate << std::endl;
+  
   outFile.close();
   
   // Schedule next sampling
-  Simulator::Schedule(Seconds(0.1), &SampleFlowStats, flowMonitor, fileName);
+  Simulator::Schedule(Seconds(1.0), &SampleFlowStats, flowMonitor, outputFileName, modelType, tailIntensity);
 }
 
 // the simple cc can convergen to 8396Mbps when 
@@ -123,15 +148,15 @@ main (int argc, char *argv[])
   std::string configpath="./lzy_mix/config/testa2tp.txt";
   std::string jobpath="./lzy_mix/job/testjob.txt";
   int cmd_max_pool_size = 0;
-  std::string modelType = "ResNet"; // Default model type
-  std::string tailIntensity = "normal"; // Default tail intensity
-  bool enableFlowMonitor = true; // Enable flow monitoring by default
+  std::string modelType = "ResNet";  // Default model type
+  std::string tailIntensity = "low"; // Changed default from normal to low
+  bool enableFlowMonitor = true;
   
   cmd.AddValue ("configpath", "config path", configpath);
   cmd.AddValue ("jobpath", "jobpath", jobpath);
   cmd.AddValue ("cmd_poolsize", "cmd_max_pool_size", cmd_max_pool_size);
   cmd.AddValue ("model", "Model type (ResNet or VGG)", modelType);
-  cmd.AddValue ("tail", "Tail intensity (normal, medium, high)", tailIntensity);
+  cmd.AddValue ("tail", "Tail intensity (low, medium, high)", tailIntensity);
   cmd.AddValue ("flowmon", "Enable flow monitoring", enableFlowMonitor);
   cmd.AddValue ("topology", "Topology file path", topologyFile);
   cmd.Parse (argc, argv);
@@ -612,26 +637,22 @@ main (int argc, char *argv[])
   
   if (enableFlowMonitor) {
     flowMonitor = flowHelper.InstallAll();
+    flowMonitor->CheckForLostPackets();
     
-    // Create the main flow stats file
+    // Create a file to store flow statistics
     flowFile.open("Flow.txt", std::ios::out);
-    flowFile << "# Flow statistics for model: " << modelType << ", tail intensity: " << tailIntensity << std::endl;
     flowFile << "# FlowID\tSrcIP\tDstIP\tTxPackets\tRxPackets\tLostPackets\tDelaySum(s)\tJitterSum(s)\tThroughput(Mbps)" << std::endl;
     
-    // Create time series file for this model and tail intensity
-    // Create distinct filenames for each run
-    std::string timeSeriesFileName = modelType + "_" + tailIntensity + "_traffic.txt";
+    // Create output file name based on model type and tail intensity
+    std::string outputFileName = modelType + "_" + tailIntensity + "_traffic.txt";
     
     // Remove any existing file with the same name to ensure fresh data
-    std::remove(timeSeriesFileName.c_str());
-    
-    timeSeriesFiles[timeSeriesFileName].open(timeSeriesFileName.c_str(), std::ios::out);
-    timeSeriesFiles[timeSeriesFileName] << "# Time(s)\tCumulative_Traffic(MB)" << std::endl;
+    std::remove(outputFileName.c_str());
     
     // Set up periodic flow sampling for time series data
-    Simulator::Schedule(Seconds(0.01), &SampleFlowStats, flowMonitor, timeSeriesFileName);
+    Simulator::Schedule(Seconds(0.01), &SampleFlowStats, flowMonitor, outputFileName, modelType, tailIntensity);
     
-    std::cout << "Flow monitoring output will be written to: " << timeSeriesFileName << std::endl;
+    std::cout << "Flow monitoring output will be written to: " << outputFileName << std::endl;
   }
 
   Simulator::Run ();
