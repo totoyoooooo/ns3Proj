@@ -752,10 +752,7 @@ UdpAggregator::initmem (uint32_t size, uint16_t host)
         aggr_collision[i] = 0;
         idx_appid[i] = 65534;
         start_time_index[i] = -1;
-    }
-
-    for (int i = 0; i < pool_size; i += 50) {
-      record_aggr[i] = 1;
+        
     }
 
     for(uint32_t i = 0; i < max_host_num; i++){
@@ -775,54 +772,42 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
         index = app_and_key_to_bitmap_index[appid][key];
     }else{ // need to allocate new index
         if (iskicked(appid,key)){
-            // 检查指定的应用和键是否已被踢出聚合池
             app_and_key_to_kicked[appid][key]++;
-            // 如果所有主机都已处理这个键，则从踢出表中清除该条目以减少计算开销
             if (app_and_key_to_kicked[appid][key] == hostnum){
               app_and_key_to_kicked[appid].erase(key); //clean kick table to reduce computation time
             }
             // std::cout<<"already be kicked! and ["<<appid<<", "<<(int)hostid<<", "<<key<<"] forward to ps"<<std::endl;
-            
-            // 创建交换机头部，准备将数据包转发到参数服务器(PS)
             SwitchHeader tmp_header;
             tmp_header.SetKey (key); //set the key in header
             tmp_header.SetHostid(hostid);
             tmp_header.SetHostnum(hostnum);
             tmp_header.SetACK(0);
-            tmp_header.SetCollision(1);    // 标记为发生冲突
+            tmp_header.SetCollision(1);
             tmp_header.SetAppID(appid);
             tmp_header.SetDelta(syn_urgent);
             tmp_header.SetTotal(1);
             tmp_header.SetMerged(0);
             packet->AddHeader(tmp_header);
 
-            // 将数据包发送到参数服务器
             m_socket_for_up[appid]->Send (packet);
             return false;
         }
         if(unused.empty()){ // no space
             if (onofftimewindow == 0) {
-              // 增加冲突标记计数，但不超过总池大小
               collision_marking ++;
               collision_marking = collision_marking > pool_size ? pool_size : collision_marking;
       
-              // 将此键添加到踢出表中，记录为已被踢出一次
               app_and_key_to_kicked[appid][key] = 1; //add this key to kick table
             
               
               // printf("debug\n");
-              // 创建随机变量生成器，用于随机选择冲突标记的位置
               Ptr<UniformRandomVariable> uv = CreateObject<UniformRandomVariable>();
               uint32_t col_index = uv->GetInteger(0,pool_size)%pool_size; //unused
               // printf("col_index %d\n", col_index);
               // int col_index = 1;
-              
-              // 设置循环次数上限为池大小或100，以较小者为准
               int looptime = pool_size < 100 ? pool_size : 100;
               for (int k = 0; k < looptime && collision_marking > 0; k++){
-                // 随机选择一个聚合器索引
                 col_index = uv->GetInteger(0,pool_size)%pool_size;
-                // 只有当选中的聚合器不属于当前应用且未被标记时，才标记为冲突
                 if (idx_appid[col_index] != appid && aggr_collision[col_index] != 1){
                   aggr_collision[col_index] = 1;
                   collision_marking --;
@@ -859,11 +844,10 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
             
             // 检测翻台事件 - 当一个聚合器被重用时
             // 使用m_last_key来确定这个聚合器之前是否已被使用过
-            // if (m_last_key.find(index) != m_last_key.end()) {
-            if (record_aggr[index] == 1) {
-                std::cout << "debug turnover" << std::endl;
+            if (m_last_key.find(index) != m_last_key.end()) {
+              std::cout << "debug turnover" << std::endl;
                 auto last_pair = m_last_key[index];
-                if (last_pair.second != key) {
+                if (last_pair.first != appid || last_pair.second != key) {
                     // 发生了翻台 - 增加计数
                     m_turnover_count[index]++;
                     m_total_turnover++;
@@ -885,8 +869,6 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
                               << ", Key=" << key << "]" << std::endl;
                 }
             }
-              
-            // }
             
             // 更新最后处理的键值对
             m_last_key[index] = std::make_pair(appid, key);

@@ -122,7 +122,8 @@
   uint32_t m_total_turnover; // 总翻台次数
   std::ofstream m_turnover_log; // 翻台率日志文件
   std::string m_protocol_name; // 当前运行的协议名称
-
+  std::map<uint16_t, int> record_aggr;
+  
   std::map<std::pair<uint16_t, uint32_t>, std::vector<Time>> m_arrivalTimes;
   std::map<uint16_t, double> m_currentT;  // 各app的当前T值
   std::map<uint16_t, double> alpha;
