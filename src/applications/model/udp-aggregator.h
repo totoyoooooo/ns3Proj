@@ -60,6 +60,7 @@
  
    // void setremotes(std::vector<Address> address, std::vector<uint16_t> port);
    void setremotes(std::vector<Address> address, std::vector<uint16_t> port, uint32_t appid); 
+   void SetProtocolName(const std::string& name); // 设置协议名称
  
  protected:
    virtual void DoDispose (void); 
@@ -82,6 +83,8 @@
    Ptr<Socket> m_socket; //!< IPv4 Socket
    Ptr<Socket> m_socket6; //!< IPv6 Socket
    Address m_local; //!< local multicast address
+   bool m_running; //!< True if the server is running
+   uint32_t m_packetsReceived; //!< Number of packets received
  
    /// Callbacks for tracing the packet Rx events
    TracedCallback<Ptr<const Packet> > m_rxTrace;
@@ -112,6 +115,13 @@
   uint32_t m_merged; // 当前交换机合并次数
   uint32_t m_forwarded;  // 当前交换机转发次数
   uint32_t m_timeout_forwarded;  // 当前交换机转发次数
+
+  // 翻台率统计相关变量
+  std::map<uint32_t, uint32_t> m_turnover_count; // 每个聚合器的翻台次数
+  std::map<uint32_t, std::pair<uint16_t, uint32_t>> m_last_key; // 每个聚合器上一次处理的<app_id, key>
+  uint32_t m_total_turnover; // 总翻台次数
+  std::ofstream m_turnover_log; // 翻台率日志文件
+  std::string m_protocol_name; // 当前运行的协议名称
 
   std::map<std::pair<uint16_t, uint32_t>, std::vector<Time>> m_arrivalTimes;
   std::map<uint16_t, double> m_currentT;  // 各app的当前T值

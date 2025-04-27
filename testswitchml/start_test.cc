@@ -474,6 +474,22 @@ main (int argc, char *argv[])
        
       serverApps[aggregator_node] = aggregator.Install (nodes.Get(aggregator_node));
       udpAggregator[aggregator_node] = DynamicCast<UdpAggregator> (serverApps[aggregator_node].Get(0));
+      
+      // 为聚合器设置当前使用的协议名称
+      std::string protocolName = "";
+      if (onofftimewindow) {
+        protocolName = "TimeWindow";
+      } else if (onoffasycc) {
+        protocolName = "A2TP";
+      } else if (onoffps) {
+        protocolName = "ATP";
+      }else {
+        protocolName = "switchml";
+      }
+      
+      std::cout << "Setting protocol name for aggregator " << aggregator_node << " to: " << protocolName << std::endl;
+      udpAggregator[aggregator_node]->SetProtocolName(protocolName);
+      
       serverApps[aggregator_node].Start (Seconds (1.0));
       serverApps[aggregator_node].Stop (Seconds (50.0)); 
     }
@@ -626,7 +642,7 @@ main (int argc, char *argv[])
     k++;    
   }
 
-  Simulator::Stop(Seconds(50.1));
+  Simulator::Stop(Seconds(10.1));
 
   // After Simulator::Stop but before Simulator::Run, set up flow monitoring
   // Initialize Flow Monitor

@@ -46,6 +46,7 @@
 #include <functional>
 #include <numeric>
 #include <sstream>
+#include <iomanip>
 
 #define LYJ_SAATP 0
 #define LYJ_SAATP_RATE 0
@@ -129,6 +130,16 @@ UdpAggregator::GetTypeId (void)
 }
 
 UdpAggregator::UdpAggregator ()
+  : m_socket (0),
+    m_socket6 (0),
+    m_running (false),
+    m_packetsReceived (0),
+    m_merged_packet(0),
+    m_merged(0),
+    m_forwarded(0),
+    m_timeout_forwarded(0),
+    m_total_turnover(0),
+    m_protocol_name("default")
 {
   RngSeedManager::SetSeed(1);
   minspace = 0;
@@ -137,6 +148,7 @@ UdpAggregator::UdpAggregator ()
   m_windowSize = 100;  // 默认窗口大小
   m_ewmaAlpha = 0.2;   // EWMA平滑因子
   NS_LOG_FUNCTION (this);
+  // 日志文件将在StartApplication中打开，以便可以根据协议名称命名
 }
 
 UdpAggregator::~UdpAggregator()
@@ -163,8 +175,17 @@ UdpAggregator::StartApplication (void)
   collision_marking = 0;
   initmem(pool_size,max_host_num);
   
-  // 写入功能 - 使用截断模式打开文件
-  // m_timeLogFile.open(m_timeDataFile, std::ios::trunc);
+  // 创建特定于协议的日志文件名
+  std::string logFileName = "turnover_rate_" + m_protocol_name + ".log";
+  // 以截断模式打开文件以清空旧内容
+  m_turnover_log.open(logFileName.c_str(), std::ios::trunc);
+  // 写入日志文件头
+  m_turnover_log << "# 时间(秒) 聚合器ID 旧应用ID->新应用ID 旧键值->新键值" << std::endl;
+  
+  // 初始化翻台计数相关变量
+  m_total_turnover = 0;
+  m_turnover_count.clear();
+  m_last_key.clear();
   
   // 读取样本并计算最优时间窗口
   LoadCachedSamples();
@@ -348,6 +369,11 @@ UdpAggregator::StopApplication ()
       m_socket6->Close ();
       m_socket6->SetRecvCallback (MakeNullCallback<void, Ptr<Socket> > ());
     }
+  
+  // 关闭翻台率日志文件
+  if (m_turnover_log.is_open()) {
+    m_turnover_log.close();
+  }
 }
 
 void 
@@ -743,120 +769,112 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
         NS_LOG_INFO("Aggregating packet for app1: host=" << (int)hostid << " key=" << key);
     }
     
-    if (onofftimewindow && hasForwarded(appid, key)) {
-        SwitchHeader tmp_header;
-        tmp_header.SetKey (key);
-        tmp_header.SetHostid(hostid);
-        tmp_header.SetHostnum(hostnum);
-        tmp_header.SetACK(0);
-        tmp_header.SetCollision(0);
-        tmp_header.SetAppID(appid);
-        tmp_header.SetDelta(syn_urgent);
-        tmp_header.SetTotal(1);
-        tmp_header.SetMerged(0);
-        
-        packet->AddHeader(tmp_header);
-        m_forwarded+=1;
-        m_timeout_forwarded+=1;
-        m_socket_for_up[appid]->Send (packet);
-        return false;
-    }
-
-    if (is_bpAggr){
-
-      SwitchHeader tmp_header;
-      tmp_header.SetKey (key); //set the key in header
-      tmp_header.SetHostid(hostid);
-      tmp_header.SetHostnum(hostnum);
-      tmp_header.SetACK(0);
-      tmp_header.SetCollision(0);
-      tmp_header.SetAppID(appid);
-      tmp_header.SetbpAggr(1);
-      tmp_header.SetDelta(syn_urgent);
-      tmp_header.SetTotal(1);
-      tmp_header.SetMerged(0);
-      packet->AddHeader(tmp_header);
-
-      m_socket_for_up[appid]->Send (packet);
-      return false;
-    }
-
-    if(isexist(appid,key)){ //already exist
+    if(isexist(appid,key)){ // already exist
         index = app_and_key_to_bitmap_index[appid][key];
-
-    }else{
-      if (iskicked(appid,key)){
-        app_and_key_to_kicked[appid][key]++;
-        if (app_and_key_to_kicked[appid][key] == hostnum){
-          app_and_key_to_kicked[appid].erase(key); //clean kick table to reduce computation time
-        }
-        // std::cout<<"already be kicked! and ["<<appid<<", "<<(int)hostid<<", "<<key<<"] forward to ps"<<std::endl;
-        SwitchHeader tmp_header;
-        tmp_header.SetKey (key); //set the key in header
-        tmp_header.SetHostid(hostid);
-        tmp_header.SetHostnum(hostnum);
-        tmp_header.SetACK(0);
-        tmp_header.SetCollision(1);
-        tmp_header.SetAppID(appid);
-        tmp_header.SetDelta(syn_urgent);
-        tmp_header.SetTotal(1);
-        tmp_header.SetMerged(0);
-        packet->AddHeader(tmp_header);
-
-        m_socket_for_up[appid]->Send (packet);
-        return false;
-      }
-      if(unused.empty()){ // no space
-        if (onofftimewindow == 0) {
-          collision_marking ++;
-          collision_marking = collision_marking > pool_size ? pool_size : collision_marking;
-  
-          app_and_key_to_kicked[appid][key] = 1; //add this key to kick table
-        
-          
-          // printf("debug\n");
-          Ptr<UniformRandomVariable> uv = CreateObject<UniformRandomVariable>();
-          uint32_t col_index = uv->GetInteger(0,pool_size)%pool_size; //unused
-          // printf("col_index %d\n", col_index);
-          // int col_index = 1;
-          int looptime = pool_size < 100 ? pool_size : 100;
-          for (int k = 0; k < looptime && collision_marking > 0; k++){
-            col_index = uv->GetInteger(0,pool_size)%pool_size;
-            if (idx_appid[col_index] != appid && aggr_collision[col_index] != 1){
-              aggr_collision[col_index] = 1;
-              collision_marking --;
+    }else{ // need to allocate new index
+        if (iskicked(appid,key)){
+            app_and_key_to_kicked[appid][key]++;
+            if (app_and_key_to_kicked[appid][key] == hostnum){
+              app_and_key_to_kicked[appid].erase(key); //clean kick table to reduce computation time
             }
-          }
+            // std::cout<<"already be kicked! and ["<<appid<<", "<<(int)hostid<<", "<<key<<"] forward to ps"<<std::endl;
+            SwitchHeader tmp_header;
+            tmp_header.SetKey (key); //set the key in header
+            tmp_header.SetHostid(hostid);
+            tmp_header.SetHostnum(hostnum);
+            tmp_header.SetACK(0);
+            tmp_header.SetCollision(1);
+            tmp_header.SetAppID(appid);
+            tmp_header.SetDelta(syn_urgent);
+            tmp_header.SetTotal(1);
+            tmp_header.SetMerged(0);
+            packet->AddHeader(tmp_header);
+
+            m_socket_for_up[appid]->Send (packet);
+            return false;
         }
-        
-        
-        //NS_LOG_LYJ("no aggregators! and ["<<appid<<", "<<host<<", "<<key<<"] forward to ps");
-        // std::cout<<"no aggregators! and ["<<appid<<", "<<hostid<<", "<<key<<"] forward to ps"<<std::endl;
-        SwitchHeader tmp_header;
-        tmp_header.SetKey (key); //set the key in header
-        tmp_header.SetHostid(hostid);
-        tmp_header.SetHostnum(hostnum);
-        tmp_header.SetACK(0);
-        tmp_header.SetCollision(1);
-        tmp_header.SetAppID(appid);
-        tmp_header.SetDelta(syn_urgent);
-        tmp_header.SetTotal(1);
-        tmp_header.SetMerged(0);
-        packet->AddHeader(tmp_header);
+        if(unused.empty()){ // no space
+            if (onofftimewindow == 0) {
+              collision_marking ++;
+              collision_marking = collision_marking > pool_size ? pool_size : collision_marking;
+      
+              app_and_key_to_kicked[appid][key] = 1; //add this key to kick table
+            
+              
+              // printf("debug\n");
+              Ptr<UniformRandomVariable> uv = CreateObject<UniformRandomVariable>();
+              uint32_t col_index = uv->GetInteger(0,pool_size)%pool_size; //unused
+              // printf("col_index %d\n", col_index);
+              // int col_index = 1;
+              int looptime = pool_size < 100 ? pool_size : 100;
+              for (int k = 0; k < looptime && collision_marking > 0; k++){
+                col_index = uv->GetInteger(0,pool_size)%pool_size;
+                if (idx_appid[col_index] != appid && aggr_collision[col_index] != 1){
+                  aggr_collision[col_index] = 1;
+                  collision_marking --;
+                }
+              }
+            }
+            
+            
+            //NS_LOG_LYJ("no aggregators! and ["<<appid<<", "<<host<<", "<<key<<"] forward to ps");
+            // std::cout<<"no aggregators! and ["<<appid<<", "<<hostid<<", "<<key<<"] forward to ps"<<std::endl;
+            SwitchHeader tmp_header;
+            tmp_header.SetKey (key); //set the key in header
+            tmp_header.SetHostid(hostid);
+            tmp_header.SetHostnum(hostnum);
+            tmp_header.SetACK(0);
+            tmp_header.SetCollision(1);
+            tmp_header.SetAppID(appid);
+            tmp_header.SetDelta(syn_urgent);
+            tmp_header.SetTotal(1);
+            tmp_header.SetMerged(0);
+            packet->AddHeader(tmp_header);
 
 
-        m_forwarded += 1;
-        m_socket_for_up[appid]->Send (packet); //to up worker
-        //NS_LOG_LYJ("faile! time "<<Simulator::Now ().As (Time::S)<<"rec: ["<<appid<<", "<<host<<", "<<key<<"] update bitmap in index:("<<index<<","<<host<<")");
-        
-        
-        return false;
-      }else{ //have space
-            //NS_LOG_LYJ("Rest Aggregator: "<<unused.size());
+            m_forwarded += 1;
+            m_socket_for_up[appid]->Send (packet); //to up worker
+            //NS_LOG_LYJ("faile! time "<<Simulator::Now ().As (Time::S)<<"rec: ["<<appid<<", "<<host<<", "<<key<<"] update bitmap in index:("<<index<<","<<host<<")");
+            
+            
+            return false;
+        }else{ //have space
+            // 分配新索引
             index = unused.back();
             unused.pop_back();
+            
+            // 检测翻台事件 - 当一个聚合器被重用时
+            // 使用m_last_key来确定这个聚合器之前是否已被使用过
+            if (m_last_key.find(index) != m_last_key.end()) {
+              std::cout << "debug turnover" << std::endl;
+                auto last_pair = m_last_key[index];
+                if (last_pair.first != appid || last_pair.second != key) {
+                    // 发生了翻台 - 增加计数
+                    m_turnover_count[index]++;
+                    m_total_turnover++;
+                    
+                    // 记录翻台事件到日志，包含精确时间戳
+                    double currentTime = Simulator::Now().GetSeconds();
+                    m_turnover_log << std::fixed << std::setprecision(9) 
+                                  << currentTime << " " 
+                                  << index << " " 
+                                  << last_pair.first << "->" << appid << " " 
+                                  << last_pair.second << "->" << key << std::endl;
+                    
+                    // 输出到控制台以便调试
+                    std::cout << "[翻台] 时间=" << currentTime
+                              << " 聚合器=" << index 
+                              << " 从[App=" << last_pair.first 
+                              << ", Key=" << last_pair.second
+                              << "] 变为 [App=" << appid
+                              << ", Key=" << key << "]" << std::endl;
+                }
+            }
+            
+            // 更新最后处理的键值对
+            m_last_key[index] = std::make_pair(appid, key);
+            
             updateindexmap(appid,key,index);
-            index = app_and_key_to_bitmap_index[appid][key];
             idx_appid[index] = appid;
             AggregatorUnit& unit = m_units[appid][key];
              unit.mergedPacket = packet->Copy();
@@ -885,7 +903,7 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
              NS_LOG_INFO("get direct pkt with ecn: "<<(uint32_t)tag.GetECN());
             }
 
-      }
+        }
     }
     NS_LOG_INFO("get index["<<index<<"], but max is "<<pool_size);
     NS_LOG_INFO("time "<<Simulator::Now ().As (Time::S)<<" rec: ["<<appid<<", "<<hostid<<", "<<key<<"] update bitmap in index:("<<index<<","<<hostid<<")");
@@ -893,29 +911,6 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
     if(bitmap[index][hostid]==false){
         bitmap[index][hostid] = true;
         count_pkt[index]++;
-
-        if (appid == 1) {
-            NS_LOG_INFO("App1 progress: " << count_pkt[index] << "/" << (int)hostnum);
-            
-            // 检查是否长时间没有进展
-            static Time lastProgressTime = Simulator::Now();
-            static uint32_t lastProgressCount = 0;
-            
-            if (count_pkt[index] > lastProgressCount) {
-                lastProgressCount = count_pkt[index];
-                lastProgressTime = Simulator::Now();
-            } else if ((Simulator::Now() - lastProgressTime).GetSeconds() > 1.0) {
-                NS_LOG_WARN("App1 aggregation stalled at " << count_pkt[index] << "/" << (int)hostnum);
-                // 强制完成聚合
-                if (onofftimewindow) {
-                    if (m_units[appid].count(key)) {
-                        Simulator::Cancel(m_units[appid][key].timer);
-                        m_units[appid].erase(key);
-                    }
-                }
-                return true;
-            }
-        }
 
         if(count_pkt[index]== hostnum){
             if (onofftimewindow) {
@@ -1066,6 +1061,9 @@ UdpAggregator::cleanaggregator(uint16_t appid, uint32_t key)
     unused.push_back(index);
     start_time_index[index] = -1;
 
+    // 清除m_last_key中的记录，避免释放后的索引被错误地计入翻台次数
+    m_last_key.erase(index);
+
     if (appid == 1) {
         NS_LOG_INFO("Cleaned aggregator for app1 key " << key);
     }
@@ -1194,7 +1192,6 @@ UdpAggregator::HandleReadForUp (Ptr<Socket> socket)
 void 
 UdpAggregator::outputthrought()
 {
-
   std::cout<< "AGGR TIME " << Simulator::Now ().As (Time::S) << " minutil " << 1 - 1.0 * minspace / pool_size << std::endl;
   // for(uint32_t i = 0; i < max_host_num; i++){
   //       double rates =  (double )m_count_sent[i] * 256 /1000/1000* 8*1000;
@@ -1221,10 +1218,50 @@ UdpAggregator::outputthrought()
         empty += 1;
     }
     std::cout << "empty:" << empty << "\napp0:" << cnt[0] << "\napp1:" << cnt[1] << "\napp2:" << cnt[2] << std::endl;
-   Simulator::Schedule (Seconds(1), &UdpAggregator::outputthrought, this);
- 
+   
+  // 输出翻台率统计
+  std::cout << "=========== 协议 [" << m_protocol_name << "] 翻台率统计 ===========" << std::endl;
+  std::cout << "总翻台次数: " << m_total_turnover << std::endl;
+  
+  // 计算每个应用的平均翻台率
+  std::map<uint16_t, uint32_t> appTurnoverCount;
+  std::map<uint16_t, uint32_t> appAggregatorCount;
+  
+  for (const auto& pair : m_turnover_count) {
+      uint32_t aggregatorId = pair.first;
+      uint32_t turnoverCount = pair.second;
+      
+      // 获取聚合器当前的应用ID
+      if (idx_appid[aggregatorId] < 10) {
+          uint16_t appId = idx_appid[aggregatorId];
+          appTurnoverCount[appId] += turnoverCount;
+          appAggregatorCount[appId]++;
+      }
+      
+      // 输出每个聚合器的翻台次数
+      std::cout << "  聚合器 " << aggregatorId << ": " << turnoverCount << " 次翻台" << std::endl;
+  }
+  
+  // 输出每个应用的平均翻台率
+  std::cout << "应用平均翻台率:" << std::endl;
+  for (const auto& pair : appTurnoverCount) {
+      uint16_t appId = pair.first;
+      double avgTurnover = appAggregatorCount[appId] > 0 ? 
+                           static_cast<double>(pair.second) / appAggregatorCount[appId] : 0;
+      std::cout << "  应用 " << appId << ": 平均 " << std::fixed << std::setprecision(2) 
+                << avgTurnover << " 次/聚合器" << std::endl;
+  }
+  
+  std::cout << "====================================================" << std::endl;
+  
+  // 每次输出后刷新日志文件，确保数据被写入
+  if (m_turnover_log.is_open()) {
+      m_turnover_log.flush();
+  }
+  
   minspace = 0;
-  // Simulator::Schedule (Seconds(0.001), &UdpAggregator::outputthrought, this);
+  // 每秒钟更新一次统计信息
+  Simulator::Schedule (Seconds(0.01), &UdpAggregator::outputthrought, this);
 }
 
 bool 
@@ -1307,5 +1344,11 @@ UdpAggregator::setremotes(std::vector<Address> address, std::vector<uint16_t> po
     }
 }
 
+void 
+UdpAggregator::SetProtocolName(const std::string& name)
+{
+  m_protocol_name = name;
+  NS_LOG_INFO("Protocol name set to: " << m_protocol_name);
+}
 
 } // Namespace ns3
