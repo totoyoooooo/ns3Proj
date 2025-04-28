@@ -188,7 +188,7 @@ UdpAggregator::StartApplication (void)
   m_last_key.clear();
   
   // 读取样本并计算最优时间窗口
-  LoadCachedSamples();
+  // LoadCachedSamples();
   
   minspace = 0;
   if (m_socket == 0)
@@ -757,6 +757,10 @@ UdpAggregator::initmem (uint32_t size, uint16_t host)
     for (int i = 0; i < pool_size; i += 50) {
       record_aggr[i] = 1;
     }
+    // for (int i = pool_size - 10; i < pool_size; i ++) {
+    //   record_aggr[i] = 1;
+    // }
+
 
     for(uint32_t i = 0; i < max_host_num; i++){
       m_count_sent.push_back(0);
@@ -856,10 +860,8 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
             // 分配新索引
             index = unused.back();
             unused.pop_back();
-            
-            // 检测翻台事件 - 当一个聚合器被重用时
-            // 使用m_last_key来确定这个聚合器之前是否已被使用过
-            // if (m_last_key.find(index) != m_last_key.end()) {
+            // std::cout << "debug unused update" << index << std::endl;
+            // 检测翻台事件 
             if (record_aggr[index] == 1) {
                 std::cout << "debug turnover" << std::endl;
                 auto last_pair = m_last_key[index];
@@ -876,7 +878,6 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
                                   << last_pair.first << "->" << appid << " " 
                                   << last_pair.second << "->" << key << std::endl;
                     
-                    // 输出到控制台以便调试
                     std::cout << "[翻台] 时间=" << currentTime
                               << " 聚合器=" << index 
                               << " 从[App=" << last_pair.first 
@@ -885,8 +886,6 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
                               << ", Key=" << key << "]" << std::endl;
                 }
             }
-              
-            // }
             
             // 更新最后处理的键值对
             m_last_key[index] = std::make_pair(appid, key);
@@ -901,8 +900,9 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
             //      unit.timer = Simulator::Schedule(Seconds(m_timeWindow),
             //                &UdpAggregator:: ForceFlush, this, appid, key);
              if (onofftimewindow) {
+              double currentT = m_timeWindow;
               
-              double currentT = m_currentT.count(appid) ? m_currentT[appid] : m_timeWindow;
+              // double currentT = m_currentT.count(appid) ? m_currentT[appid] : m_timeWindow;
               // std::cout << "m_timewindow" << currentT << std::endl;
               // unit.timer = Simulator::Schedule(Seconds(currentT),
               //               &UdpAggregator::ForceFlush, this, appid, key);
@@ -1076,6 +1076,7 @@ UdpAggregator::cleanaggregator(uint16_t appid, uint32_t key)
     
     app_and_key_to_bitmap_index[appid].erase(key);
     unused.push_back(index);
+    // std :: cout << "unused update" << std::endl;;
     start_time_index[index] = -1;
 
     // 清除m_last_key中的记录，避免释放后的索引被错误地计入翻台次数
@@ -1260,14 +1261,14 @@ UdpAggregator::outputthrought()
   }
   
   // 输出每个应用的平均翻台率
-  std::cout << "应用平均翻台率:" << std::endl;
-  for (const auto& pair : appTurnoverCount) {
-      uint16_t appId = pair.first;
-      double avgTurnover = appAggregatorCount[appId] > 0 ? 
-                           static_cast<double>(pair.second) / appAggregatorCount[appId] : 0;
-      std::cout << "  应用 " << appId << ": 平均 " << std::fixed << std::setprecision(2) 
-                << avgTurnover << " 次/聚合器" << std::endl;
-  }
+  // std::cout << "应用平均翻台率:" << std::endl;
+  // for (const auto& pair : appTurnoverCount) {
+  //     uint16_t appId = pair.first;
+  //     double avgTurnover = appAggregatorCount[appId] > 0 ? 
+  //                          static_cast<double>(pair.second) / appAggregatorCount[appId] : 0;
+  //     std::cout << "  应用 " << appId << ": 平均 " << std::fixed << std::setprecision(2) 
+  //               << avgTurnover << " 次/聚合器" << std::endl;
+  // }
   
   std::cout << "====================================================" << std::endl;
   
