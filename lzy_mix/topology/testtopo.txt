@@ -5,7 +5,7 @@
 0 3 100Gbps 2us 0
 0 4 50Gbps 2us 0
 0 5 100Gbps 2us 0
-0 6 50Gbps 2us 0
+0 6 100Gbps 2us 0
 0 7 100Gbps 2us 0
 0 8 100Gbps 2us 0
 0 9 100Gbps 2us 0

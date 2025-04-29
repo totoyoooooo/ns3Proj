@@ -148,12 +148,14 @@ main (int argc, char *argv[])
   std::string configpath="./lzy_mix/config/testtime.txt";
   std::string jobpath="./lzy_mix/job/testjob.txt";
   int cmd_max_pool_size = 0;
+  double timewindow_size = 0.000002;
   std::string modelType = "ResNet";  // Default model type
   std::string tailIntensity = "low"; // Changed default from normal to low
   bool enableFlowMonitor = true;
   
   cmd.AddValue ("configpath", "config path", configpath);
   cmd.AddValue ("jobpath", "jobpath", jobpath);
+  cmd.AddValue ("timewindow", "timewindow_size", timewindow_size);
   cmd.AddValue ("cmd_poolsize", "cmd_max_pool_size", cmd_max_pool_size);
   cmd.AddValue ("model", "Model type (ResNet or VGG)", modelType);
   cmd.AddValue ("tail", "Tail intensity (low, medium, high)", tailIntensity);
@@ -470,7 +472,8 @@ main (int argc, char *argv[])
       aggregator.SetAttribute("ONOFFASYCC",UintegerValue(onoffasycc));
       aggregator.SetAttribute("ONOFFPS",UintegerValue(onoffps));
       aggregator.SetAttribute("ONOFFTIMEWINDOW",UintegerValue(onofftimewindow));
-      aggregator.SetAttribute("TimeWindow",DoubleValue(0.000001));
+      aggregator.SetAttribute("TimeWindow",DoubleValue(timewindow_size));
+      // aggregator.SetAttribute("TimeWindow",DoubleValue(1));
        
       serverApps[aggregator_node] = aggregator.Install (nodes.Get(aggregator_node));
       udpAggregator[aggregator_node] = DynamicCast<UdpAggregator> (serverApps[aggregator_node].Get(0));
@@ -642,7 +645,7 @@ main (int argc, char *argv[])
     k++;    
   }
 
-  Simulator::Stop(Seconds(10.1));
+  Simulator::Stop(Seconds(3.1));
 
   // After Simulator::Stop but before Simulator::Run, set up flow monitoring
   // Initialize Flow Monitor

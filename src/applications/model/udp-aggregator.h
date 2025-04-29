@@ -116,6 +116,12 @@
   uint32_t m_forwarded;  // 当前交换机转发次数
   uint32_t m_timeout_forwarded;  // 当前交换机转发次数
 
+  // 吞吐量统计相关变量
+  uint32_t m_aggregatedPackets;  // 当前时间段内聚合的包数量
+  Time m_lastThroughputTime;     // 上次吞吐量计算时间
+  std::ofstream m_throughputLog; // 吞吐量日志文件
+  void OutputThroughput();       // 输出吞吐量统计
+
   // 翻台率统计相关变量
   std::map<uint32_t, uint32_t> m_turnover_count; // 每个聚合器的翻台次数
   std::map<uint32_t, std::pair<uint16_t, uint32_t>> m_last_key; // 每个聚合器上一次处理的<app_id, key>
@@ -136,7 +142,7 @@
   std::string m_timeDataFile; // 数据文件路径
   std::map<std::pair<uint16_t, uint32_t>, std::vector<double>> m_cachedSamples; // 缓存样本
   void EstimateAndUpdateT(uint16_t appid, uint32_t key); // 时间记录
-  
+  void SetOnoffTimeWindow();
   void LoadCachedSamples();// 样本加载
   std::vector<double> estimateLomaxParameters(const std::vector<double>& samples);
   void LogArrivalTime(uint16_t appId, uint32_t key);

@@ -139,7 +139,9 @@ UdpAggregator::UdpAggregator ()
     m_forwarded(0),
     m_timeout_forwarded(0),
     m_total_turnover(0),
-    m_protocol_name("default")
+    m_protocol_name("default"),
+    m_aggregatedPackets(0),
+    m_lastThroughputTime()
 {
   RngSeedManager::SetSeed(1);
   minspace = 0;
@@ -180,7 +182,39 @@ UdpAggregator::StartApplication (void)
   // 以截断模式打开文件以清空旧内容
   m_turnover_log.open(logFileName.c_str(), std::ios::trunc);
   // 写入日志文件头
-  m_turnover_log << "# 时间(秒) 聚合器ID 旧应用ID->新应用ID 旧键值->新键值" << std::endl;
+  // m_turnover_log << "# 时间(秒) 聚合器ID 旧应用ID->新应用ID 旧键值->新键值" << std::endl;
+  
+  // 初始化吞吐量跟踪
+  m_aggregatedPackets = 0;
+  m_lastThroughputTime = Simulator::Now();
+
+  // 创建吞吐量日志文件，使用协议名称作为文件名前缀
+  std::string throughputFileName = m_protocol_name + "_aggr_rate.log";
+  // 关闭文件如果已经打开
+  if (m_throughputLog.is_open()) {
+    m_throughputLog.close();
+  }
+  // 以覆盖模式打开文件
+  m_throughputLog.open(throughputFileName.c_str(), std::ios::trunc);
+  if (m_throughputLog.is_open()) {
+    // m_throughputLog << "# 时间(微秒) 聚合吞吐量(包/微秒) 累计聚合包数" << std::endl;
+    m_throughputLog.flush(); // 立即刷新缓冲区
+    std::cout << "Successfully opened throughput log file: " << throughputFileName << std::endl;
+  } else {
+    std::cerr << "ERROR: Could not open throughput log file: " << throughputFileName << std::endl;
+    // 尝试在当前目录创建
+    m_throughputLog.open(("./" + throughputFileName).c_str(), std::ios::trunc);
+    if (m_throughputLog.is_open()) {
+      // m_throughputLog << "# 时间(微秒) 聚合吞吐量(包/微秒) 累计聚合包数" << std::endl;
+      m_throughputLog.flush();
+      std::cout << "Successfully opened throughput log file in current directory: ./" << throughputFileName << std::endl;
+    } else {
+      std::cerr << "FATAL ERROR: Could not open throughput log file in any location!" << std::endl;
+    }
+  }
+  
+  // 启动吞吐量监控 (每100微秒输出一次)
+  Simulator::Schedule(MicroSeconds(100), &UdpAggregator::OutputThroughput, this);
   
   // 初始化翻台计数相关变量
   m_total_turnover = 0;
@@ -350,6 +384,9 @@ if (m_socket_for_up.empty() && switch_level !=0)
   Simulator::Schedule(Seconds(1.0), &UdpAggregator::outputthrought, this);
    
   endkey = 0;
+
+  // Schedule the onofftimewindow to be set to 1 at 10 microseconds
+  Simulator::Schedule(MicroSeconds(10), &UdpAggregator::SetOnoffTimeWindow, this);
 }
 
 void 
@@ -373,6 +410,15 @@ UdpAggregator::StopApplication ()
   // 关闭翻台率日志文件
   if (m_turnover_log.is_open()) {
     m_turnover_log.close();
+  }
+  
+  // 关闭吞吐量日志文件
+  if (m_throughputLog.is_open()) {
+    // 写入最终统计
+    m_throughputLog << "# 最终统计：总共聚合包数 = " << m_aggregatedPackets << std::endl;
+    m_throughputLog.flush();
+    m_throughputLog.close();
+    std::cout << "Throughput log file closed." << std::endl;
   }
 }
 
@@ -703,7 +749,7 @@ UdpAggregator::HandleRead (Ptr<Socket> socket)
             broadcast(socket,packet,app_id,recv_key, is_bpAggr, isCollision, syn_urgent, set_ecn);
           }else{
             upload(packet,app_id,recv_key, is_bpAggr, syn_urgent);
-            if (onofftimewindow) cleanaggregator(app_id, recv_key);
+            // if (onofftimewindow) cleanaggregator(app_id, recv_key);
           }
         }
       }
@@ -882,7 +928,7 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
             // std::cout << "debug unused update" << index << std::endl;
             // 检测翻台事件 
             if (record_aggr[index] == 1) {
-                std::cout << "debug turnover" << std::endl;
+                // std::cout << "debug turnover" << std::endl;
                 auto last_pair = m_last_key[index];
                 if (last_pair.second != key) {
                     // 发生了翻台 - 增加计数
@@ -892,19 +938,19 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
                     // 记录翻台事件到日志，包含精确时间戳
                     long long currentTime = (Simulator::Now().GetSeconds() - 2) * (long long)1000000000;
                     
-                    if (Simulator::Now().GetSeconds() <= 2.000010)
+                    if (Simulator::Now().GetSeconds() <= 2.000020)
                       m_turnover_log << std::fixed << std::setprecision(9) 
                                   << currentTime << " " 
                                   << index << " " 
                                   << last_pair.first << " -> " << appid << " " 
                                   << last_pair.second << " -> " << key << std::endl;
                     
-                    std::cout << "[翻台] 时间=" << currentTime
-                              << " 聚合器=" << index 
-                              << " 从[App=" << last_pair.first 
-                              << ", Key=" << last_pair.second
-                              << "] 变为 [App=" << appid
-                              << ", Key=" << key << "]" << std::endl;
+                    // std::cout << "[翻台] 时间=" << currentTime
+                    //           << " 聚合器=" << index 
+                    //           << " 从[App=" << last_pair.first 
+                    //           << ", Key=" << last_pair.second
+                    //           << "] 变为 [App=" << appid
+                    //           << ", Key=" << key << "]" << std::endl;
                 }
             }
             
@@ -949,6 +995,8 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
     if(bitmap[index][hostid]==false){
         bitmap[index][hostid] = true;
         count_pkt[index]++;
+        // 增加聚合包计数
+        m_aggregatedPackets++;
 
         if(count_pkt[index]== hostnum){
             if (onofftimewindow) {
@@ -1044,12 +1092,17 @@ UdpAggregator::LoadCachedSamples() {
     }
 }
 void 
-UdpAggregator::ForceFlush(uint16_t appid, uint32_t key) {
+UdpAggregator::ForceFlush(uint16_t appid, uint32_t key)
+{
+    // std::cout <<"ForceFlush called for appid: " << appid << " key: " << key 
+    //             << " after " << (Simulator::Now() - m_units[appid][key].startTime).GetSeconds() 
+    //             << " seconds" << std::endl;
+
     auto& appMap = m_units[appid];
     if (appMap.find(key) == appMap.end()) return;
 
     AggregatorUnit& unit = appMap[key];
-    if (unit.isFlushing) return;
+    // if (unit.isFlushing) return;
 
     uint32_t index = app_and_key_to_bitmap_index[appid][key];
     if (appid == 1) {
@@ -1057,7 +1110,7 @@ UdpAggregator::ForceFlush(uint16_t appid, uint32_t key) {
     }
 
     upload(unit.mergedPacket, appid, key, 0, 0);
-    unit.isFlushing = true;
+    // unit.isFlushing = true;
     app_and_key_forwarded[appid][key] = 1;
     cleanaggregator(appid, key);
 }
@@ -1163,6 +1216,10 @@ UdpAggregator::upload(Ptr<Packet> packet,uint16_t appid, uint32_t key, uint8_t i
     tmp_header.SetbpAggr(is_bpAggr);
     tmp_header.SetDelta(syn_urgent);
     uint32_t index = app_and_key_to_bitmap_index[appid][key];
+    
+    // 增加聚合包计数 - 将完成的聚合组中的包数累加到总计数
+    m_aggregatedPackets += count_pkt[index];
+    
     tmp_header.SetTotal(count_pkt[index]);
     tmp_header.SetMerged(1);
 
@@ -1279,8 +1336,8 @@ UdpAggregator::outputthrought()
       // std::cout << "  聚合器 " << aggregatorId << ": " << turnoverCount << " 次翻台" << std::endl;
   }
   std::sort(tmp.begin(), tmp.end());
-  for (auto [x, y] : tmp)
-    std::cout << "  聚合器 " << y << ": " << x << " 次翻台" << std::endl;
+  // for (auto [x, y] : tmp)
+  //   std::cout << "  聚合器 " << y << ": " << x << " 次翻台" << std::endl;
   // 输出每个应用的平均翻台率
   // std::cout << "应用平均翻台率:" << std::endl;
   // for (const auto& pair : appTurnoverCount) {
@@ -1300,7 +1357,7 @@ UdpAggregator::outputthrought()
   
   minspace = 0;
   // 每秒钟更新一次统计信息
-  Simulator::Schedule (Seconds(0.01), &UdpAggregator::outputthrought, this);
+  Simulator::Schedule (Seconds(1), &UdpAggregator::outputthrought, this);
 }
 
 bool 
@@ -1386,8 +1443,84 @@ UdpAggregator::setremotes(std::vector<Address> address, std::vector<uint16_t> po
 void 
 UdpAggregator::SetProtocolName(const std::string& name)
 {
+  // 如果已经打开日志文件，先关闭它
+  if (m_throughputLog.is_open()) {
+    m_throughputLog.close();
+  }
+  
+  // 设置新的协议名
   m_protocol_name = name;
-  NS_LOG_INFO("Protocol name set to: " << m_protocol_name);
+  
+  // 重新打开基于新协议名的日志文件
+  std::string throughputFileName = m_protocol_name + "_aggr_rate.log";
+  m_throughputLog.open(throughputFileName.c_str(), std::ios::trunc);
+  if (m_throughputLog.is_open()) {
+    // m_throughputLog << "# 时间(微秒) 聚合吞吐量(包/微秒) 累计聚合包数" << std::endl;
+  }
+  
+  // 重置计数
+  m_aggregatedPackets = 0;
+  m_lastThroughputTime = Simulator::Now();
+  
+  NS_LOG_INFO("Protocol name set to: " << m_protocol_name << ", opened log file: " << throughputFileName);
+}
+
+// Add this member function to set onofftimewindow
+void UdpAggregator::SetOnoffTimeWindow() {
+  // this->onofftimewindow = 1;
+  // std::cout << "turn timewindow 1" << "\n";
+  NS_LOG_INFO("onofftimewindow set to 1 at 10 microseconds");
+}
+
+// 添加实时吞吐量监控函数
+void
+UdpAggregator::OutputThroughput()
+{
+  Time now = Simulator::Now();
+  Time interval = now - m_lastThroughputTime;
+  
+  // 计算这个时间间隔内的聚合吞吐量 (包/微秒)
+  double throughput = 0;
+  if (interval.GetMicroSeconds() > 0) {
+    throughput = static_cast<double>(m_aggregatedPackets) / interval.GetMicroSeconds();
+  }
+  
+  // 输出到日志文件
+  if (m_throughputLog.is_open()) {
+
+  if (now.GetSeconds() >= 2 && now.GetSeconds() < 3) {
+    m_throughputLog << now.GetMicroSeconds() << " " << throughput << " " << m_aggregatedPackets << std::endl;
+    m_throughputLog.flush(); // 立即刷新缓冲区，确保数据写入文件
+
+  }
+    
+    // 检查文件状态
+    if (m_throughputLog.fail()) {
+      std::cerr << "Error writing to throughput log file!" << std::endl;
+      m_throughputLog.clear(); // 清除错误状态
+    }
+  } else {
+    std::cerr << "Throughput log file is not open! Trying to re-open..." << std::endl;
+    // 尝试重新打开
+    std::string throughputFileName = m_protocol_name + "_aggr_rate.log";
+    m_throughputLog.open(throughputFileName.c_str(), std::ios::trunc);
+    if (m_throughputLog.is_open()) {
+      std::cout << "Successfully reopened log file: " << throughputFileName << std::endl;
+    } else {
+      std::cerr << "Failed to reopen log file!" << std::endl;
+    }
+  }
+  
+  // 输出到控制台
+  std::cout << "Aggregation throughput at " << now.GetMicroSeconds() 
+            << "us: " << throughput << " packets/us (total: " << m_aggregatedPackets << ")" << std::endl;
+  
+  // 不重置计数器，改为累积计数
+  // m_aggregatedPackets = 0;
+  m_lastThroughputTime = now;
+  
+  // 继续调度，每100微秒输出一次
+  Simulator::Schedule(MicroSeconds(100), &UdpAggregator::OutputThroughput, this);
 }
 
 } // Namespace ns3
