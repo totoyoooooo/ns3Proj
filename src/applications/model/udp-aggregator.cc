@@ -50,7 +50,7 @@
 
 #define LYJ_SAATP 0
 #define LYJ_SAATP_RATE 0
-
+using namespace std;
 namespace ns3 {
 
 NS_LOG_COMPONENT_DEFINE ("UdpAggregatorApplication");
@@ -595,7 +595,6 @@ UdpAggregator::HandleRead (Ptr<Socket> socket)
       uint8_t is_bpAggr = tmp_header.GetbpAggr();
       uint32_t syn_urgent = tmp_header.GetDelta();
       uint8_t set_ecn = tmp_header.GetMACK();
-
       // 只处理非背景流量的包
       if (!is_bpAggr && !isAck) {  // 如果不是背景聚合流量且不是ACK
         m_observedHosts[app_id].insert(recv_id);
@@ -753,10 +752,13 @@ UdpAggregator::initmem (uint32_t size, uint16_t host)
         idx_appid[i] = 65534;
         start_time_index[i] = -1;
     }
-
-    for (int i = 0; i < pool_size; i += 50) {
+   for (int i = 0; i < pool_size; i ++) {
       record_aggr[i] = 1;
     }
+    // for (int i = 0; i < pool_size; i += 50) {
+    //   record_aggr[i] = 1;
+    // }
+    // record_aggr[340] = 1;
     // for (int i = pool_size - 10; i < pool_size; i ++) {
     //   record_aggr[i] = 1;
     // }
@@ -774,7 +776,24 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
     if (appid == 1){
         NS_LOG_INFO("Aggregating packet for app1: host=" << (int)hostid << " key=" << key);
     }
-    
+    if (onofftimewindow && hasForwarded(appid, key)) {
+      SwitchHeader tmp_header;
+       tmp_header.SetKey (key); //set the key in header
+       tmp_header.SetHostid(hostid);
+       tmp_header.SetHostnum(hostnum);
+       tmp_header.SetACK(0);
+       tmp_header.SetCollision(0);
+       tmp_header.SetAppID(appid);
+       tmp_header.SetDelta(syn_urgent);
+       tmp_header.SetTotal(1);
+       tmp_header.SetMerged(0);
+       
+       packet->AddHeader(tmp_header);
+       m_forwarded+=1;
+       m_timeout_forwarded+=1;
+       m_socket_for_up[appid]->Send (packet);
+       return false;
+     }
     if(isexist(appid,key)){ // already exist
         index = app_and_key_to_bitmap_index[appid][key];
     }else{ // need to allocate new index
@@ -871,12 +890,14 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
                     m_total_turnover++;
                     
                     // 记录翻台事件到日志，包含精确时间戳
-                    double currentTime = Simulator::Now().GetSeconds();
-                    m_turnover_log << std::fixed << std::setprecision(9) 
+                    long long currentTime = (Simulator::Now().GetSeconds() - 2) * (long long)1000000000;
+                    
+                    if (Simulator::Now().GetSeconds() <= 2.000010)
+                      m_turnover_log << std::fixed << std::setprecision(9) 
                                   << currentTime << " " 
                                   << index << " " 
-                                  << last_pair.first << "->" << appid << " " 
-                                  << last_pair.second << "->" << key << std::endl;
+                                  << last_pair.first << " -> " << appid << " " 
+                                  << last_pair.second << " -> " << key << std::endl;
                     
                     std::cout << "[翻台] 时间=" << currentTime
                               << " 聚合器=" << index 
@@ -1080,7 +1101,7 @@ UdpAggregator::cleanaggregator(uint16_t appid, uint32_t key)
     start_time_index[index] = -1;
 
     // 清除m_last_key中的记录，避免释放后的索引被错误地计入翻台次数
-    m_last_key.erase(index);
+    // m_last_key.erase(index);
 
     if (appid == 1) {
         NS_LOG_INFO("Cleaned aggregator for app1 key " << key);
@@ -1106,9 +1127,6 @@ UdpAggregator::broadcast(Ptr<Socket> socket,Ptr<Packet> packet,uint16_t appid, u
     tmp_header.SetCollision(is_Col);
     tmp_header.SetMACK(set_ecn);
     packet->AddHeader(tmp_header);
-
-
-
 
     // socket->SendTo  (packet, 0, from);
     int numhost = 0;
@@ -1245,10 +1263,11 @@ UdpAggregator::outputthrought()
   std::map<uint16_t, uint32_t> appTurnoverCount;
   std::map<uint16_t, uint32_t> appAggregatorCount;
   
+  vector<pair<int, int>> tmp;
   for (const auto& pair : m_turnover_count) {
       uint32_t aggregatorId = pair.first;
       uint32_t turnoverCount = pair.second;
-      
+      tmp.push_back({turnoverCount, aggregatorId});
       // 获取聚合器当前的应用ID
       if (idx_appid[aggregatorId] < 10) {
           uint16_t appId = idx_appid[aggregatorId];
@@ -1257,9 +1276,11 @@ UdpAggregator::outputthrought()
       }
       
       // 输出每个聚合器的翻台次数
-      std::cout << "  聚合器 " << aggregatorId << ": " << turnoverCount << " 次翻台" << std::endl;
+      // std::cout << "  聚合器 " << aggregatorId << ": " << turnoverCount << " 次翻台" << std::endl;
   }
-  
+  std::sort(tmp.begin(), tmp.end());
+  for (auto [x, y] : tmp)
+    std::cout << "  聚合器 " << y << ": " << x << " 次翻台" << std::endl;
   // 输出每个应用的平均翻台率
   // std::cout << "应用平均翻台率:" << std::endl;
   // for (const auto& pair : appTurnoverCount) {
