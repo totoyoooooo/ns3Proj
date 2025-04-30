@@ -177,6 +177,11 @@ UdpAggregator::StartApplication (void)
   collision_marking = 0;
   initmem(pool_size,max_host_num);
   
+  // 打印关键参数值
+  std::cout << "Starting UdpAggregator with timeWindow=" << m_timeWindow 
+            << "s, pool_size=" << pool_size 
+            << ", onofftimewindow=" << onofftimewindow << std::endl;
+  
   // 创建特定于协议的日志文件名
   std::string logFileName = "turnover_rate_" + m_protocol_name + ".log";
   // 以截断模式打开文件以清空旧内容
@@ -386,7 +391,8 @@ if (m_socket_for_up.empty() && switch_level !=0)
   endkey = 0;
 
   // Schedule the onofftimewindow to be set to 1 at 10 microseconds
-  Simulator::Schedule(MicroSeconds(10), &UdpAggregator::SetOnoffTimeWindow, this);
+  Simulator::Schedule(Seconds(0.000010), &UdpAggregator::SetOnoffTimeWindow, this);
+  // Simulator::Schedule(MicroSeconds(100000000), &UdpAggregator::SetOnoffTimeWindow, this);
 }
 
 void 
@@ -842,6 +848,28 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
      }
     if(isexist(appid,key)){ // already exist
         index = app_and_key_to_bitmap_index[appid][key];
+        
+        // 10us后到达的包，对已存在的聚合器设置计时器
+        if (onofftimewindow && Simulator::Now().GetMicroSeconds() >= 10) {
+            // std::cout << m_units[appid][key].timerEnabled << "debug\n";
+            if (!m_units[appid][key].timerEnabled) {
+                AggregatorUnit& unit = m_units[appid][key];
+                unit.timerEnabled = true;
+                unit.mergedPacket = packet->Copy();
+                unit.startTime = Simulator::Now();
+                // 设置计时器并确保timeWindow值合理
+                double currentT = m_timeWindow;
+                
+                unit.timer = Simulator::Schedule(Seconds(currentT),
+                            &UdpAggregator::ForceFlush, this, appid, key);
+                std::cout << "Timer set for appid=" << appid << " key=" << key 
+                          << " at time=" << Simulator::Now().GetMicroSeconds() 
+                          << "us with timeout=" << currentT << "s" << std::endl;
+            }
+            
+            
+        
+        }
     }else{ // need to allocate new index
         if (iskicked(appid,key)){
             // 检查指定的应用和键是否已被踢出聚合池
@@ -938,7 +966,7 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
                     // 记录翻台事件到日志，包含精确时间戳
                     long long currentTime = (Simulator::Now().GetSeconds() - 2) * (long long)1000000000;
                     
-                    if (Simulator::Now().GetSeconds() <= 2.000020)
+                    if (Simulator::Now().GetSeconds() <= 2.000100)
                       m_turnover_log << std::fixed << std::setprecision(9) 
                                   << currentTime << " " 
                                   << index << " " 
@@ -959,26 +987,22 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
             
             updateindexmap(appid,key,index);
             idx_appid[index] = appid;
-            AggregatorUnit& unit = m_units[appid][key];
-             unit.mergedPacket = packet->Copy();
-             unit.startTime = Simulator::Now();
-            //  std::cout << onofftimewindow << "\n";
-            //  if (onofftimewindow) 
-            //      unit.timer = Simulator::Schedule(Seconds(m_timeWindow),
-            //                &UdpAggregator:: ForceFlush, this, appid, key);
-             if (onofftimewindow) {
-              double currentT = m_timeWindow;
-              
-              // double currentT = m_currentT.count(appid) ? m_currentT[appid] : m_timeWindow;
-              // std::cout << "m_timewindow" << currentT << std::endl;
-              // unit.timer = Simulator::Schedule(Seconds(currentT),
-              //               &UdpAggregator::ForceFlush, this, appid, key);
-
-              unit.timer = Simulator::Schedule(Seconds(currentT),
+            
+            if (onofftimewindow ) {
+                AggregatorUnit& unit = m_units[appid][key];
+                unit.mergedPacket = packet->Copy();
+                unit.startTime = Simulator::Now();
+                
+                // 设置新的计时器
+                unit.timerEnabled = true;
+                unit.timer = Simulator::Schedule(Seconds(m_timeWindow),
                             &UdpAggregator::ForceFlush, this, appid, key);
-             }
-            // key_to_bitmap_index.insert(std::pair<uint32_t, uint32_t>(key,index));
-            //get time
+                
+                // std::cout << "New aggregator timer set for appid=" << appid << " key=" << key 
+                //           << " at time=" << Simulator::Now().GetMicroSeconds() 
+                //           << "us with timeout=" << currentT << "s" << std::endl;
+            } 
+            
             if (unused.size() > minspace) minspace = unused.size();
             UDPecn tag;
     
@@ -999,7 +1023,9 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
         m_aggregatedPackets++;
 
         if(count_pkt[index]== hostnum){
+            // 当聚合完成时
             if (onofftimewindow) {
+                // 检查是否有计时器
                 if (m_units[appid].count(key)) {
                     Simulator::Cancel(m_units[appid][key].timer);
                     m_units[appid].erase(key);
@@ -1094,9 +1120,9 @@ UdpAggregator::LoadCachedSamples() {
 void 
 UdpAggregator::ForceFlush(uint16_t appid, uint32_t key)
 {
-    // std::cout <<"ForceFlush called for appid: " << appid << " key: " << key 
-    //             << " after " << (Simulator::Now() - m_units[appid][key].startTime).GetSeconds() 
-    //             << " seconds" << std::endl;
+    std::cout <<"ForceFlush called for appid: " << appid << " key: " << key 
+                << " after " << (Simulator::Now() - m_units[appid][key].startTime).GetSeconds() 
+                << " seconds" << std::endl;
 
     auto& appMap = m_units[appid];
     if (appMap.find(key) == appMap.end()) return;
@@ -1467,8 +1493,8 @@ UdpAggregator::SetProtocolName(const std::string& name)
 
 // Add this member function to set onofftimewindow
 void UdpAggregator::SetOnoffTimeWindow() {
-  // this->onofftimewindow = 1;
-  // std::cout << "turn timewindow 1" << "\n";
+  this->onofftimewindow = 1;
+  std::cout << "turn timewindow 1" << "\n";
   NS_LOG_INFO("onofftimewindow set to 1 at 10 microseconds");
 }
 
@@ -1488,7 +1514,7 @@ UdpAggregator::OutputThroughput()
   // 输出到日志文件
   if (m_throughputLog.is_open()) {
 
-  if (now.GetSeconds() >= 2 && now.GetSeconds() < 3) {
+  if (now.GetSeconds() >= 2 && now.GetSeconds() <= 2.01) {
     m_throughputLog << now.GetMicroSeconds() << " " << throughput << " " << m_aggregatedPackets << std::endl;
     m_throughputLog.flush(); // 立即刷新缓冲区，确保数据写入文件
 
@@ -1512,15 +1538,16 @@ UdpAggregator::OutputThroughput()
   }
   
   // 输出到控制台
-  std::cout << "Aggregation throughput at " << now.GetMicroSeconds() 
-            << "us: " << throughput << " packets/us (total: " << m_aggregatedPackets << ")" << std::endl;
+  // if (now.GetSeconds() >= 2 && now.GetSeconds() <= 2.001)
+  // std::cout << "Aggregation throughput at " << now.GetMicroSeconds() 
+  //           << "us: " << throughput << " packets/us (total: " << m_aggregatedPackets << ")" << std::endl;
   
   // 不重置计数器，改为累积计数
   // m_aggregatedPackets = 0;
   m_lastThroughputTime = now;
   
   // 继续调度，每100微秒输出一次
-  Simulator::Schedule(MicroSeconds(100), &UdpAggregator::OutputThroughput, this);
+  Simulator::Schedule(MicroSeconds(1), &UdpAggregator::OutputThroughput, this);
 }
 
 } // Namespace ns3

@@ -107,6 +107,7 @@
     Time startTime;       // 聚合开始时间
     bool isFlushing = false; // 防重入标志
     Ptr<Packet> mergedPacket; // 合并后的数据包
+    bool timerEnabled = false; // 标记是否已经开启过计时器
   };
   std::map<uint16_t, std::map<uint32_t, AggregatorUnit>> m_units; 
   double m_timeWindow;    // 聚合时间窗口
