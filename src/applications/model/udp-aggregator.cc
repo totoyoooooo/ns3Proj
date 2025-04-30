@@ -391,7 +391,7 @@ if (m_socket_for_up.empty() && switch_level !=0)
   endkey = 0;
 
   // Schedule the onofftimewindow to be set to 1 at 10 microseconds
-  Simulator::Schedule(Seconds(0.000010), &UdpAggregator::SetOnoffTimeWindow, this);
+  Simulator::Schedule(Seconds(1.000010), &UdpAggregator::SetOnoffTimeWindow, this);
   // Simulator::Schedule(MicroSeconds(100000000), &UdpAggregator::SetOnoffTimeWindow, this);
 }
 
@@ -1000,7 +1000,7 @@ UdpAggregator::aggregate_pkt(uint16_t appid, uint32_t key, uint8_t hostid, uint8
                 
                 // std::cout << "New aggregator timer set for appid=" << appid << " key=" << key 
                 //           << " at time=" << Simulator::Now().GetMicroSeconds() 
-                //           << "us with timeout=" << currentT << "s" << std::endl;
+                //            << "s" << std::endl;
             } 
             
             if (unused.size() > minspace) minspace = unused.size();
@@ -1494,7 +1494,7 @@ UdpAggregator::SetProtocolName(const std::string& name)
 // Add this member function to set onofftimewindow
 void UdpAggregator::SetOnoffTimeWindow() {
   this->onofftimewindow = 1;
-  std::cout << "turn timewindow 1" << "\n";
+  std::cout << "turn timewindow 1 at " << Simulator::Now().GetSeconds() << "\n";
   NS_LOG_INFO("onofftimewindow set to 1 at 10 microseconds");
 }
 
