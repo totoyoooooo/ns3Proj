@@ -523,6 +523,7 @@ main (int argc, char *argv[])
     
     UdpPsHelper PSer (psudport[ps_node]);
     PSer.SetAttribute ("Toalworker",UintegerValue(workernum));
+    PSer.SetAttribute ("ConfigPath", StringValue(configpath));
     ApplicationContainer PsApps = PSer.Install (nodes.Get(ps_node));
     PsApps.Start (Seconds (1.0));
     PsApps.Stop (Seconds (50.0));
@@ -558,8 +559,8 @@ main (int argc, char *argv[])
       workers.SetAttribute ("MaxPackets", UintegerValue (max_count));
       workers.SetAttribute ("Interval", TimeValue (Seconds (interval)));
       workers.SetAttribute ("PacketSize", UintegerValue (256));
-      // workers.SetAttribute ("Maxbytes", UintegerValue (model_size*1000000));
-      workers.SetAttribute ("Maxbytes", UintegerValue (model_size*10000));
+      workers.SetAttribute ("Maxbytes", UintegerValue (model_size*1000000));
+      // workers.SetAttribute ("Maxbytes", UintegerValue (model_size*10000));
       workers.SetAttribute ("CWND", UintegerValue (accwnd));
       workers.SetAttribute ("MAXCWND", UintegerValue (accwnd));
       workers.SetAttribute ("Host_number",UintegerValue(workernum));

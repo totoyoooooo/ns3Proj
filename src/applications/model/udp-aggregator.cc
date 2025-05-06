@@ -391,8 +391,7 @@ if (m_socket_for_up.empty() && switch_level !=0)
   endkey = 0;
 
   // Schedule the onofftimewindow to be set to 1 at 10 microseconds
-  Simulator::Schedule(Seconds(1.000010), &UdpAggregator::SetOnoffTimeWindow, this);
-  // Simulator::Schedule(MicroSeconds(100000000), &UdpAggregator::SetOnoffTimeWindow, this);
+  // Simulator::Schedule(Seconds(1.000010), &UdpAggregator::SetOnoffTimeWindow, this);
 }
 
 void 
@@ -1120,9 +1119,9 @@ UdpAggregator::LoadCachedSamples() {
 void 
 UdpAggregator::ForceFlush(uint16_t appid, uint32_t key)
 {
-    std::cout <<"ForceFlush called for appid: " << appid << " key: " << key 
-                << " after " << (Simulator::Now() - m_units[appid][key].startTime).GetSeconds() 
-                << " seconds" << std::endl;
+    // std::cout <<"ForceFlush called for appid: " << appid << " key: " << key 
+    //             << " after " << (Simulator::Now() - m_units[appid][key].startTime).GetSeconds() 
+    //             << " seconds" << std::endl;
 
     auto& appMap = m_units[appid];
     if (appMap.find(key) == appMap.end()) return;

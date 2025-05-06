@@ -29,7 +29,10 @@
 #include "ns3/socket-factory.h"
 #include "ns3/packet.h"
 #include "ns3/uinteger.h"
-
+#include "ns3/string.h"
+#include <fstream>
+#include <sstream>
+#include <string>
 #include "udp-ps.h"
 #include "udp_switchml_header.h"
 
@@ -60,6 +63,10 @@ UdpPs::GetTypeId (void)
                    UintegerValue (1),
                    MakeUintegerAccessor (&UdpPs::total_worker),
                    MakeUintegerChecker<uint32_t> ())
+    .AddAttribute ("ConfigPath", "Path to the configuration file",
+                   StringValue (""),
+                   MakeStringAccessor (&UdpPs::m_configPath),
+                   MakeStringChecker ())
   ;
   return tid;
 }
@@ -67,6 +74,7 @@ UdpPs::GetTypeId (void)
 UdpPs::UdpPs ()
 {
   NS_LOG_FUNCTION (this);
+  m_configPath = "";
 }
 
 UdpPs::~UdpPs()
@@ -81,6 +89,25 @@ UdpPs::DoDispose (void)
 {
   NS_LOG_FUNCTION (this);
   Application::DoDispose ();
+}
+
+// Helper function to extract protocol name from config path
+std::string ExtractProtocolName(const std::string& configPath) {
+  // For paths like "./lzy_mix/config/testatp.txt" or "./lzy_mix/config/testa2tp.txt"
+  size_t lastSlash = configPath.find_last_of("/\\");
+  if (lastSlash != std::string::npos) {
+    std::string filename = configPath.substr(lastSlash + 1);
+    if (filename.find("test") == 0) {
+      // Remove "test" prefix and ".txt" suffix
+      std::string protocol = filename.substr(4);
+      size_t dotPos = protocol.find(".txt");
+      if (dotPos != std::string::npos) {
+        return protocol.substr(0, dotPos);
+      }
+      return protocol;
+    }
+  }
+  return "unknown";
 }
 
 void 
@@ -143,9 +170,22 @@ UdpPs::StartApplication (void)
   m_totalMerged = 0;
   mergetimes = 0;
   mx = 0;
-  //outputthrought();
-  Simulator::Schedule(Seconds(1.0), &UdpPs::outputthrought, this);
+
+  // Debug output
+  std::cout << "Debug - Config path value: " << m_configPath << std::endl;
+  
+  // Open output file using protocol name from config path
+  std::string protocolName = ExtractProtocolName(m_configPath);
+  std::string filename = "PS_" + protocolName + ".txt";
+  m_outputFile.open(filename.c_str(), std::ios::out | std::ios::trunc);
+  if (!m_outputFile.is_open())
+    {
+      NS_FATAL_ERROR ("Failed to open output file " << filename);
+    }
+
+  Simulator::Schedule(Seconds(0.001), &UdpPs::outputthrought, this);
 }
+
 void 
 UdpPs::StopApplication ()
 {
@@ -160,6 +200,12 @@ UdpPs::StopApplication ()
     {
       m_socket6->Close ();
       m_socket6->SetRecvCallback (MakeNullCallback<void, Ptr<Socket> > ());
+    }
+  
+  // Close output file
+  if (m_outputFile.is_open())
+    {
+      m_outputFile.close();
     }
 }
 
@@ -321,24 +367,36 @@ UdpPs::update_ecn(uint32_t key, uint8_t ecnmark)
 void 
 UdpPs::outputthrought()
 {
-  std::cout << "[" << Simulator::Now().As(Time::S) 
-  << "] Total Received: " << m_received
-  << " Merged Sum: " << m_totalMerged 
-  << " mergetimes:" << mergetimes 
-  << " ans:" << m_totalMerged - mergetimes 
-  << std::endl;
+  std::stringstream output;
+  output << "[" << Simulator::Now().As(Time::S) 
+         << "] Total Received: " << m_received
+         << " Merged Sum: " << m_totalMerged 
+         << " mergetimes:" << mergetimes 
+         << " ans:" << m_totalMerged - mergetimes 
+         << std::endl;
 
-  std::cout << "finish_time " << totalTime.As(Time::S) << " total="<< mx <<  std::endl;
-  // std::cout << mp[0].size() << " " << mp[1].size() << " " << mp[2].size() << '\n';
+  // Write to both console and file
+  Time now = Simulator::Now();
+  if (now.GetSeconds() >= 2 && now.GetSeconds() <= 2.01) {
+  std::cout << output.str();
+  if (m_outputFile.is_open())
+    {
+      m_outputFile << output.str();
+      m_outputFile.flush();
+    }
 
-  // std::cout << merge[0].size() << " " << merge[1].size() << " " << merge[2].size() << '\n';
-  // for (auto x : mp[0]) if (x.second != 8) std:: cout << x.second << " ";
-  Simulator::Schedule(Seconds(1.0), &UdpPs::outputthrought, this);
-  // double rates =  (double )m_count_sent * 256 /1000/1000* 8*10000;
-  // //std::cout<<"count"<<m_count_sent<<std::endl;
-  // if(rates>0) std::cout<<"thrtime "<<Simulator::Now ().As (Time::S)<< " aggreate throughput "<< rates  <<" Mbps "<<std::endl;
-  // m_count_sent = 0;
-  //Simulator::Schedule (Seconds(0.0001), &UdpPs::outputthrought, this);
+  output.str("");
+  output << "finish_time " << totalTime.As(Time::S) << " total=" << mx << std::endl;
+  
+  std::cout << output.str();
+  
+  if (m_outputFile.is_open())
+    {
+      m_outputFile << output.str();
+      m_outputFile.flush();
+    }
+  }
+  Simulator::Schedule(Seconds(0.001), &UdpPs::outputthrought, this);
 }
 
 } // Namespace ns3

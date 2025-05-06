@@ -24,6 +24,8 @@
  #include "ns3/ptr.h"
  #include "ns3/address.h"
  #include "ns3/traced-callback.h"
+ #include <fstream>
+ #include <string>
  
  namespace ns3 {
  
@@ -73,6 +75,8 @@
    Ptr<Socket> m_socket; //!< IPv4 Socket
    Ptr<Socket> m_socket6; //!< IPv6 Socket
    Address m_local; //!< local multicast address
+   std::string m_configPath; //!< Path to config file
+   std::ofstream m_outputFile; //!< Output file stream
    uint64_t m_totalReceived;   // 总接收包数（所有包的total累加）
    uint64_t m_totalMerged;     // 合并包数（isMerged=1的total累加）
    uint32_t mergetimes;
