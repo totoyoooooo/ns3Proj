@@ -127,18 +127,66 @@ for tail in "${TAIL_INTENSITIES[@]}"; do
                 echo "模拟成功完成"
             fi
             
-            # 从输出文件中提取完成时间和吞吐量
-            FINISH_TIME=$(grep "finish_time" "$OUTPUT_FILE" | tail -n 1 | awk '{print $2}')
-            THROUGHPUT=$(grep "aggreate throughput" "$OUTPUT_FILE" | tail -n 1 | awk '{print $4}')
-            
-            # 如果没有找到吞吐量数据，则尝试另一种方式提取
-            if [ -z "$THROUGHPUT" ]; then
-                THROUGHPUT=$(grep "ans:" "$OUTPUT_FILE" | tail -n 1 | awk '{print $6}')
+            # 提取完成时间（增强容错）
+            # 从 "finish_time +X.XXXs total=Y" 格式中提取时间部分
+            FINISH_TIME=$(grep "finish_time" "$OUTPUT_FILE" | tail -n 1 | awk -F'[ +]' '{if (NF >=2) print $3; else print "N/A"}' | sed 's/s$//')
+
+            echo "提取到的完成时间: $FINISH_TIME"
+
+            # 调试：打印吞吐量相关行
+            echo "调试: 查看吞吐量相关行"
+            grep -i "APP.*throughput" "$OUTPUT_FILE" | tail -5
+
+            # 分析原始行格式确定列位置
+            echo "分析第一行格式..."
+            first_line=$(grep -i "APP.*throughput" "$OUTPUT_FILE" | head -1)
+            echo "样本行: $first_line"
+            # 提取 "aggregate throughput" 后面的数值列
+            column_index=$(echo "$first_line" | awk '{for(i=1;i<=NF;i++) if($i=="throughput") print i+1}')
+            echo "吞吐量值所在列: $column_index"
+
+            # 提取稳定阶段(超过2秒)后的吞吐量值并计算平均值
+            echo "尝试提取吞吐量值..."
+            throughputs=$(grep -i "APP.*aggregate throughput" "$OUTPUT_FILE" | awk -v col="$column_index" '
+            {
+                # 提取时间（去掉+和s）
+                time_str = $4;
+                gsub(/\+|s/, "", time_str);
+                time = time_str + 0;
+                
+                # 检查时间是否大于2秒（稳定阶段）且值有效
+                if (time > 2.0 && $(col) != "" && $(col) ~ /^[0-9]+(\.[0-9]+)?$/) {
+                    print $(col);
+                }
+            }')
+
+            # 计算平均值（空数据时设为 N/A）
+            THROUGHPUT_AVG=$(echo "$throughputs" | awk '
+            {
+                sum += $1;
+                count++;
+            } 
+            END {
+                if (count > 0) {
+                    printf "%.4f", sum/count;
+                } else {
+                    print "N/A";  # 无有效数据时输出 N/A
+                }
+            }')
+
+            # 输出结果
+            echo "Stable Average Throughput: $THROUGHPUT_AVG Gbps"
+            echo "提取到的吞吐量值列表: $throughputs"
+            echo "有效吞吐量值数量: $(echo "$throughputs" | wc -l)"
+
+            # 验证是否为有效数字
+            if [[ ! "$THROUGHPUT_AVG" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+                echo "警告: 未能从$OUTPUT_FILE中提取有效的吞吐量数据，将使用N/A"
+                THROUGHPUT_AVG="N/A"
             fi
-            
+
             # 记录结果
-            echo "${protocol},${tail},${round},${FINISH_TIME:-N/A},${THROUGHPUT:-N/A}" >> $RESULTS_FILE
-            
+            echo "${protocol},${tail},${round},${FINISH_TIME:-N/A},${THROUGHPUT_AVG:-N/A}" >> "$RESULTS_FILE"
             # 等待几秒，确保系统资源释放
             sleep 2
         done
@@ -152,10 +200,14 @@ if [ -f "$RESULTS_FILE" ] && [ $(wc -l < "$RESULTS_FILE") -gt 1 ]; then
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+# 设置中文字体
+plt.rcParams['font.sans-serif'] = ['SimHei', 'DejaVu Sans']
+plt.rcParams['axes.unicode_minus'] = False
 import os
 
 # 读取结果
 try:
+
     df = pd.read_csv('$RESULTS_FILE')
     
     # 检查数据帧是否为空

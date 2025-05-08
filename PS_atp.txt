@@ -1,19 +1,22 @@
 [+2s] Total Received: 0 Merged Sum: 0 mergetimes:0 ans:0
 finish_time +0s total=0
-[+2.001s] Total Received: 4950 Merged Sum: 19800 mergetimes:4950 ans:14850
-finish_time +2.001s total=19800
-[+2.002s] Total Received: 9900 Merged Sum: 39600 mergetimes:9900 ans:29700
-finish_time +2.002s total=39600
-[+2.003s] Total Received: 14850 Merged Sum: 59400 mergetimes:14850 ans:44550
-finish_time +2.003s total=59400
-[+2.004s] Total Received: 19800 Merged Sum: 79200 mergetimes:19800 ans:59400
-finish_time +2.004s total=79200
-[+2.005s] Total Received: 24750 Merged Sum: 99000 mergetimes:24750 ans:74250
-finish_time +2.005s total=99000
-[+2.006s] Total Received: 29700 Merged Sum: 118800 mergetimes:29700 ans:89100
-finish_time +2.006s total=11880[+[+2.007s] Total Received: 34650 Merged Sum: 138600 mergetimes:34650 ans:103950
-finish_time +2.007s total=1386[+2[+2.008s] Total Received: 39600 Merged Sum: 158400 mergetimes:39600 ans:118800
-finish_time +2.008s total=15840[+[+2.009s] Total Received: 44550 Merged Sum: 178200 mergetimes:44550 ans:133650
-finish_time +2.009s total=178200[[+2.01s] Total Received: 49500 Merged Sum: 198000 mergetimes:49500 ans:148500
-finish_time +2.01s total=198000
-0
+[+2.001s] Total Received: 6156 Merged Sum: 24624 mergetimes:6156 ans:18468
+finish_time +2.001s total=24624
+[+2.002s] Total Received: 12350 Merged Sum: 49400 mergetimes:12350 ans:37050
+finish_time +2.002s total=49400
+[+2.003s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.004s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.005s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.006s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.007s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.008s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.009s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.01s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500

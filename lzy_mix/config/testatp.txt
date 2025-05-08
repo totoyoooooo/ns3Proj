@@ -8,8 +8,8 @@ MAX_CWND 100
 MAX_BUFFER 50000p
 ECN_THRE 4
 MAX_AGGR_POOL 450
-TOPO_FILE ./lzy_mix/topology/topology_large_high.txt
-JOB_FILE ./lzy_mix/job/large_jobs_high.txt
+TOPO_FILE ./lzy_mix/topology/topology_large_low.txt
+JOB_FILE ./lzy_mix/job/large_jobs_low.txt
 BGFLOW_FILE ./lzy_mix/bgflow_large.txt
 TRACE_FILE ./lzy_mix/lzytrace
 ENABLE_TRACE 0
