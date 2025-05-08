@@ -163,128 +163,171 @@ main (int argc, char *argv[])
   cmd.AddValue ("topology", "Topology file path", topologyFile);
   cmd.Parse (argc, argv);
   std::cout<<"config path "<<configpath<<std::endl;
+  std::cout<<"topology file from cmd line "<<topologyFile<<std::endl;
 
-  
+  bool topologyFromCmdLine = (topologyFile != "lzy_mix/topology/testtopo.txt");
 
   if (argc > 1) {
     std::ifstream conf;
     conf.open(configpath);
-		while (!conf.eof()){
-			std::string key;
-			conf >> key;
-			//std::cout << conf.cur << "\n";
+    
+    if (!conf.is_open()) {
+      std::cerr << "ERROR: Could not open config file: " << configpath << std::endl;
+      return 1;
+    }
+    
+    while (!conf.eof()){
+      std::string key;
+      conf >> key;
+      //std::cout << conf.cur << "\n";
 
-			if (key.compare("ENABLE_CC") == 0){
-				uint32_t v;
-				conf >> v;
-				onoffcc = v;
-				if (onoffcc)
-					std::cout << "ENABLE_CC\t" << "Yes" << "\n";
-				else
-					std::cout << "ENABLE_CC\t" << "No" << "\n";
-			}else if (key.compare("ENABLE_ASYCC") == 0){
-				uint32_t v;
-				conf >> v;
-				onoffasycc = v;
-				if (onoffasycc)
-					std::cout << "ENABLE_ASYCC\t" << "Yes" << "\n";
-				else
-					std::cout << "ENABLE_ASYCC\t" << "No" << "\n";
-			}else if (key.compare("ENABLE_LZYCC") == 0){
-				uint32_t v;
-				conf >> v;
-				onofflzycc = v;
-				if (onofflzycc)
-					std::cout << "ENABLE_LZYCC\t" << "Yes" << "\n";
-				else
-					std::cout << "ENABLE_LZYCC\t" << "No" << "\n";
-			}else if (key.compare("ENABLE_AWNDCC") == 0){
-				uint32_t v;
-				conf >> v;
-				onoffawndcc = v;
-				if (onoffawndcc)
-					std::cout << "ENABLE_AWNDCC\t" << "Yes" << "\n";
-				else
-					std::cout << "ENABLE_AWNDCC\t" << "No" << "\n";
-			}else if (key.compare("ENABLE_PS") == 0){
-				uint32_t v;
-				conf >> v;
-				onoffps = v;
-				if (onoffps)
-					std::cout << "ENABLE_PS\t" << "Yes" << "\n";
-				else
-					std::cout << "ENABLE_PS\t" << "No" << "\n";
-			}else if (key.compare("INIT_CWND") == 0){
-				uint32_t v;
-				conf >> v;
-				cwnd = v;
-				std::cout << "INIT_CWND\t" << cwnd << "\n";
-			}else if (key.compare("MAX_CWND") == 0){
-				uint32_t v;
-				conf >> v;
-				maxcwnd = v;
-				std::cout << "MAX_CWND\t" << maxcwnd << "\n";
-			}else if (key.compare("MAX_BUFFER") == 0){
-				std::string v;
-				conf >> v;
-				max_buffer = v;
-				std::cout << "MAX_BUFFER\t" << max_buffer << "\n";
-			}else if (key.compare("ECN_THRE") == 0){
-				uint32_t v;
-				conf >> v;
-				ecn_thre = v;
-				std::cout << "ECN_THRE\t" << ecn_thre << "\n";
-			}else if (key.compare("MAX_AGGR_POOL") == 0){
-				int v;
-				conf >> v;
-				max_pool_size = v;
-				std::cout << "MAX_AGGR_POOL\t" << max_pool_size << "\n";
-			}else if (key.compare("TOPO_FILE") == 0){
-				std::string v;
-				conf >> v;
-				topofile = v;
-				std::cout << "TOPO_FILE\t" << topofile << "\n";
-			}else if (key.compare("JOB_FILE") == 0){
-				std::string v;
-				conf >> v;
-				jobfile = v;
-				std::cout << "JOB_FILE\t" << jobfile << "\n";
-			}else if (key.compare("BGFLOW_FILE") == 0){
-				std::string v;
-				conf >> v;
-				bgflowfile = v;
-				std::cout << "BGFLOW_FILE\t" << bgflowfile << "\n";
-			}else if (key.compare("TRACE_FILE") == 0){
-				std::string v;
-				conf >> v;
-				trace_file = v;
-				std::cout << "TRACE_FILE\t" << trace_file << "\n";
+      if (key.compare("ENABLE_CC") == 0){
+        uint32_t v;
+        conf >> v;
+        onoffcc = v;
+        if (onoffcc)
+          std::cout << "ENABLE_CC\t" << "Yes" << "\n";
+        else
+          std::cout << "ENABLE_CC\t" << "No" << "\n";
+      }else if (key.compare("ENABLE_ASYCC") == 0){
+        uint32_t v;
+        conf >> v;
+        onoffasycc = v;
+        if (onoffasycc)
+          std::cout << "ENABLE_ASYCC\t" << "Yes" << "\n";
+        else
+          std::cout << "ENABLE_ASYCC\t" << "No" << "\n";
+      }else if (key.compare("ENABLE_LZYCC") == 0){
+        uint32_t v;
+        conf >> v;
+        onofflzycc = v;
+        if (onofflzycc)
+          std::cout << "ENABLE_LZYCC\t" << "Yes" << "\n";
+        else
+          std::cout << "ENABLE_LZYCC\t" << "No" << "\n";
+      }else if (key.compare("ENABLE_AWNDCC") == 0){
+        uint32_t v;
+        conf >> v;
+        onoffawndcc = v;
+        if (onoffawndcc)
+          std::cout << "ENABLE_AWNDCC\t" << "Yes" << "\n";
+        else
+          std::cout << "ENABLE_AWNDCC\t" << "No" << "\n";
+      }else if (key.compare("ENABLE_PS") == 0){
+        uint32_t v;
+        conf >> v;
+        onoffps = v;
+        if (onoffps)
+          std::cout << "ENABLE_PS\t" << "Yes" << "\n";
+        else
+          std::cout << "ENABLE_PS\t" << "No" << "\n";
+      }else if (key.compare("INIT_CWND") == 0){
+        uint32_t v;
+        conf >> v;
+        cwnd = v;
+        std::cout << "INIT_CWND\t" << cwnd << "\n";
+      }else if (key.compare("MAX_CWND") == 0){
+        uint32_t v;
+        conf >> v;
+        maxcwnd = v;
+        std::cout << "MAX_CWND\t" << maxcwnd << "\n";
+      }else if (key.compare("MAX_BUFFER") == 0){
+        std::string v;
+        conf >> v;
+        max_buffer = v;
+        std::cout << "MAX_BUFFER\t" << max_buffer << "\n";
+      }else if (key.compare("ECN_THRE") == 0){
+        uint32_t v;
+        conf >> v;
+        ecn_thre = v;
+        std::cout << "ECN_THRE\t" << ecn_thre << "\n";
+      }else if (key.compare("MAX_AGGR_POOL") == 0){
+        int v;
+        conf >> v;
+        max_pool_size = v;
+        std::cout << "MAX_AGGR_POOL\t" << max_pool_size << "\n";
+      }else if (key.compare("TOPO_FILE") == 0){
+        std::string v;
+        conf >> v;
+        topofile = v;
+        std::cout << "TOPO_FILE\t" << topofile << "\n";
+      }else if (key.compare("JOB_FILE") == 0){
+        std::string v;
+        conf >> v;
+        jobfile = v;
+        std::cout << "JOB_FILE\t" << jobfile << "\n";
+      }else if (key.compare("BGFLOW_FILE") == 0){
+        std::string v;
+        conf >> v;
+        bgflowfile = v;
+        std::cout << "BGFLOW_FILE\t" << bgflowfile << "\n";
+      }else if (key.compare("TRACE_FILE") == 0){
+        std::string v;
+        conf >> v;
+        trace_file = v;
+        std::cout << "TRACE_FILE\t" << trace_file << "\n";
       }else if (key.compare("ENABLE_TRACE") == 0){
-				int v;
-				conf >> v;
-				onofftrace = v;
-				std::cout << "ENABLE_TRACE\t" << onofftrace << "\n";
+        int v;
+        conf >> v;
+        onofftrace = v;
+        std::cout << "ENABLE_TRACE\t" << onofftrace << "\n";
       } else if (key.compare("ENABLE_TIMEWINDOW") == 0){
         int v;
-				conf >> v;
-				onofftimewindow = v;
-				std::cout << "ENABLE_TIMEWINDOW\t" << onofftimewindow << "\n";
+        conf >> v;
+        onofftimewindow = v;
+        std::cout << "ENABLE_TIMEWINDOW\t" << onofftimewindow << "\n";
       }
       
     }
+    conf.close();
   }
  
   
   //generate topo
-  std::cout << "Loading topology from: " << topologyFile << std::endl;
-  topof.open(topologyFile.c_str());
+  if (topologyFromCmdLine) {
+    // 如果命令行中指定了拓扑文件，则使用该文件
+    topofile = topologyFile;
+  }
+  
+  std::cout << "Loading topology from: " << topofile << std::endl;
+  topof.open(topofile.c_str());
   if (!topof.is_open()) {
-    std::cerr << "ERROR: Could not open topology file: " << topologyFile << std::endl;
+    std::cerr << "ERROR: Could not open topology file: " << topofile << std::endl;
     return 1;
   }
 
-  uint32_t node_num, switch_num, link_num;
-  topof >> node_num >> switch_num >> link_num;
+  // Check if the file is empty
+  if (topof.peek() == std::ifstream::traits_type::eof()) {
+    std::cerr << "ERROR: Topology file is empty: " << topofile << std::endl;
+    return 1;
+  }
+
+  uint32_t node_num = 0, switch_num = 0, link_num = 0;
+  
+  // Skip all comments and empty lines until we find the first data line
+  std::string line;
+  while (std::getline(topof, line)) {
+    // Skip empty lines or comment lines
+    if (line.empty() || line[0] == '#') {
+      std::cout << "Skipping initial line: " << line << std::endl;
+      continue;
+    }
+    
+    // Try to parse the first data line
+    std::istringstream iss(line);
+    if (!(iss >> node_num >> switch_num >> link_num)) {
+      std::cerr << "ERROR: Failed to parse node_num, switch_num, and link_num from line: " << line << std::endl;
+      return 1;
+    }
+    break;
+  }
+  
+  // Check if we successfully read the values
+  if (node_num == 0 || link_num == 0) {
+    std::cerr << "ERROR: Invalid topology values: node_num=" << node_num 
+              << ", switch_num=" << switch_num << ", link_num=" << link_num << std::endl;
+    return 1;
+  }
   
   std::cout << "Simulating " << modelType << " model with " << tailIntensity << " tail intensity" << std::endl;
   std::cout << "Topology has " << node_num << " nodes, " << switch_num << " switches, " << link_num << " links" << std::endl;
@@ -303,56 +346,117 @@ main (int argc, char *argv[])
   std::vector<Node_To_Node> node_to_node;
   node_to_node.reserve(link_num);
 
+  // Initialize the node_link_table with the proper size for the actual number of nodes
   std::vector<std::vector<int> > node_link_table(node_num, std::vector<int>(node_num, -1));
   std::vector<ns3::Ipv4Address> node_ip(node_num);
 
-	for (uint32_t i = 0; i < switch_num; i++){
-		uint32_t sid;
-		topof >> sid;
-		node_type[sid] = 1;
-	}
+  // Print debug info about table sizes
+  std::cout << "Initialized node_link_table with size " << node_link_table.size() 
+            << "x" << (node_link_table.empty() ? 0 : node_link_table[0].size()) << std::endl;
+  std::cout << "Initialized node_ip vector with size " << node_ip.size() << std::endl;
 
- // std::vector<NetDeviceContainer> node_to_node_dev;
+  // Read switch IDs
+  bool inSwitchSection = false;
+  while (std::getline(topof, line)) {
+    // Skip empty lines
+    if (line.empty()) {
+      continue;
+    }
+    
+    // Skip comment lines, but check if this is the start of the switch section
+    if (line[0] == '#') {
+      if (line.find("交换机节点ID列表") != std::string::npos) {
+        inSwitchSection = true;
+      }
+      std::cout << "Skipping comment in switch section: " << line << std::endl;
+      continue;
+    }
+    
+    // If we're in the switch section and this is not a comment, parse the switch IDs
+    if (inSwitchSection) {
+      std::istringstream iss(line);
+      uint32_t sid;
+      while (iss >> sid) {
+        if (sid >= node_num) {
+          std::cerr << "ERROR: Switch ID " << sid << " is out of range (max " << node_num-1 << ")" << std::endl;
+          continue;
+        }
+        node_type[sid] = 1;
+      }
+      break;  // We've processed the switch IDs, break out
+    }
+  }
 
+  // Print switch nodes for verification
+  std::cout << "Switches: ";
+  for (uint32_t i = 0; i < node_num; ++i) {
+    if (node_type[i] == 1) {
+      std::cout << i << " ";
+    }
+  }
+  std::cout << std::endl;
 
   PointToPointHelper pointToPoint;
 
-  for (uint32_t i = 0; i < link_num; i++){
-
-    Node_To_Node temp;
-    node_to_node.push_back(temp);
-
-
+  // Read link data
+  uint32_t linksParsed = 0;
+  while (linksParsed < link_num && std::getline(topof, line)) {
+    // Skip empty lines and comment lines
+    if (line.empty() || line[0] == '#') {
+      continue;
+    }
+    
+    // Try to parse the link data
+    std::istringstream iss(line);
     uint32_t src, dst;
     std::string data_rate, link_delay;
     double error_rate;
-    topof >> src >> dst >> data_rate >> link_delay >> error_rate;
-          
-    node_link_table[src][dst] = i;
-    node_link_table[dst][src] = i;
-
-    node_to_node[i].src = src;
-    node_to_node[i].dst = dst;
-
+    
+    if (!(iss >> src >> dst >> data_rate >> link_delay >> error_rate)) {
+      std::cerr << "ERROR: Failed to parse link " << linksParsed << " data from line: " << line << std::endl;
+      continue;  // Skip this line and try the next
+    }
+    
+    // Add bounds checking for src and dst
+    if (src >= node_num || dst >= node_num) {
+      std::cerr << "ERROR: Link " << linksParsed << " has invalid src/dst: " << src << "->" << dst 
+                << " (max node ID is " << node_num-1 << ")" << std::endl;
+      continue;
+    }
+    
+    // Create a new link
+    Node_To_Node temp;
+    temp.src = src;
+    temp.dst = dst;
+    node_to_node.push_back(temp);
+    
+    node_link_table[src][dst] = linksParsed;
+    node_link_table[dst][src] = linksParsed;
+    
     Ptr<Node> snode = nodes.Get(src), dnode = nodes.Get(dst);
     
     // Check if this link uses microseconds or milliseconds
     bool isMicroseconds = (link_delay.find("us") != std::string::npos);
     
     // Print for verification
-    std::cout << "Link " << i << ": " << src << " -> " << dst << ", Rate: " << data_rate
+    std::cout << "Link " << linksParsed << ": " << src << " -> " << dst << ", Rate: " << data_rate
               << ", Delay: " << link_delay << " (is microseconds: " << (isMicroseconds ? "yes" : "no") << ")" << std::endl;
     
-    pointToPoint.SetDeviceAttribute ("DataRate", StringValue (data_rate));
-    pointToPoint.SetChannelAttribute ("Delay", StringValue (link_delay));
-
-    node_to_node[i].dev = pointToPoint.Install (snode, dnode);
-    // std::cout<<"snodeID "<<snode->GetId()<<" sDeviceID "\
-    //   <<node_to_node[i].dev.Get(0)->GetIfIndex()\
-    //   <<" dnodeID "<<dnode->GetId()<<" dDeviceID "\
-    //   <<node_to_node[i].dev.Get(1)->GetIfIndex()<<std::endl;
-
-    fflush(stdout);
+    // Check if values are valid before setting attributes
+    if (data_rate.empty() || link_delay.empty()) {
+      std::cerr << "ERROR: Invalid data_rate or link_delay for link " << linksParsed << std::endl;
+      continue;
+    }
+    
+    pointToPoint.SetDeviceAttribute("DataRate", StringValue(data_rate));
+    pointToPoint.SetChannelAttribute("Delay", StringValue(link_delay));
+    
+    node_to_node[linksParsed].dev = pointToPoint.Install(snode, dnode);
+    linksParsed++;
+  }
+  
+  if (linksParsed < link_num) {
+    std::cerr << "WARNING: Only parsed " << linksParsed << " links, expected " << link_num << std::endl;
   }
 
   InternetStackHelper stack;
@@ -361,9 +465,6 @@ main (int argc, char *argv[])
   Ipv4AddressHelper address;
   address.SetBase ("10.1.1.0", "255.255.255.0");
   address.NewNetwork ();
- // std::vector<Ipv4InterfaceContainer> node_to_node_dev_ip;
- // node_to_node_dev_ip.reserve(node_num);
-
 
   TrafficControlHelper tch;
   tch.SetRootQueueDisc ("ns3::FifoQueueDisc","MaxSize", StringValue (max_buffer),
@@ -375,22 +476,12 @@ main (int argc, char *argv[])
     int src = node_to_node[i].src;
     int dst = node_to_node[i].dst;
 
-    // if (src == 264 && node_type[dst] == 0 && dst < 64 || src == 264 && node_type[dst] == 1 || src == 264 && node_type[dst] == 0 && dst < 64 ){
-    //   ;
-    // }
-
     if(node_type[src] == 1) tch.Install (node_to_node[i].dev.Get(0));
     if(node_type[dst] == 1) tch.Install (node_to_node[i].dev.Get(1));
 
-    // if(node_type[src] == 1 && (dst>=32 && dst<=35 || dst == 39) && src!=39) tch.Install (node_to_node[i].dev.Get(0));
-    // if(node_type[dst] == 1 && (src>=32 && src<=35 && dst!= 39 || src == 39)) tch.Install (node_to_node[i].dev.Get(1));
-
-
     node_to_node[i].ip = address.Assign(node_to_node[i].dev);
-    if(node_type[src] == 0) node_ip[src] = node_to_node[i].ip.GetAddress(0);
-    if(node_type[dst] == 0) node_ip[dst] = node_to_node[i].ip.GetAddress(1);
-    //std::cout<<"node_to_node ["<<node_to_node[i].src<<","<<node_to_node[i].dst<< "] "<<node_to_node[i].ip.GetAddress(0)<<" <--> "<< node_to_node[i].ip.GetAddress(1)<<std::endl;
-    //std::cout<<"mac node_to_node ["<<node_to_node[i].src<<","<<node_to_node[i].dst<< "] "<<node_to_node[i].dev.Get(0)<<" <--> "<< node_to_node[i].dev.Get(1)<<std::endl;
+    if(node_type[src] == 0 && src < node_num) node_ip[src] = node_to_node[i].ip.GetAddress(0);
+    if(node_type[dst] == 0 && dst < node_num) node_ip[dst] = node_to_node[i].ip.GetAddress(1);
     address.NewNetwork ();
 
   }
@@ -408,7 +499,6 @@ main (int argc, char *argv[])
 
     probeType = "ns3::PacketProbe";
     tracePath = "NodeList/*/DeviceList/*/$ns3::PointToPointNetDevice/TxQueue/Dequeue";
-
 
     // Configure the file to be written, and the formatting of output data.
     fileHelper.ConfigureFile ((const std::string)trace_file,
@@ -510,7 +600,7 @@ main (int argc, char *argv[])
 
     // }
     int link_index = node_link_table[aggregator_node][ps_node];
-    if(link_index >= 0 && node_type[ps_node] == 0){
+    if (link_index >= 0 && ps_node < node_num && node_type[ps_node] == 0) {
       // printf("");
       remotes.push_back(InetSocketAddress(node_ip[ps_node],psudport[ps_node]));
       port.push_back(psudport[ps_node]);

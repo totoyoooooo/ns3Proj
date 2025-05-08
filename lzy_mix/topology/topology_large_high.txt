@@ -1,0 +1,299 @@
+# 拓扑：节点总数（8 个 TOR 交换机 + 8 个核心交换机 + 8 * 24 个节点 = 208 个节点）
+208 16 256
+
+# 节点编号说明:
+# 0-7: TOR交换机
+# 8-15: 核心交换机
+# 16-39: 连接到TOR交换机0的主机
+# 40-63: 连接到TOR交换机1的主机
+# 64-87: 连接到TOR交换机2的主机
+# 88-111: 连接到TOR交换机3的主机
+# 112-135: 连接到TOR交换机4的主机
+# 136-159: 连接到TOR交换机5的主机
+# 160-183: 连接到TOR交换机6的主机
+# 184-207: 连接到TOR交换机7的主机
+
+# 交换机节点ID列表
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+
+# TOR交换机连接到核心交换机
+0 8 100Gbps 8us 0
+0 9 100Gbps 8us 0
+0 10 100Gbps 8us 0
+0 11 100Gbps 8us 0
+0 12 100Gbps 8us 0
+0 13 100Gbps 8us 0
+0 14 100Gbps 8us 0
+0 15 100Gbps 8us 0
+
+1 8 100Gbps 8us 0
+1 9 100Gbps 8us 0
+1 10 100Gbps 8us 0
+1 11 100Gbps 8us 0
+1 12 100Gbps 8us 0
+1 13 100Gbps 8us 0
+1 14 100Gbps 8us 0
+1 15 100Gbps 8us 0
+
+2 8 100Gbps 8us 0
+2 9 100Gbps 8us 0
+2 10 100Gbps 8us 0
+2 11 100Gbps 8us 0
+2 12 100Gbps 8us 0
+2 13 100Gbps 8us 0
+2 14 100Gbps 8us 0
+2 15 100Gbps 8us 0
+
+3 8 100Gbps 8us 0
+3 9 100Gbps 8us 0
+3 10 100Gbps 8us 0
+3 11 100Gbps 8us 0
+3 12 100Gbps 8us 0
+3 13 100Gbps 8us 0
+3 14 100Gbps 8us 0
+3 15 100Gbps 8us 0
+
+4 8 100Gbps 8us 0
+4 9 100Gbps 8us 0
+4 10 100Gbps 8us 0
+4 11 100Gbps 8us 0
+4 12 100Gbps 8us 0
+4 13 100Gbps 8us 0
+4 14 100Gbps 8us 0
+4 15 100Gbps 8us 0
+
+5 8 100Gbps 8us 0
+5 9 100Gbps 8us 0
+5 10 100Gbps 8us 0
+5 11 100Gbps 8us 0
+5 12 100Gbps 8us 0
+5 13 100Gbps 8us 0
+5 14 100Gbps 8us 0
+5 15 100Gbps 8us 0
+
+6 8 100Gbps 8us 0
+6 9 100Gbps 8us 0
+6 10 100Gbps 8us 0
+6 11 100Gbps 8us 0
+6 12 100Gbps 8us 0
+6 13 100Gbps 8us 0
+6 14 100Gbps 8us 0
+6 15 100Gbps 8us 0
+
+7 8 100Gbps 8us 0
+7 9 100Gbps 8us 0
+7 10 100Gbps 8us 0
+7 11 100Gbps 8us 0
+7 12 100Gbps 8us 0
+7 13 100Gbps 8us 0
+7 14 100Gbps 8us 0
+7 15 100Gbps 8us 0
+
+# 节点连接到 TOR 交换机 0
+0 16 100Gbps 4us 0
+0 17 100Gbps 4us 0
+0 18 100Gbps 4us 0
+0 19 100Gbps 4us 0
+0 20 100Gbps 4us 0
+0 21 56Gbps 5us 0
+0 22 100Gbps 4us 0
+0 23 100Gbps 4us 0
+0 24 54Gbps 25us 0
+0 25 90Gbps 17us 0
+0 26 100Gbps 4us 0
+0 27 100Gbps 4us 0
+0 28 100Gbps 4us 0
+0 29 100Gbps 4us 0
+0 30 95Gbps 22us 0
+0 31 79Gbps 23us 0
+0 32 100Gbps 4us 0
+0 33 60Gbps 41us 0
+0 34 100Gbps 4us 0
+0 35 100Gbps 4us 0
+0 36 100Gbps 4us 0
+0 37 100Gbps 4us 0
+0 38 56Gbps 22us 0
+0 39 69Gbps 36us 0
+
+# 节点连接到 TOR 交换机 1
+1 40 90Gbps 28us 0
+1 41 59Gbps 14us 0
+1 42 100Gbps 4us 0
+1 43 100Gbps 4us 0
+1 44 100Gbps 4us 0
+1 45 100Gbps 4us 0
+1 46 100Gbps 4us 0
+1 47 91Gbps 36us 0
+1 48 100Gbps 4us 0
+1 49 52Gbps 18us 0
+1 50 100Gbps 4us 0
+1 51 100Gbps 4us 0
+1 52 100Gbps 4us 0
+1 53 100Gbps 4us 0
+1 54 100Gbps 4us 0
+1 55 74Gbps 30us 0
+1 56 54Gbps 23us 0
+1 57 88Gbps 5us 0
+1 58 83Gbps 20us 0
+1 59 100Gbps 4us 0
+1 60 100Gbps 4us 0
+1 61 100Gbps 4us 0
+1 62 100Gbps 4us 0
+1 63 100Gbps 4us 0
+
+# 节点连接到 TOR 交换机 2
+2 64 100Gbps 41us 0
+2 65 100Gbps 4us 0
+2 66 100Gbps 4us 0
+2 67 100Gbps 4us 0
+2 68 100Gbps 4us 0
+2 69 100Gbps 4us 0
+2 70 97Gbps 31us 0
+2 71 100Gbps 4us 0
+2 72 52Gbps 22us 0
+2 73 66Gbps 15us 0
+2 74 100Gbps 4us 0
+2 75 100Gbps 4us 0
+2 76 96Gbps 28us 0
+2 77 96Gbps 24us 0
+2 78 100Gbps 4us 0
+2 79 100Gbps 4us 0
+2 80 100Gbps 4us 0
+2 81 91Gbps 11us 0
+2 82 100Gbps 4us 0
+2 83 100Gbps 4us 0
+2 84 89Gbps 24us 0
+2 85 60Gbps 35us 0
+2 86 100Gbps 4us 0
+2 87 100Gbps 4us 0
+
+# 节点连接到 TOR 交换机 3
+3 88 100Gbps 4us 0
+3 89 59Gbps 10us 0
+3 90 94Gbps 6us 0
+3 91 62Gbps 21us 0
+3 92 100Gbps 4us 0
+3 93 86Gbps 32us 0
+3 94 100Gbps 4us 0
+3 95 54Gbps 9us 0
+3 96 100Gbps 4us 0
+3 97 100Gbps 4us 0
+3 98 100Gbps 28us 0
+3 99 100Gbps 4us 0
+3 100 86Gbps 40us 0
+3 101 100Gbps 4us 0
+3 102 100Gbps 4us 0
+3 103 100Gbps 4us 0
+3 104 100Gbps 4us 0
+3 105 100Gbps 4us 0
+3 106 88Gbps 9us 0
+3 107 59Gbps 32us 0
+3 108 81Gbps 4us 0
+3 109 100Gbps 4us 0
+3 110 100Gbps 4us 0
+3 111 51Gbps 11us 0
+
+# 节点连接到 TOR 交换机 4
+4 112 100Gbps 4us 0
+4 113 82Gbps 17us 0
+4 114 83Gbps 6us 0
+4 115 100Gbps 4us 0
+4 116 100Gbps 4us 0
+4 117 100Gbps 4us 0
+4 118 100Gbps 4us 0
+4 119 100Gbps 4us 0
+4 120 93Gbps 8us 0
+4 121 84Gbps 26us 0
+4 122 77Gbps 17us 0
+4 123 81Gbps 23us 0
+4 124 100Gbps 4us 0
+4 125 100Gbps 4us 0
+4 126 100Gbps 4us 0
+4 127 100Gbps 4us 0
+4 128 85Gbps 43us 0
+4 129 100Gbps 4us 0
+4 130 54Gbps 32us 0
+4 131 91Gbps 33us 0
+4 132 100Gbps 4us 0
+4 133 83Gbps 10us 0
+4 134 100Gbps 4us 0
+4 135 100Gbps 4us 0
+
+# 节点连接到 TOR 交换机 5
+5 136 52Gbps 27us 0
+5 137 100Gbps 4us 0
+5 138 100Gbps 4us 0
+5 139 100Gbps 4us 0
+5 140 100Gbps 4us 0
+5 141 100Gbps 4us 0
+5 142 100Gbps 4us 0
+5 143 100Gbps 4us 0
+5 144 58Gbps 28us 0
+5 145 100Gbps 4us 0
+5 146 100Gbps 4us 0
+5 147 100Gbps 4us 0
+5 148 100Gbps 4us 0
+5 149 100Gbps 4us 0
+5 150 100Gbps 4us 0
+5 151 56Gbps 15us 0
+5 152 76Gbps 21us 0
+5 153 76Gbps 13us 0
+5 154 100Gbps 4us 0
+5 155 89Gbps 7us 0
+5 156 77Gbps 39us 0
+5 157 100Gbps 4us 0
+5 158 84Gbps 41us 0
+5 159 93Gbps 8us 0
+
+# 节点连接到 TOR 交换机 6
+6 160 60Gbps 9us 0
+6 161 100Gbps 4us 0
+6 162 100Gbps 4us 0
+6 163 54Gbps 16us 0
+6 164 100Gbps 4us 0
+6 165 100Gbps 4us 0
+6 166 82Gbps 39us 0
+6 167 96Gbps 30us 0
+6 168 100Gbps 4us 0
+6 169 100Gbps 4us 0
+6 170 69Gbps 36us 0
+6 171 99Gbps 25us 0
+6 172 100Gbps 4us 0
+6 173 100Gbps 4us 0
+6 174 100Gbps 4us 0
+6 175 83Gbps 22us 0
+6 176 100Gbps 4us 0
+6 177 58Gbps 23us 0
+6 178 57Gbps 30us 0
+6 179 100Gbps 4us 0
+6 180 100Gbps 4us 0
+6 181 83Gbps 40us 0
+6 182 100Gbps 4us 0
+6 183 100Gbps 4us 0
+
+# 节点连接到 TOR 交换机 7
+7 184 80Gbps 40us 0
+7 185 100Gbps 4us 0
+7 186 55Gbps 26us 0
+7 187 82Gbps 9us 0
+7 188 100Gbps 4us 0
+7 189 100Gbps 4us 0
+7 190 100Gbps 4us 0
+7 191 57Gbps 8us 0
+7 192 100Gbps 4us 0
+7 193 100Gbps 4us 0
+7 194 100Gbps 4us 0
+7 195 100Gbps 4us 0
+7 196 100Gbps 4us 0
+7 197 59Gbps 21us 0
+7 198 60Gbps 42us 0
+7 199 72Gbps 36us 0
+7 200 100Gbps 4us 0
+7 201 85Gbps 27us 0
+7 202 81Gbps 32us 0
+7 203 54Gbps 22us 0
+7 204 100Gbps 4us 0
+7 205 100Gbps 4us 0
+7 206 100Gbps 4us 0
+7 207 53Gbps 40us 0
+

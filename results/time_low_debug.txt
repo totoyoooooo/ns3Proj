@@ -1,0 +1,145 @@
+/home/w/TimeWindow/ns3Proj/bindings/python/wscript:321: SyntaxWarning: invalid escape sequence '\d'
+  m = re.match( "^castxml version (\d\.\d)(-)?(\w+)?", castxml_version_line)
+Waf: Entering directory `/home/w/TimeWindow/ns3Proj/build'
+Waf: Leaving directory `/home/w/TimeWindow/ns3Proj/build'
+Build commands will be stored in build/compile_commands.json
+'build' finished successfully (0.219s)
+config path lzy_mix/config/testtime.txt
+topology file from cmd line ./lzy_mix/topology/testtopo_low.txt
+ENABLE_CC	Yes
+ENABLE_ASYCC	No
+ENABLE_LZYCC	No
+ENABLE_AWNDCC	No
+ENABLE_PS	Yes
+INIT_CWND	10
+MAX_CWND	100
+MAX_BUFFER	50000p
+ECN_THRE	4
+MAX_AGGR_POOL	450
+TOPO_FILE	./lzy_mix/topology_large_low.txt
+JOB_FILE	./lzy_mix/job/large_jobs_low.txt
+BGFLOW_FILE	./lzy_mix/bgflow_large.txt
+TRACE_FILE	./lzy_mix/lzytrace
+ENABLE_TRACE	0
+ENABLE_TIMEWINDOW	1
+Loading topology from: ./lzy_mix/topology/testtopo_low.txt
+Skipping initial line: # 拓扑：测试版本（1 个 TOR 交换机 + 8 个核心交换机 + 40 个节点）
+Simulating ResNet model with low tail intensity
+Topology has 49 nodes, 9 switches, 48 links
+Initialized node_link_table with size 49x49
+Initialized node_ip vector with size 49
+Skipping comment in switch section: # 节点编号说明:
+Skipping comment in switch section: # 0: TOR交换机
+Skipping comment in switch section: # 1-8: 核心交换机
+Skipping comment in switch section: # 9-48: 连接到TOR交换机的主机
+Skipping comment in switch section: # 交换机节点ID列表
+Switches: 0 1 2 3 4 5 6 7 8 
+Link 0: 0 -> 1, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 1: 0 -> 2, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 2: 0 -> 3, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 3: 0 -> 4, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 4: 0 -> 5, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 5: 0 -> 6, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 6: 0 -> 7, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 7: 0 -> 8, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 8: 0 -> 20, Rate: 97Gbps, Delay: 6us (is microseconds: yes)
+Link 9: 0 -> 27, Rate: 90Gbps, Delay: 4us (is microseconds: yes)
+Link 10: 0 -> 45, Rate: 91Gbps, Delay: 3us (is microseconds: yes)
+Link 11: 0 -> 47, Rate: 92Gbps, Delay: 4us (is microseconds: yes)
+Link 12: 0 -> 9, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 13: 0 -> 10, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 14: 0 -> 11, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 15: 0 -> 12, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 16: 0 -> 13, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 17: 0 -> 14, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 18: 0 -> 15, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 19: 0 -> 16, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 20: 0 -> 17, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 21: 0 -> 18, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 22: 0 -> 19, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 23: 0 -> 21, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 24: 0 -> 22, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 25: 0 -> 23, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 26: 0 -> 24, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 27: 0 -> 25, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 28: 0 -> 26, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 29: 0 -> 28, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 30: 0 -> 29, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 31: 0 -> 30, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 32: 0 -> 31, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 33: 0 -> 32, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 34: 0 -> 33, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 35: 0 -> 34, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 36: 0 -> 35, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 37: 0 -> 36, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 38: 0 -> 37, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 39: 0 -> 38, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 40: 0 -> 39, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 41: 0 -> 40, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 42: 0 -> 41, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 43: 0 -> 42, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 44: 0 -> 43, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 45: 0 -> 44, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 46: 0 -> 46, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 47: 0 -> 48, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+=== Topology Summary: ResNet with low tail ===
+Total nodes: 49, Total links: 48
+===============================
+StartAPP 0 start 2.000000 
+Setting protocol name for aggregator 0 to: TimeWindow
+debug setremotes remotesize 1 port size 1 appid 0
+debug udp-aggregator.cc setremotes address 03-07-0a:01:22:02:09:00:00 appid 0
+debug udp-aggregator.cc setremotes port 9 appid 0
+app0 wnode 1-->0 ip 10.1.34.1
+app0 wnode 2-->0 ip 10.1.34.1
+app0 wnode 3-->0 ip 10.1.34.1
+app0 wnode 4-->0 ip 10.1.34.1
+StartAPP 1 start 2.000000 
+debug setremotes remotesize 1 port size 1 appid 1
+debug udp-aggregator.cc setremotes address 03-07-0a:01:21:02:09:00:00 appid 1
+debug udp-aggregator.cc setremotes port 9 appid 1
+app1 wnode 5-->0 ip 10.1.33.1
+app1 wnode 6-->0 ip 10.1.33.1
+app1 wnode 7-->0 ip 10.1.33.1
+app1 wnode 8-->0 ip 10.1.33.1
+Flow monitoring output will be written to: ResNet_low_traffic.txt
+Starting UdpAggregator with timeWindow=1e-08s, pool_size=450, onofftimewindow=1
+Successfully opened throughput log file: TimeWindow_aggr_rate.log
+Debug - Config path value: lzy_mix/config/testtime.txt
+Debug - Config path value: lzy_mix/config/testtime.txt
+APP 0 thrtime +2s aggregate throughput 0 Gbps [(0/1562500),0%]
+APP 1 thrtime +2s aggregate throughput 0 Gbps [(0/1562500),0%]
+AGGR TIME +2s minutil 1
+AGGR TIME +2s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [TimeWindow] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+[+2s] Total Received: 0 Merged Sum: 0 mergetimes:0 ans:0
+finish_time +0s total=0
+[+2s] Total Received: 0 Merged Sum: 0 mergetimes:0 ans:0
+finish_time +0s total=0
+APP 0 thrtime +2.001s aggregate throughput 12.5952 Gbps [(6150/1562500),0.3936%]
+APP 1 thrtime +2.001s aggregate throughput 12.5952 Gbps [(6150/1562500),0.3936%]
+[+2.001s] Total Received: 6156 Merged Sum: 24624 mergetimes:6156 ans:18468
+finish_time +2.001s total=24624
+[+2.001s] Total Received: 6156 Merged Sum: 24624 mergetimes:6156 ans:18468
+finish_time +2.001s total=24624
+APP 0 thrtime +2.002s aggregate throughput 12.6198 Gbps [(12312/1562500),0.787968%]
+APP 1 thrtime +2.002s aggregate throughput 12.6198 Gbps [(12312/1562500),0.787968%]
+[+2.002s] Total Received: 12350 Merged Sum: 49400 mergetimes:12350 ans:37050
+finish_time +2.002s total=49400
+[+2.002s] Total Received: 12350 Merged Sum: 49400 mergetimes:12350 ans:37050
+finish_time +2.002s total=49400
+APP 0 thrtime +2.003s aggregate throughput 12.673 Gbps [(18500/1562500),1.184%]
+APP 1 thrtime +2.003s aggregate throughput 12.673 Gbps [(18500/1562500),1.184%]
+[+2.003s] Total Received: 18518 Merged Sum: 74072 mergetimes:18518 ans:55554
+finish_time +2.003s total=74072
+[+2.003s] Total Received: 18518 Merged Sum: 74072 mergetimes:18518 ans:55554
+finish_time +2.003s total=74072
+APP 0 thrtime +2.004s aggregate throughput 12.6444 Gbps [(24674/1562500),1.57914%]
+APP 1 thrtime +2.004s aggregate throughput 12.6444 Gbps [(24674/1562500),1.57914%]
+Interrupted 

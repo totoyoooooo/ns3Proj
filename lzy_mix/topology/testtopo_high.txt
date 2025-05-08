@@ -1,5 +1,5 @@
 # 拓扑：测试版本（1 个 TOR 交换机 + 8 个核心交换机 + 40 个节点）
-49 9 40
+49 9 48
 
 # 节点编号说明:
 # 0: TOR交换机
@@ -19,46 +19,46 @@
 0 7 100Gbps 2us 0
 0 8 100Gbps 2us 0
 
-# 节点连接到 TOR 交换机 0 - 5个有拖尾问题的节点
-0 9 75Gbps 10us 0
-0 10 65Gbps 15us 0
-0 11 85Gbps 30us 0
-0 12 55Gbps 60us 0
-0 13 70Gbps 40us 0
+# 节点连接到 TOR 交换机 0 - 16个有拖尾问题的节点
+0 12 94Gbps 17us 0
+0 13 52Gbps 11us 0
+0 14 69Gbps 4us 0
+0 15 56Gbps 13us 0
+0 18 66Gbps 10us 0
+0 25 84Gbps 9us 0
+0 26 59Gbps 5us 0
+0 30 84Gbps 6us 0
+0 32 68Gbps 6us 0
+0 34 63Gbps 2us 0
+0 35 60Gbps 4us 0
+0 37 85Gbps 5us 0
+0 38 70Gbps 19us 0
+0 40 100Gbps 12us 0
+0 42 76Gbps 3us 0
+0 48 63Gbps 10us 0
 
 # 其余节点正常带宽
-0 14 100Gbps 2us 0
-0 15 100Gbps 2us 0
+0 9 100Gbps 2us 0
+0 10 100Gbps 2us 0
+0 11 100Gbps 2us 0
 0 16 100Gbps 2us 0
 0 17 100Gbps 2us 0
-0 18 100Gbps 2us 0
 0 19 100Gbps 2us 0
 0 20 100Gbps 2us 0
 0 21 100Gbps 2us 0
 0 22 100Gbps 2us 0
 0 23 100Gbps 2us 0
 0 24 100Gbps 2us 0
-0 25 100Gbps 2us 0
-0 26 100Gbps 2us 0
 0 27 100Gbps 2us 0
 0 28 100Gbps 2us 0
 0 29 100Gbps 2us 0
-0 30 100Gbps 2us 0
 0 31 100Gbps 2us 0
-0 32 100Gbps 2us 0
 0 33 100Gbps 2us 0
-0 34 100Gbps 2us 0
-0 35 100Gbps 2us 0
 0 36 100Gbps 2us 0
-0 37 100Gbps 2us 0
-0 38 100Gbps 2us 0
 0 39 100Gbps 2us 0
-0 40 100Gbps 2us 0
 0 41 100Gbps 2us 0
-0 42 100Gbps 2us 0
 0 43 100Gbps 2us 0
 0 44 100Gbps 2us 0
 0 45 100Gbps 2us 0
 0 46 100Gbps 2us 0
 0 47 100Gbps 2us 0
-0 48 100Gbps 2us 0 

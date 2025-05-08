@@ -1,0 +1,439 @@
+/home/w/TimeWindow/ns3Proj/bindings/python/wscript:321: SyntaxWarning: invalid escape sequence '\d'
+  m = re.match( "^castxml version (\d\.\d)(-)?(\w+)?", castxml_version_line)
+Waf: Entering directory `/home/w/TimeWindow/ns3Proj/build'
+Waf: Leaving directory `/home/w/TimeWindow/ns3Proj/build'
+Build commands will be stored in build/compile_commands.json
+'build' finished successfully (0.224s)
+config path lzy_mix/config/testatp.txt
+topology file from cmd line ./lzy_mix/topology/testtopo_low.txt
+ENABLE_CC	Yes
+ENABLE_ASYCC	No
+ENABLE_LZYCC	No
+ENABLE_AWNDCC	No
+ENABLE_PS	Yes
+INIT_CWND	10
+MAX_CWND	100
+MAX_BUFFER	50000p
+ECN_THRE	4
+MAX_AGGR_POOL	450
+TOPO_FILE	./lzy_mix/topology/topology_large_low.txt
+JOB_FILE	./lzy_mix/job/large_jobs_low.txt
+BGFLOW_FILE	./lzy_mix/bgflow_large.txt
+TRACE_FILE	./lzy_mix/lzytrace
+ENABLE_TRACE	0
+ENABLE_TIMEWINDOW	0
+Loading topology from: ./lzy_mix/topology/testtopo_low.txt
+Skipping initial line: # 拓扑：测试版本（1 个 TOR 交换机 + 8 个核心交换机 + 40 个节点）
+Simulating ResNet model with low tail intensity
+Topology has 49 nodes, 9 switches, 48 links
+Initialized node_link_table with size 49x49
+Initialized node_ip vector with size 49
+Skipping comment in switch section: # 节点编号说明:
+Skipping comment in switch section: # 0: TOR交换机
+Skipping comment in switch section: # 1-8: 核心交换机
+Skipping comment in switch section: # 9-48: 连接到TOR交换机的主机
+Skipping comment in switch section: # 交换机节点ID列表
+Switches: 0 1 2 3 4 5 6 7 8 
+Link 0: 0 -> 1, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 1: 0 -> 2, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 2: 0 -> 3, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 3: 0 -> 4, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 4: 0 -> 5, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 5: 0 -> 6, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 6: 0 -> 7, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 7: 0 -> 8, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 8: 0 -> 28, Rate: 96Gbps, Delay: 4us (is microseconds: yes)
+Link 9: 0 -> 30, Rate: 93Gbps, Delay: 5us (is microseconds: yes)
+Link 10: 0 -> 31, Rate: 94Gbps, Delay: 3us (is microseconds: yes)
+Link 11: 0 -> 32, Rate: 90Gbps, Delay: 4us (is microseconds: yes)
+Link 12: 0 -> 9, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 13: 0 -> 10, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 14: 0 -> 11, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 15: 0 -> 12, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 16: 0 -> 13, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 17: 0 -> 14, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 18: 0 -> 15, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 19: 0 -> 16, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 20: 0 -> 17, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 21: 0 -> 18, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 22: 0 -> 19, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 23: 0 -> 20, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 24: 0 -> 21, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 25: 0 -> 22, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 26: 0 -> 23, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 27: 0 -> 24, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 28: 0 -> 25, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 29: 0 -> 26, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 30: 0 -> 27, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 31: 0 -> 29, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 32: 0 -> 33, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 33: 0 -> 34, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 34: 0 -> 35, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 35: 0 -> 36, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 36: 0 -> 37, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 37: 0 -> 38, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 38: 0 -> 39, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 39: 0 -> 40, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 40: 0 -> 41, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 41: 0 -> 42, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 42: 0 -> 43, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 43: 0 -> 44, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 44: 0 -> 45, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 45: 0 -> 46, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 46: 0 -> 47, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+Link 47: 0 -> 48, Rate: 100Gbps, Delay: 2us (is microseconds: yes)
+=== Topology Summary: ResNet with low tail ===
+Total nodes: 49, Total links: 48
+===============================
+StartAPP 0 start 2.000000 
+Setting protocol name for aggregator 0 to: ATP
+debug setremotes remotesize 1 port size 1 appid 0
+debug udp-aggregator.cc setremotes address 03-07-0a:01:0c:02:09:00:00 appid 0
+debug udp-aggregator.cc setremotes port 9 appid 0
+app0 wnode 1-->0 ip 10.1.12.1
+app0 wnode 2-->0 ip 10.1.12.1
+app0 wnode 3-->0 ip 10.1.12.1
+app0 wnode 4-->0 ip 10.1.12.1
+StartAPP 1 start 2.000000 
+debug setremotes remotesize 1 port size 1 appid 1
+debug udp-aggregator.cc setremotes address 03-07-0a:01:0b:02:09:00:00 appid 1
+debug udp-aggregator.cc setremotes port 9 appid 1
+app1 wnode 5-->0 ip 10.1.11.1
+app1 wnode 6-->0 ip 10.1.11.1
+app1 wnode 7-->0 ip 10.1.11.1
+app1 wnode 8-->0 ip 10.1.11.1
+Flow monitoring output will be written to: ResNet_low_traffic.txt
+Starting UdpAggregator with timeWindow=1e-08s, pool_size=450, onofftimewindow=0
+Successfully opened throughput log file: ATP_aggr_rate.log
+Debug - Config path value: lzy_mix/config/testatp.txt
+Debug - Config path value: lzy_mix/config/testatp.txt
+APP 0 thrtime +2s aggregate throughput 0 Gbps [(0/1562500),0%]
+APP 1 thrtime +2s aggregate throughput 0 Gbps [(0/1562500),0%]
+AGGR TIME +2s minutil 1
+AGGR TIME +2s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+[+2s] Total Received: 0 Merged Sum: 0 mergetimes:0 ans:0
+finish_time +0s total=0
+[+2s] Total Received: 0 Merged Sum: 0 mergetimes:0 ans:0
+finish_time +0s total=0
+APP 0 thrtime +2.001s aggregate throughput 10.0434 Gbps [(4904/1562500),0.313856%]
+APP 1 thrtime +2.001s aggregate throughput 7.168 Gbps [(3500/1562500),0.224%]
+[+2.001s] Total Received: 3550 Merged Sum: 14200 mergetimes:3550 ans:10650
+finish_time +2.001s total=14200
+[+2.001s] Total Received: 4950 Merged Sum: 19800 mergetimes:4950 ans:14850
+finish_time +2.001s total=19800
+APP 0 thrtime +2.002s aggregate throughput 10.1458 Gbps [(9858/1562500),0.630912%]
+APP 1 thrtime +2.002s aggregate throughput 7.2704 Gbps [(7050/1562500),0.4512%]
+[+2.002s] Total Received: 7100 Merged Sum: 28400 mergetimes:7100 ans:21300
+finish_time +2.002s total=28400
+[+2.002s] Total Received: 9900 Merged Sum: 39600 mergetimes:9900 ans:29700
+finish_time +2.002s total=39600
+APP 0 thrtime +2.003s aggregate throughput 10.1458 Gbps [(14812/1562500),0.947968%]
+APP 1 thrtime +2.003s aggregate throughput 7.2704 Gbps [(10600/1562500),0.6784%]
+[+2.003s] Total Received: 10650 Merged Sum: 42600 mergetimes:10650 ans:31950
+finish_time +2.003s total=42600
+[+2.003s] Total Received: 14850 Merged Sum: 59400 mergetimes:14850 ans:44550
+finish_time +2.003s total=59400
+APP 0 thrtime +2.004s aggregate throughput 10.1458 Gbps [(19766/1562500),1.26502%]
+APP 1 thrtime +2.004s aggregate throughput 7.2704 Gbps [(14150/1562500),0.9056%]
+[+2.004s] Total Received: 14200 Merged Sum: 56800 mergetimes:14200 ans:42600
+finish_time +2.004s total=56800
+[+2.004s] Total Received: 19800 Merged Sum: 79200 mergetimes:19800 ans:59400
+finish_time +2.004s total=79200
+APP 0 thrtime +2.005s aggregate throughput 10.1458 Gbps [(24720/1562500),1.58208%]
+APP 1 thrtime +2.005s aggregate throughput 7.2704 Gbps [(17700/1562500),1.1328%]
+[+2.005s] Total Received: 17750 Merged Sum: 71000 mergetimes:17750 ans:53250
+finish_time +2.005s total=71000
+[+2.005s] Total Received: 24750 Merged Sum: 99000 mergetimes:24750 ans:74250
+finish_time +2.005s total=99000
+APP 0 thrtime +2.006s aggregate throughput 10.1458 Gbps [(29674/1562500),1.89914%]
+APP 1 thrtime +2.006s aggregate throughput 7.2704 Gbps [(21250/1562500),1.36%]
+[+2.006s] Total Received: 21268 Merged Sum: 85072 mergetimes:21268 ans:63804
+finish_time +2.006s total=85072
+[+2.006s] Total Received: 29700 Merged Sum: 118800 mergetimes:29700 ans:89100
+finish_time +2.006s total=118800
+APP 0 thrtime +2.007s aggregate throughput 10.1437 Gbps [(34627/1562500),2.21613%]
+APP 1 thrtime +2.007s aggregate throughput 7.2704 Gbps [(24800/1562500),1.5872%]
+[+2.007s] Total Received: 24800 Merged Sum: 99200 mergetimes:24800 ans:74400
+finish_time +2.00699s total=99200
+[+2.007s] Total Received: 34650 Merged Sum: 138600 mergetimes:34650 ans:103950
+finish_time +2.007s total=138600
+APP 0 thrtime +2.008s aggregate throughput 10.1458 Gbps [(39581/1562500),2.53318%]
+APP 1 thrtime +2.008s aggregate throughput 7.2704 Gbps [(28350/1562500),1.8144%]
+[+2.008s] Total Received: 28350 Merged Sum: 113400 mergetimes:28350 ans:85050
+finish_time +2.00799s total=113400
+[+2.008s] Total Received: 39600 Merged Sum: 158400 mergetimes:39600 ans:118800
+finish_time +2.008s total=158400
+APP 0 thrtime +2.009s aggregate throughput 10.1458 Gbps [(44535/1562500),2.85024%]
+APP 1 thrtime +2.009s aggregate throughput 7.2704 Gbps [(31900/1562500),2.0416%]
+[+2.009s] Total Received: 31900 Merged Sum: 127600 mergetimes:31900 ans:95700
+finish_time +2.00899s total=127600
+[+2.009s] Total Received: 44550 Merged Sum: 178200 mergetimes:44550 ans:133650
+finish_time +2.009s total=178200
+APP 0 thrtime +2.01s aggregate throughput 10.1458 Gbps [(49489/1562500),3.1673%]
+APP 1 thrtime +2.01s aggregate throughput 7.2704 Gbps [(35450/1562500),2.2688%]
+[+2.01s] Total Received: 35450 Merged Sum: 141800 mergetimes:35450 ans:106350
+finish_time +2.00999s total=141800
+[+2.01s] Total Received: 49500 Merged Sum: 198000 mergetimes:49500 ans:148500
+finish_time +2.01s total=198000
+APP 0 thrtime +2.011s aggregate throughput 10.1458 Gbps [(54443/1562500),3.48435%]
+APP 1 thrtime +2.011s aggregate throughput 7.2704 Gbps [(39000/1562500),2.496%]
+APP 0 thrtime +2.012s aggregate throughput 10.1458 Gbps [(59397/1562500),3.80141%]
+APP 1 thrtime +2.012s aggregate throughput 7.23968 Gbps [(42535/1562500),2.72224%]
+APP 0 thrtime +2.013s aggregate throughput 10.1437 Gbps [(64350/1562500),4.1184%]
+APP 1 thrtime +2.013s aggregate throughput 7.19872 Gbps [(46050/1562500),2.9472%]
+APP 0 thrtime +2.014s aggregate throughput 10.1376 Gbps [(69300/1562500),4.4352%]
+APP 1 thrtime +2.014s aggregate throughput 7.2704 Gbps [(49600/1562500),3.1744%]
+APP 0 thrtime +2.015s aggregate throughput 10.1376 Gbps [(74250/1562500),4.752%]
+APP 1 thrtime +2.015s aggregate throughput 7.2704 Gbps [(53150/1562500),3.4016%]
+APP 0 thrtime +2.016s aggregate throughput 10.1376 Gbps [(79200/1562500),5.0688%]
+APP 1 thrtime +2.016s aggregate throughput 7.2704 Gbps [(56700/1562500),3.6288%]
+APP 0 thrtime +2.017s aggregate throughput 10.1376 Gbps [(84150/1562500),5.3856%]
+APP 1 thrtime +2.017s aggregate throughput 7.2704 Gbps [(60250/1562500),3.856%]
+APP 0 thrtime +2.018s aggregate throughput 10.1376 Gbps [(89100/1562500),5.7024%]
+APP 1 thrtime +2.018s aggregate throughput 7.2704 Gbps [(63800/1562500),4.0832%]
+APP 0 thrtime +2.019s aggregate throughput 10.1376 Gbps [(94050/1562500),6.0192%]
+APP 1 thrtime +2.019s aggregate throughput 7.2704 Gbps [(67350/1562500),4.3104%]
+APP 0 thrtime +2.02s aggregate throughput 10.1376 Gbps [(99000/1562500),6.336%]
+APP 1 thrtime +2.02s aggregate throughput 7.2704 Gbps [(70900/1562500),4.5376%]
+APP 0 thrtime +2.021s aggregate throughput 10.1376 Gbps [(103950/1562500),6.6528%]
+APP 1 thrtime +2.021s aggregate throughput 7.2704 Gbps [(74450/1562500),4.7648%]
+APP 0 thrtime +2.022s aggregate throughput 10.1376 Gbps [(108900/1562500),6.9696%]
+APP 1 thrtime +2.022s aggregate throughput 7.2704 Gbps [(78000/1562500),4.992%]
+APP 0 thrtime +2.023s aggregate throughput 10.1376 Gbps [(113850/1562500),7.2864%]
+APP 1 thrtime +2.023s aggregate throughput 7.2704 Gbps [(81550/1562500),5.2192%]
+APP 0 thrtime +2.024s aggregate throughput 10.1376 Gbps [(118800/1562500),7.6032%]
+APP 1 thrtime +2.024s aggregate throughput 7.2704 Gbps [(85100/1562500),5.4464%]
+APP 0 thrtime +2.025s aggregate throughput 10.1376 Gbps [(123750/1562500),7.92%]
+APP 1 thrtime +2.025s aggregate throughput 7.2233 Gbps [(88627/1562500),5.67213%]
+APP 0 thrtime +2.026s aggregate throughput 10.1376 Gbps [(128700/1562500),8.2368%]
+APP 1 thrtime +2.026s aggregate throughput 7.2151 Gbps [(92150/1562500),5.8976%]
+APP 0 thrtime +2.027s aggregate throughput 10.1376 Gbps [(133650/1562500),8.5536%]
+APP 1 thrtime +2.027s aggregate throughput 7.2704 Gbps [(95700/1562500),6.1248%]
+APP 0 thrtime +2.028s aggregate throughput 10.1376 Gbps [(138600/1562500),8.8704%]
+APP 1 thrtime +2.028s aggregate throughput 7.2704 Gbps [(99250/1562500),6.352%]
+APP 0 thrtime +2.029s aggregate throughput 10.1376 Gbps [(143550/1562500),9.1872%]
+APP 1 thrtime +2.029s aggregate throughput 7.2704 Gbps [(102800/1562500),6.5792%]
+APP 0 thrtime +2.03s aggregate throughput 10.1376 Gbps [(148500/1562500),9.504%]
+APP 1 thrtime +2.03s aggregate throughput 7.2704 Gbps [(106350/1562500),6.8064%]
+APP 0 thrtime +2.031s aggregate throughput 10.1376 Gbps [(153450/1562500),9.8208%]
+APP 1 thrtime +2.031s aggregate throughput 7.2704 Gbps [(109900/1562500),7.0336%]
+APP 0 thrtime +2.032s aggregate throughput 10.1376 Gbps [(158400/1562500),10.1376%]
+APP 1 thrtime +2.032s aggregate throughput 7.2704 Gbps [(113450/1562500),7.2608%]
+APP 0 thrtime +2.033s aggregate throughput 10.1376 Gbps [(163350/1562500),10.4544%]
+APP 1 thrtime +2.033s aggregate throughput 7.2704 Gbps [(117000/1562500),7.488%]
+APP 0 thrtime +2.034s aggregate throughput 10.1376 Gbps [(168300/1562500),10.7712%]
+APP 1 thrtime +2.034s aggregate throughput 7.2704 Gbps [(120550/1562500),7.7152%]
+APP 0 thrtime +2.035s aggregate throughput 10.1376 Gbps [(173250/1562500),11.088%]
+APP 1 thrtime +2.035s aggregate throughput 7.2704 Gbps [(124100/1562500),7.9424%]
+APP 0 thrtime +2.036s aggregate throughput 10.1376 Gbps [(178200/1562500),11.4048%]
+APP 1 thrtime +2.036s aggregate throughput 7.2704 Gbps [(127650/1562500),8.1696%]
+APP 0 thrtime +2.037s aggregate throughput 10.1376 Gbps [(183150/1562500),11.7216%]
+APP 1 thrtime +2.037s aggregate throughput 7.2704 Gbps [(131200/1562500),8.3968%]
+APP 0 thrtime +2.038s aggregate throughput 10.1376 Gbps [(188100/1562500),12.0384%]
+APP 1 thrtime +2.038s aggregate throughput 7.20896 Gbps [(134720/1562500),8.62208%]
+APP 0 thrtime +2.039s aggregate throughput 10.1376 Gbps [(193050/1562500),12.3552%]
+APP 1 thrtime +2.039s aggregate throughput 7.22944 Gbps [(138250/1562500),8.848%]
+APP 0 thrtime +2.04s aggregate throughput 10.1376 Gbps [(198000/1562500),12.672%]
+APP 1 thrtime +2.04s aggregate throughput 7.2704 Gbps [(141800/1562500),9.0752%]
+APP 0 thrtime +2.041s aggregate throughput 10.1376 Gbps [(202950/1562500),12.9888%]
+APP 1 thrtime +2.041s aggregate throughput 7.2704 Gbps [(145350/1562500),9.3024%]
+APP 0 thrtime +2.042s aggregate throughput 10.1376 Gbps [(207900/1562500),13.3056%]
+APP 1 thrtime +2.042s aggregate throughput 7.2704 Gbps [(148900/1562500),9.5296%]
+APP 0 thrtime +2.043s aggregate throughput 10.1376 Gbps [(212850/1562500),13.6224%]
+APP 1 thrtime +2.043s aggregate throughput 7.2704 Gbps [(152450/1562500),9.7568%]
+APP 0 thrtime +2.044s aggregate throughput 10.1376 Gbps [(217800/1562500),13.9392%]
+APP 1 thrtime +2.044s aggregate throughput 7.2704 Gbps [(156000/1562500),9.984%]
+APP 0 thrtime +2.045s aggregate throughput 10.1376 Gbps [(222750/1562500),14.256%]
+APP 1 thrtime +2.045s aggregate throughput 7.2704 Gbps [(159550/1562500),10.2112%]
+APP 0 thrtime +2.046s aggregate throughput 10.1376 Gbps [(227700/1562500),14.5728%]
+APP 1 thrtime +2.046s aggregate throughput 7.2704 Gbps [(163100/1562500),10.4384%]
+APP 0 thrtime +2.047s aggregate throughput 10.1376 Gbps [(232650/1562500),14.8896%]
+APP 1 thrtime +2.047s aggregate throughput 7.2704 Gbps [(166650/1562500),10.6656%]
+APP 0 thrtime +2.048s aggregate throughput 10.1376 Gbps [(237600/1562500),15.2064%]
+APP 1 thrtime +2.048s aggregate throughput 7.2704 Gbps [(170200/1562500),10.8928%]
+APP 0 thrtime +2.049s aggregate throughput 10.1376 Gbps [(242550/1562500),15.5232%]
+APP 1 thrtime +2.049s aggregate throughput 7.2704 Gbps [(173750/1562500),11.12%]
+APP 0 thrtime +2.05s aggregate throughput 10.1376 Gbps [(247500/1562500),15.84%]
+APP 1 thrtime +2.05s aggregate throughput 7.2704 Gbps [(177300/1562500),11.3472%]
+APP 0 thrtime +2.051s aggregate throughput 10.1376 Gbps [(252450/1562500),16.1568%]
+APP 1 thrtime +2.051s aggregate throughput 7.19258 Gbps [(180812/1562500),11.572%]
+APP 0 thrtime +2.052s aggregate throughput 10.1376 Gbps [(257400/1562500),16.4736%]
+APP 1 thrtime +2.052s aggregate throughput 7.24582 Gbps [(184350/1562500),11.7984%]
+APP 0 thrtime +2.053s aggregate throughput 10.1376 Gbps [(262350/1562500),16.7904%]
+APP 1 thrtime +2.053s aggregate throughput 7.2704 Gbps [(187900/1562500),12.0256%]
+APP 0 thrtime +2.054s aggregate throughput 10.1376 Gbps [(267300/1562500),17.1072%]
+APP 1 thrtime +2.054s aggregate throughput 7.2704 Gbps [(191450/1562500),12.2528%]
+APP 0 thrtime +2.055s aggregate throughput 10.1376 Gbps [(272250/1562500),17.424%]
+APP 1 thrtime +2.055s aggregate throughput 7.2704 Gbps [(195000/1562500),12.48%]
+APP 0 thrtime +2.056s aggregate throughput 10.1376 Gbps [(277200/1562500),17.7408%]
+APP 1 thrtime +2.056s aggregate throughput 7.2704 Gbps [(198550/1562500),12.7072%]
+APP 0 thrtime +2.057s aggregate throughput 10.1376 Gbps [(282150/1562500),18.0576%]
+APP 1 thrtime +2.057s aggregate throughput 7.2704 Gbps [(202100/1562500),12.9344%]
+APP 0 thrtime +2.058s aggregate throughput 10.1376 Gbps [(287100/1562500),18.3744%]
+APP 1 thrtime +2.058s aggregate throughput 7.2704 Gbps [(205650/1562500),13.1616%]
+APP 0 thrtime +2.059s aggregate throughput 10.1376 Gbps [(292050/1562500),18.6912%]
+APP 1 thrtime +2.059s aggregate throughput 7.2704 Gbps [(209200/1562500),13.3888%]
+APP 0 thrtime +2.06s aggregate throughput 10.1376 Gbps [(297000/1562500),19.008%]
+APP 1 thrtime +2.06s aggregate throughput 7.2704 Gbps [(212750/1562500),13.616%]
+APP 0 thrtime +2.061s aggregate throughput 10.1376 Gbps [(301950/1562500),19.3248%]
+APP 1 thrtime +2.061s aggregate throughput 7.2704 Gbps [(216300/1562500),13.8432%]
+APP 0 thrtime +2.062s aggregate throughput 10.1376 Gbps [(306900/1562500),19.6416%]
+APP 1 thrtime +2.062s aggregate throughput 7.2704 Gbps [(219850/1562500),14.0704%]
+APP 0 thrtime +2.063s aggregate throughput 10.1376 Gbps [(311850/1562500),19.9584%]
+APP 1 thrtime +2.063s aggregate throughput 7.26426 Gbps [(223397/1562500),14.2974%]
+APP 0 thrtime +2.064s aggregate throughput 10.1376 Gbps [(316800/1562500),20.2752%]
+APP 1 thrtime +2.064s aggregate throughput 7.18234 Gbps [(226904/1562500),14.5219%]
+APP 0 thrtime +2.065s aggregate throughput 10.1376 Gbps [(321750/1562500),20.592%]
+APP 1 thrtime +2.065s aggregate throughput 7.26221 Gbps [(230450/1562500),14.7488%]
+APP 0 thrtime +2.066s aggregate throughput 10.1376 Gbps [(326700/1562500),20.9088%]
+APP 1 thrtime +2.066s aggregate throughput 7.2704 Gbps [(234000/1562500),14.976%]
+APP 0 thrtime +2.067s aggregate throughput 10.1376 Gbps [(331650/1562500),21.2256%]
+APP 1 thrtime +2.067s aggregate throughput 7.2704 Gbps [(237550/1562500),15.2032%]
+APP 0 thrtime +2.068s aggregate throughput 10.1376 Gbps [(336600/1562500),21.5424%]
+APP 1 thrtime +2.068s aggregate throughput 7.2704 Gbps [(241100/1562500),15.4304%]
+APP 0 thrtime +2.069s aggregate throughput 10.1376 Gbps [(341550/1562500),21.8592%]
+APP 1 thrtime +2.069s aggregate throughput 7.2704 Gbps [(244650/1562500),15.6576%]
+APP 0 thrtime +2.07s aggregate throughput 10.1376 Gbps [(346500/1562500),22.176%]
+APP 1 thrtime +2.07s aggregate throughput 7.2704 Gbps [(248200/1562500),15.8848%]
+APP 0 thrtime +2.071s aggregate throughput 10.1376 Gbps [(351450/1562500),22.4928%]
+APP 1 thrtime +2.071s aggregate throughput 7.2704 Gbps [(251750/1562500),16.112%]
+APP 0 thrtime +2.072s aggregate throughput 10.1376 Gbps [(356400/1562500),22.8096%]
+APP 1 thrtime +2.072s aggregate throughput 7.2704 Gbps [(255300/1562500),16.3392%]
+APP 0 thrtime +2.073s aggregate throughput 10.1376 Gbps [(361350/1562500),23.1264%]
+APP 1 thrtime +2.073s aggregate throughput 7.2704 Gbps [(258850/1562500),16.5664%]
+APP 0 thrtime +2.074s aggregate throughput 10.1376 Gbps [(366300/1562500),23.4432%]
+APP 1 thrtime +2.074s aggregate throughput 7.2704 Gbps [(262400/1562500),16.7936%]
+APP 0 thrtime +2.075s aggregate throughput 10.1376 Gbps [(371250/1562500),23.76%]
+APP 1 thrtime +2.075s aggregate throughput 7.2704 Gbps [(265950/1562500),17.0208%]
+APP 0 thrtime +2.076s aggregate throughput 10.1376 Gbps [(376200/1562500),24.0768%]
+APP 1 thrtime +2.076s aggregate throughput 7.24787 Gbps [(269489/1562500),17.2473%]
+APP 0 thrtime +2.077s aggregate throughput 10.1376 Gbps [(381150/1562500),24.3936%]
+APP 1 thrtime +2.077s aggregate throughput 7.19053 Gbps [(273000/1562500),17.472%]
+APP 0 thrtime +2.078s aggregate throughput 10.1376 Gbps [(386100/1562500),24.7104%]
+APP 1 thrtime +2.078s aggregate throughput 7.2704 Gbps [(276550/1562500),17.6992%]
+APP 0 thrtime +2.079s aggregate throughput 10.1376 Gbps [(391050/1562500),25.0272%]
+APP 1 thrtime +2.079s aggregate throughput 7.2704 Gbps [(280100/1562500),17.9264%]
+APP 0 thrtime +2.08s aggregate throughput 10.1376 Gbps [(396000/1562500),25.344%]
+APP 1 thrtime +2.08s aggregate throughput 7.2704 Gbps [(283650/1562500),18.1536%]
+APP 0 thrtime +2.081s aggregate throughput 10.1376 Gbps [(400950/1562500),25.6608%]
+APP 1 thrtime +2.081s aggregate throughput 7.2704 Gbps [(287200/1562500),18.3808%]
+APP 0 thrtime +2.082s aggregate throughput 10.1376 Gbps [(405900/1562500),25.9776%]
+APP 1 thrtime +2.082s aggregate throughput 7.2704 Gbps [(290750/1562500),18.608%]
+APP 0 thrtime +2.083s aggregate throughput 10.1376 Gbps [(410850/1562500),26.2944%]
+APP 1 thrtime +2.083s aggregate throughput 7.2704 Gbps [(294300/1562500),18.8352%]
+APP 0 thrtime +2.084s aggregate throughput 10.1376 Gbps [(415800/1562500),26.6112%]
+APP 1 thrtime +2.084s aggregate throughput 7.2704 Gbps [(297850/1562500),19.0624%]
+APP 0 thrtime +2.085s aggregate throughput 10.1376 Gbps [(420750/1562500),26.928%]
+APP 1 thrtime +2.085s aggregate throughput 7.2704 Gbps [(301400/1562500),19.2896%]
+APP 0 thrtime +2.086s aggregate throughput 10.1376 Gbps [(425700/1562500),27.2448%]
+APP 1 thrtime +2.086s aggregate throughput 7.2704 Gbps [(304950/1562500),19.5168%]
+APP 0 thrtime +2.087s aggregate throughput 10.1376 Gbps [(430650/1562500),27.5616%]
+APP 1 thrtime +2.087s aggregate throughput 7.2704 Gbps [(308500/1562500),19.744%]
+APP 0 thrtime +2.088s aggregate throughput 10.1376 Gbps [(435600/1562500),27.8784%]
+APP 1 thrtime +2.088s aggregate throughput 7.2704 Gbps [(312050/1562500),19.9712%]
+APP 0 thrtime +2.089s aggregate throughput 10.1376 Gbps [(440550/1562500),28.1952%]
+APP 1 thrtime +2.089s aggregate throughput 7.23149 Gbps [(315581/1562500),20.1972%]
+APP 0 thrtime +2.09s aggregate throughput 10.1376 Gbps [(445500/1562500),28.512%]
+APP 1 thrtime +2.09s aggregate throughput 7.20691 Gbps [(319100/1562500),20.4224%]
+APP 0 thrtime +2.091s aggregate throughput 10.1376 Gbps [(450450/1562500),28.8288%]
+APP 1 thrtime +2.091s aggregate throughput 7.2704 Gbps [(322650/1562500),20.6496%]
+APP 0 thrtime +2.092s aggregate throughput 10.1376 Gbps [(455400/1562500),29.1456%]
+APP 1 thrtime +2.092s aggregate throughput 7.2704 Gbps [(326200/1562500),20.8768%]
+APP 0 thrtime +2.093s aggregate throughput 10.1376 Gbps [(460350/1562500),29.4624%]
+APP 1 thrtime +2.093s aggregate throughput 7.2704 Gbps [(329750/1562500),21.104%]
+APP 0 thrtime +2.094s aggregate throughput 10.1376 Gbps [(465300/1562500),29.7792%]
+APP 1 thrtime +2.094s aggregate throughput 7.2704 Gbps [(333300/1562500),21.3312%]
+APP 0 thrtime +2.095s aggregate throughput 10.1376 Gbps [(470250/1562500),30.096%]
+APP 1 thrtime +2.095s aggregate throughput 7.2704 Gbps [(336850/1562500),21.5584%]
+APP 0 thrtime +2.096s aggregate throughput 10.1376 Gbps [(475200/1562500),30.4128%]
+APP 1 thrtime +2.096s aggregate throughput 7.2704 Gbps [(340400/1562500),21.7856%]
+APP 0 thrtime +2.097s aggregate throughput 10.1376 Gbps [(480150/1562500),30.7296%]
+APP 1 thrtime +2.097s aggregate throughput 7.2704 Gbps [(343950/1562500),22.0128%]
+APP 0 thrtime +2.098s aggregate throughput 10.1376 Gbps [(485100/1562500),31.0464%]
+APP 1 thrtime +2.098s aggregate throughput 7.2704 Gbps [(347500/1562500),22.24%]
+APP 0 thrtime +2.099s aggregate throughput 10.1376 Gbps [(490050/1562500),31.3632%]
+APP 1 thrtime +2.099s aggregate throughput 7.2704 Gbps [(351050/1562500),22.4672%]
+APP 0 thrtime +2.1s aggregate throughput 10.1376 Gbps [(495000/1562500),31.68%]
+APP 1 thrtime +2.1s aggregate throughput 7.2704 Gbps [(354600/1562500),22.6944%]
+APP 0 thrtime +2.101s aggregate throughput 10.1376 Gbps [(499950/1562500),31.9968%]
+APP 1 thrtime +2.101s aggregate throughput 7.2704 Gbps [(358150/1562500),22.9216%]
+APP 0 thrtime +2.102s aggregate throughput 10.1458 Gbps [(504904/1562500),32.3139%]
+APP 1 thrtime +2.102s aggregate throughput 7.21715 Gbps [(361674/1562500),23.1471%]
+APP 0 thrtime +2.103s aggregate throughput 10.1458 Gbps [(509858/1562500),32.6309%]
+APP 1 thrtime +2.103s aggregate throughput 7.22125 Gbps [(365200/1562500),23.3728%]
+APP 0 thrtime +2.104s aggregate throughput 10.1458 Gbps [(514812/1562500),32.948%]
+APP 1 thrtime +2.104s aggregate throughput 7.2704 Gbps [(368750/1562500),23.6%]
+APP 0 thrtime +2.105s aggregate throughput 10.1458 Gbps [(519766/1562500),33.265%]
+APP 1 thrtime +2.105s aggregate throughput 7.2704 Gbps [(372300/1562500),23.8272%]
+APP 0 thrtime +2.106s aggregate throughput 10.1458 Gbps [(524720/1562500),33.5821%]
+APP 1 thrtime +2.106s aggregate throughput 7.2704 Gbps [(375850/1562500),24.0544%]
+APP 0 thrtime +2.107s aggregate throughput 10.1458 Gbps [(529674/1562500),33.8991%]
+APP 1 thrtime +2.107s aggregate throughput 7.2704 Gbps [(379400/1562500),24.2816%]
+APP 0 thrtime +2.108s aggregate throughput 10.1437 Gbps [(534627/1562500),34.2161%]
+APP 1 thrtime +2.108s aggregate throughput 7.2704 Gbps [(382950/1562500),24.5088%]
+APP 0 thrtime +2.109s aggregate throughput 10.1458 Gbps [(539581/1562500),34.5332%]
+APP 1 thrtime +2.109s aggregate throughput 7.2704 Gbps [(386500/1562500),24.736%]
+APP 0 thrtime +2.11s aggregate throughput 10.1458 Gbps [(544535/1562500),34.8502%]
+APP 1 thrtime +2.11s aggregate throughput 7.2704 Gbps [(390050/1562500),24.9632%]
+APP 0 thrtime +2.111s aggregate throughput 10.1458 Gbps [(549489/1562500),35.1673%]
+APP 1 thrtime +2.111s aggregate throughput 7.2704 Gbps [(393600/1562500),25.1904%]
+APP 0 thrtime +2.112s aggregate throughput 10.1458 Gbps [(554443/1562500),35.4844%]
+APP 1 thrtime +2.112s aggregate throughput 7.2704 Gbps [(397150/1562500),25.4176%]
+APP 0 thrtime +2.113s aggregate throughput 10.1458 Gbps [(559397/1562500),35.8014%]
+APP 1 thrtime +2.113s aggregate throughput 7.2704 Gbps [(400700/1562500),25.6448%]
+APP 0 thrtime +2.114s aggregate throughput 10.1437 Gbps [(564350/1562500),36.1184%]
+APP 1 thrtime +2.114s aggregate throughput 7.2704 Gbps [(404250/1562500),25.872%]
+APP 0 thrtime +2.115s aggregate throughput 10.1376 Gbps [(569300/1562500),36.4352%]
+APP 1 thrtime +2.115s aggregate throughput 7.20077 Gbps [(407766/1562500),26.097%]
+APP 0 thrtime +2.116s aggregate throughput 10.1376 Gbps [(574250/1562500),36.752%]
+APP 1 thrtime +2.116s aggregate throughput 7.23763 Gbps [(411300/1562500),26.3232%]
+APP 0 thrtime +2.117s aggregate throughput 10.1376 Gbps [(579200/1562500),37.0688%]
+APP 1 thrtime +2.117s aggregate throughput 7.2704 Gbps [(414850/1562500),26.5504%]
+APP 0 thrtime +2.118s aggregate throughput 10.1376 Gbps [(584150/1562500),37.3856%]
+APP 1 thrtime +2.118s aggregate throughput 7.2704 Gbps [(418400/1562500),26.7776%]
+APP 0 thrtime +2.119s aggregate throughput 10.1376 Gbps [(589100/1562500),37.7024%]
+APP 1 thrtime +2.119s aggregate throughput 7.2704 Gbps [(421950/1562500),27.0048%]
+APP 0 thrtime +2.12s aggregate throughput 10.1376 Gbps [(594050/1562500),38.0192%]
+APP 1 thrtime +2.12s aggregate throughput 7.2704 Gbps [(425500/1562500),27.232%]
+APP 0 thrtime +2.121s aggregate throughput 10.1376 Gbps [(599000/1562500),38.336%]
+APP 1 thrtime +2.121s aggregate throughput 7.2704 Gbps [(429050/1562500),27.4592%]
+APP 0 thrtime +2.122s aggregate throughput 10.1376 Gbps [(603950/1562500),38.6528%]
+APP 1 thrtime +2.122s aggregate throughput 7.2704 Gbps [(432600/1562500),27.6864%]
+APP 0 thrtime +2.123s aggregate throughput 10.1376 Gbps [(608900/1562500),38.9696%]
+APP 1 thrtime +2.123s aggregate throughput 7.2704 Gbps [(436150/1562500),27.9136%]
+APP 0 thrtime +2.124s aggregate throughput 10.1376 Gbps [(613850/1562500),39.2864%]
+APP 1 thrtime +2.124s aggregate throughput 7.2704 Gbps [(439700/1562500),28.1408%]
+APP 0 thrtime +2.125s aggregate throughput 10.1376 Gbps [(618800/1562500),39.6032%]
+APP 1 thrtime +2.125s aggregate throughput 7.2704 Gbps [(443250/1562500),28.368%]
+APP 0 thrtime +2.126s aggregate throughput 10.1376 Gbps [(623750/1562500),39.92%]
+APP 1 thrtime +2.126s aggregate throughput 7.2704 Gbps [(446800/1562500),28.5952%]
+APP 0 thrtime +2.127s aggregate throughput 10.1376 Gbps [(628700/1562500),40.2368%]
+APP 1 thrtime +2.127s aggregate throughput 7.2704 Gbps [(450350/1562500),28.8224%]
+APP 0 thrtime +2.128s aggregate throughput 10.1376 Gbps [(633650/1562500),40.5536%]
+APP 1 thrtime +2.128s aggregate throughput 7.18438 Gbps [(453858/1562500),29.0469%]
+APP 0 thrtime +2.129s aggregate throughput 10.1376 Gbps [(638600/1562500),40.8704%]
+APP 1 thrtime +2.129s aggregate throughput 7.25402 Gbps [(457400/1562500),29.2736%]
+APP 0 thrtime +2.13s aggregate throughput 10.1376 Gbps [(643550/1562500),41.1872%]
+APP 1 thrtime +2.13s aggregate throughput 7.2704 Gbps [(460950/1562500),29.5008%]
+APP 0 thrtime +2.131s aggregate throughput 10.1376 Gbps [(648500/1562500),41.504%]
+APP 1 thrtime +2.131s aggregate throughput 7.2704 Gbps [(464500/1562500),29.728%]
+APP 0 thrtime +2.132s aggregate throughput 10.1376 Gbps [(653450/1562500),41.8208%]
+APP 1 thrtime +2.132s aggregate throughput 7.2704 Gbps [(468050/1562500),29.9552%]
+APP 0 thrtime +2.133s aggregate throughput 10.1376 Gbps [(658400/1562500),42.1376%]
+APP 1 thrtime +2.133s aggregate throughput 7.2704 Gbps [(471600/1562500),30.1824%]
+APP 0 thrtime +2.134s aggregate throughput 10.1376 Gbps [(663350/1562500),42.4544%]
+APP 1 thrtime +2.134s aggregate throughput 7.2704 Gbps [(475150/1562500),30.4096%]
+APP 0 thrtime +2.135s aggregate throughput 10.1376 Gbps [(668300/1562500),42.7712%]
+APP 1 thrtime +2.135s aggregate throughput 7.2704 Gbps [(478700/1562500),30.6368%]
+APP 0 thrtime +2.136s aggregate throughput 10.1376 Gbps [(673250/1562500),43.088%]
+APP 1 thrtime +2.136s aggregate throughput 7.2704 Gbps [(482250/1562500),30.864%]
+APP 0 thrtime +2.137s aggregate throughput 10.1376 Gbps [(678200/1562500),43.4048%]
+APP 1 thrtime +2.137s aggregate throughput 7.2704 Gbps [(485800/1562500),31.0912%]
+Interrupted 

@@ -1,0 +1,4 @@
+Protocol,TailIntensity,Round,FinishTime,Throughput
+atp,low,1,+2.00999s,Sum:
+atp,low,1,+2.01s,Sum:
+atp,low,2,+2.01s,Sum:
