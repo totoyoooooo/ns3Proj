@@ -1,0 +1,5 @@
+APP 0 thrtime +2.001s aggregate throughput 12.5952 Gbps [(6150/15625),39.36%]
+APP 1 thrtime +2.001s aggregate throughput 8.3968 Gbps [(4100/15625),26.24%]
+APP 0 thrtime +2.002s aggregate throughput 12.6198 Gbps [(12312/15625),78.7968%]
+APP 1 thrtime +2.002s aggregate throughput 8.4992 Gbps [(8250/15625),52.8%]
+APP 1 thrtime +2.003s aggregate throughput 8.3968 Gbps [(12350/15625),79.04%]

@@ -3,7 +3,7 @@
 Waf: Entering directory `/home/w/TimeWindow/ns3Proj/build'
 Waf: Leaving directory `/home/w/TimeWindow/ns3Proj/build'
 Build commands will be stored in build/compile_commands.json
-'build' finished successfully (0.172s)
+'build' finished successfully (0.193s)
 config path lzy_mix/config/testatp.txt
 topology file from cmd line ./lzy_mix/topology/testtopo_low.txt
 ENABLE_CC	Yes
@@ -124,4 +124,80 @@ finish_time +0s total=0
 finish_time +0s total=0
 APP 0 thrtime +2.001s aggregate throughput 12.5952 Gbps [(6150/15625),39.36%]
 APP 1 thrtime +2.001s aggregate throughput 12.5952 Gbps [(6150/15625),39.36%]
-Interrupted 
+[+2.001s] Total Received: 6156 Merged Sum: 24624 mergetimes:6156 ans:18468
+finish_time +2.001s total=24624
+[+2.001s] Total Received: 6156 Merged Sum: 24624 mergetimes:6156 ans:18468
+finish_time +2.001s total=24624
+APP 0 thrtime +2.002s aggregate throughput 12.6198 Gbps [(12312/15625),78.7968%]
+APP 1 thrtime +2.002s aggregate throughput 12.6198 Gbps [(12312/15625),78.7968%]
+[+2.002s] Total Received: 12350 Merged Sum: 49400 mergetimes:12350 ans:37050
+finish_time +2.002s total=49400
+[+2.002s] Total Received: 12350 Merged Sum: 49400 mergetimes:12350 ans:37050
+finish_time +2.002s total=49400
+Finish 0 node 1 at +2.00253s
+Finish 1 node 5 at +2.00253s
+[+2.003s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.003s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.004s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.004s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.005s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.005s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.006s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.006s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.007s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.007s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.008s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.008s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.009s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.009s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.01s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+2.01s] Total Received: 15625 Merged Sum: 62500 mergetimes:15625 ans:46875
+finish_time +2.00253s total=62500
+[+3s] Total Send: 15625
+finish_send_time +2.002s total=12312
+last_ack_time +2.00253s total=12312
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00253s total=0
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00253s total=0
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00253s total=0
+[+3s] Total Send: 15625
+finish_send_time +2.002s total=12312
+last_ack_time +2.00253s total=12312
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00253s total=0
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00253s total=0
+[+3s] Total Send: 15625
+finish_send_time +0s total=0
+last_ack_time +2.00253s total=0
+AGGR TIME +3s minutil 0.00222222
+AGGR TIME +3s minutil 0.00222222
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 31248
+====================================================

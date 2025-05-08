@@ -305,3 +305,5 @@ Model: ResNet, Tail Intensity: low, Total Flows: 12
 Model: ResNet, Tail Intensity: low, Total Flows: 12
 Model: ResNet, Tail Intensity: low, Total Flows: 12
 Model: ResNet, Tail Intensity: low, Total Flows: 12
+Model: ResNet, Tail Intensity: low, Total Flows: 12
+Model: ResNet, Tail Intensity: low, Total Flows: 12
