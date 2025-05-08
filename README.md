@@ -1,12 +1,6 @@
 
 ### 运行大规模仿真
 
-目前设置5个任务，如果需要修改任务数量，请在`test_modifications.sh`中 修改以下语句
-```
-./generate_jobs.py --tail_intensity $intensity --jobs 5
-```
-然后重新运行`test_modifications.sh`
-
 
 运行所有协议和拖尾强度的组合
 ```
@@ -22,6 +16,14 @@
 所有的结果将保存在 results 目录中，包括原始输出、CSV 格式的统计数据以及可视化图表，便于比较不同协议在不同拖尾强度下的性能。
 
 ### 文件说明
+
+目前设置5个任务，如果需要修改任务数量，请在`test_modifications.sh`中 修改以下语句
+```
+./generate_jobs.py --tail_intensity $intensity --jobs 5
+```
+然后重新运行`test_modifications.sh`
+
+
 /job 中的这些文件是在不同拖尾强度(tail intensity)下生成的作业配置文件：
 1. large_jobs_low.txt - 低拖尾强度下的作业配置
 2. large_jobs_medium.txt - 中等拖尾强度下的作业配置
