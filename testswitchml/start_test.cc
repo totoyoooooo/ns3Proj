@@ -529,7 +529,8 @@ main (int argc, char *argv[])
 
   //generate job
   // jobf.open(jobfile.c_str());jobpath
-  jobf.open(jobpath.c_str());
+  std::cout << "jobpath : " << jobfile << "\n";
+  jobf.open(jobfile.c_str());
   uint32_t app_num;
 	jobf >> app_num;
   std::vector<uint32_t> is_node_aggr(node_num, 0);
@@ -546,11 +547,11 @@ main (int argc, char *argv[])
   // Initialize core switches as aggregators (nodes 8-15 are core switches)
   for (uint32_t core_id = 8; core_id <= 15; core_id++) {
     UdpAggregatorHelper coreAggregator(udpport);
-    coreAggregator.SetAttribute("Msize", UintegerValue(max_pool_size * 2));
-    coreAggregator.SetAttribute("MAX_Host_Number", UintegerValue(128));
+    coreAggregator.SetAttribute("Msize", UintegerValue(max_pool_size));
+    coreAggregator.SetAttribute("MAX_Host_Number", UintegerValue(64)); // 增加最大主机数
     coreAggregator.SetAttribute("RemotePort", UintegerValue(udpport));
     coreAggregator.SetAttribute("Port", UintegerValue(udpport));
-    coreAggregator.SetAttribute("Level", UintegerValue(1));
+    coreAggregator.SetAttribute("Level", UintegerValue(1)); // 确保Level为1
     coreAggregator.SetAttribute("OnSaatp", UintegerValue(onsaatp));
     coreAggregator.SetAttribute("ONOFFASYCC", UintegerValue(onoffasycc));
     coreAggregator.SetAttribute("ONOFFPS", UintegerValue(onoffps));
@@ -579,7 +580,11 @@ main (int argc, char *argv[])
     std::cout << "Setting protocol name for core aggregator " << core_id << " to: " << protocolName << std::endl;
     udpAggregator[core_id]->SetProtocolName(protocolName);
     
-    serverApps[core_id].Start(Seconds(1.0));
+    // 增加调试信息
+    std::cout << "Core switch " << core_id << " aggregator created with pool size " << max_pool_size 
+              << " and max hosts " << 64 << std::endl;
+              
+    serverApps[core_id].Start(Seconds(0.5)); // 提前启动聚合器
     serverApps[core_id].Stop(Seconds(50.0));
     
     is_core_aggr[core_id] = 1;
@@ -593,7 +598,8 @@ main (int argc, char *argv[])
     tor_to_core_map[tor_id] = core_id;
     std::cout << "TOR switch " << tor_id << " mapped to core switch " << core_id << std::endl;
   }
-  
+  std::cout << "appnum__" << app_num << "\n";
+  std::cout << "Starting to process " << app_num << " applications" << std::endl;
   for (int i=0; i < app_num; i++){
     uint32_t appid, workernum, aggregator_node, ps_node, max_count, aggr_used, model_size, cross_rack;
     float interval, start_time;
@@ -663,6 +669,9 @@ main (int argc, char *argv[])
         int tor_to_ps_link = node_link_table[ps_tor][ps_node];
         if (tor_to_ps_link >= 0) {
           std::cout << "Found link from TOR " << ps_tor << " to PS " << ps_node << std::endl;
+          // 打印PS节点的IP地址
+          std::cout << "PS node " << ps_node << " IP address: " << node_ip[ps_node] << std::endl;
+          
           // Use the PS node's IP address
           remotes.push_back(InetSocketAddress(node_ip[ps_node], psudport[ps_node]));
           port.push_back(psudport[ps_node]);
@@ -678,7 +687,7 @@ main (int argc, char *argv[])
       port.push_back(psudport[ps_node]);
     }
     
-    printf("debug setremotes remotesize %d port size %d appid %d\n", remotes.size(), port.size(), appid);
+    printf("debug setremotes remotesize %ld port size %ld appid %d\n", remotes.size(), port.size(), appid);
     
     // 检查指针是否有效
     if (!udpAggregator[aggregator_node]) {
@@ -699,6 +708,8 @@ main (int argc, char *argv[])
     ApplicationContainer PsApps = PSer.Install(nodes.Get(ps_node));
     PsApps.Start(Seconds(1.0));
     PsApps.Stop(Seconds(50.0));
+    
+    std::cout << "PS application installed on node " << ps_node << " with port " << psudport[ps_node] << std::endl;
     
     // For each worker, set up connection to the core switch through its TOR
     for (std::size_t j = 0; j < workernum; j++) {
@@ -725,6 +736,18 @@ main (int argc, char *argv[])
       
       int worker_node;
       jobf >> worker_node;
+      
+      // 检查worker节点是否有效
+      if (worker_node < 0 || worker_node >= node_num) {
+        std::cerr << "ERROR: Worker node " << worker_node << " is out of range (0-" << node_num-1 << ")" << std::endl;
+        continue;
+      }
+      
+      // 检查worker节点是否是交换机
+      if (node_type[worker_node] == 1) {
+        std::cerr << "ERROR: Worker node " << worker_node << " is a switch, not a host!" << std::endl;
+        continue;
+      }
       
       // Find the TOR switch for this worker node
       uint32_t worker_tor = 0;
@@ -762,6 +785,7 @@ main (int argc, char *argv[])
         core_address = node_to_node[core_link_index].ip.GetAddress(portip_index);
         std::cout << "Worker " << worker_node << " connects to core " << aggregator_node 
                  << " through TOR " << worker_tor << std::endl;
+        std::cout << "Core IP address for worker " << worker_node << ": " << core_address << std::endl;
       } else {
         // 如果worker_tor和aggregator_node之间没有直接连接
         std::cerr << "Warning: No direct link from worker TOR " << worker_tor << " to core " << aggregator_node << std::endl;
@@ -782,6 +806,7 @@ main (int argc, char *argv[])
         if (found_alternative) {
           std::cout << "Using alternative core " << alt_core << " for worker " << worker_node 
                    << " (original core was " << aggregator_node << ")" << std::endl;
+          std::cout << "Alternative core IP address: " << core_address << std::endl;
           
           // 重要：更新aggregator_node为找到的替代核心交换机
           // 这样worker会连接到这个核心交换机，而不是原来指定的
@@ -795,8 +820,8 @@ main (int argc, char *argv[])
       UdpWorkerHelper workers(core_address, udpport);
       workers.SetAttribute("MaxPackets", UintegerValue(max_count));
       workers.SetAttribute("Interval", TimeValue(Seconds(interval)));
-      workers.SetAttribute("PacketSize", UintegerValue(1024));
-      workers.SetAttribute("Maxbytes", UintegerValue(model_size*10000));
+      workers.SetAttribute("PacketSize", UintegerValue(256)); // 减小数据包大小
+      workers.SetAttribute("Maxbytes", UintegerValue(model_size*100000)); // 减小总数据量
       workers.SetAttribute("CWND", UintegerValue(accwnd));
       workers.SetAttribute("MAXCWND", UintegerValue(accwnd));
       workers.SetAttribute("Host_number", UintegerValue(workernum));
@@ -811,6 +836,9 @@ main (int argc, char *argv[])
       std::cout << "App " << appid << ": Worker " << worker_node << " -> TOR " << worker_tor 
                << " -> Core " << aggregator_node << " -> TOR " << ps_tor 
                << " -> PS " << ps_node << " (IP: " << core_address << ")" << std::endl;
+      std::cout << "Worker settings: MaxPackets=" << max_count << ", Interval=" << interval 
+               << ", PacketSize=256, CWND=" << accwnd << ", HOSTID=" << j << std::endl;
+               
       clientApps[appid][j].Start(Seconds(start_time));
       clientApps[appid][j].Stop(Seconds(50.0));
     }

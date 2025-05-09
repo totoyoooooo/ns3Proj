@@ -3,7 +3,7 @@
 Waf: Entering directory `/home/w/TimeWindow/ns3Proj/build'
 Waf: Leaving directory `/home/w/TimeWindow/ns3Proj/build'
 Build commands will be stored in build/compile_commands.json
-'build' finished successfully (0.172s)
+'build' finished successfully (0.239s)
 config path lzy_mix/config/testatp.txt
 topology file from cmd line lzy_mix/topology/testtopo.txt
 job file from cmd line ./lzy_mix/job/testjob.txt
@@ -108,7 +108,7 @@ Link 61: 7 -> 13, Rate: 100Gbps, Delay: 8us (is microseconds: yes)
 Link 62: 7 -> 14, Rate: 100Gbps, Delay: 8us (is microseconds: yes)
 Link 63: 7 -> 15, Rate: 100Gbps, Delay: 8us (is microseconds: yes)
 Link 64: 0 -> 16, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 65: 0 -> 17, Rate: 91Gbps, Delay: 9us (is microseconds: yes)
+Link 65: 0 -> 17, Rate: 99Gbps, Delay: 5us (is microseconds: yes)
 Link 66: 0 -> 18, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 67: 0 -> 19, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 68: 0 -> 20, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
@@ -116,7 +116,7 @@ Link 69: 0 -> 21, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 70: 0 -> 22, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 71: 0 -> 23, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 72: 0 -> 24, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 73: 0 -> 25, Rate: 98Gbps, Delay: 7us (is microseconds: yes)
+Link 73: 0 -> 25, Rate: 96Gbps, Delay: 4us (is microseconds: yes)
 Link 74: 0 -> 26, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 75: 0 -> 27, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 76: 0 -> 28, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
@@ -128,13 +128,13 @@ Link 81: 0 -> 33, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 82: 0 -> 34, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 83: 0 -> 35, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 84: 0 -> 36, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 85: 0 -> 37, Rate: 97Gbps, Delay: 11us (is microseconds: yes)
+Link 85: 0 -> 37, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 86: 0 -> 38, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 87: 0 -> 39, Rate: 94Gbps, Delay: 11us (is microseconds: yes)
+Link 87: 0 -> 39, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 88: 1 -> 40, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 89: 1 -> 41, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 90: 1 -> 42, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 91: 1 -> 43, Rate: 100Gbps, Delay: 11us (is microseconds: yes)
+Link 91: 1 -> 43, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 92: 1 -> 44, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 93: 1 -> 45, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 94: 1 -> 46, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
@@ -142,9 +142,9 @@ Link 95: 1 -> 47, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 96: 1 -> 48, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 97: 1 -> 49, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 98: 1 -> 50, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 99: 1 -> 51, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
+Link 99: 1 -> 51, Rate: 92Gbps, Delay: 8us (is microseconds: yes)
 Link 100: 1 -> 52, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 101: 1 -> 53, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
+Link 101: 1 -> 53, Rate: 99Gbps, Delay: 6us (is microseconds: yes)
 Link 102: 1 -> 54, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 103: 1 -> 55, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 104: 1 -> 56, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
@@ -155,43 +155,43 @@ Link 108: 1 -> 60, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 109: 1 -> 61, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 110: 1 -> 62, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 111: 1 -> 63, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 112: 2 -> 64, Rate: 96Gbps, Delay: 5us (is microseconds: yes)
+Link 112: 2 -> 64, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 113: 2 -> 65, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 114: 2 -> 66, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
+Link 114: 2 -> 66, Rate: 98Gbps, Delay: 5us (is microseconds: yes)
 Link 115: 2 -> 67, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 116: 2 -> 68, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 117: 2 -> 69, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 118: 2 -> 70, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 119: 2 -> 71, Rate: 93Gbps, Delay: 4us (is microseconds: yes)
+Link 118: 2 -> 70, Rate: 99Gbps, Delay: 5us (is microseconds: yes)
+Link 119: 2 -> 71, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 120: 2 -> 72, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 121: 2 -> 73, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 122: 2 -> 74, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 123: 2 -> 75, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 124: 2 -> 76, Rate: 100Gbps, Delay: 12us (is microseconds: yes)
+Link 124: 2 -> 76, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 125: 2 -> 77, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 126: 2 -> 78, Rate: 92Gbps, Delay: 10us (is microseconds: yes)
+Link 126: 2 -> 78, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 127: 2 -> 79, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 128: 2 -> 80, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 129: 2 -> 81, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 130: 2 -> 82, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 131: 2 -> 83, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 132: 2 -> 84, Rate: 91Gbps, Delay: 5us (is microseconds: yes)
-Link 133: 2 -> 85, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
+Link 132: 2 -> 84, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
+Link 133: 2 -> 85, Rate: 97Gbps, Delay: 8us (is microseconds: yes)
 Link 134: 2 -> 86, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 135: 2 -> 87, Rate: 94Gbps, Delay: 7us (is microseconds: yes)
-Link 136: 3 -> 88, Rate: 91Gbps, Delay: 5us (is microseconds: yes)
+Link 135: 2 -> 87, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
+Link 136: 3 -> 88, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 137: 3 -> 89, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 138: 3 -> 90, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 139: 3 -> 91, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 140: 3 -> 92, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
+Link 139: 3 -> 91, Rate: 96Gbps, Delay: 8us (is microseconds: yes)
+Link 140: 3 -> 92, Rate: 90Gbps, Delay: 8us (is microseconds: yes)
 Link 141: 3 -> 93, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 142: 3 -> 94, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 143: 3 -> 95, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 144: 3 -> 96, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
+Link 143: 3 -> 95, Rate: 95Gbps, Delay: 6us (is microseconds: yes)
+Link 144: 3 -> 96, Rate: 97Gbps, Delay: 6us (is microseconds: yes)
 Link 145: 3 -> 97, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 146: 3 -> 98, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 147: 3 -> 99, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 148: 3 -> 100, Rate: 98Gbps, Delay: 7us (is microseconds: yes)
+Link 148: 3 -> 100, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 149: 3 -> 101, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 150: 3 -> 102, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 151: 3 -> 103, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
@@ -207,14 +207,14 @@ Link 160: 4 -> 112, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 161: 4 -> 113, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 162: 4 -> 114, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 163: 4 -> 115, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 164: 4 -> 116, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
+Link 164: 4 -> 116, Rate: 97Gbps, Delay: 8us (is microseconds: yes)
 Link 165: 4 -> 117, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 166: 4 -> 118, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 167: 4 -> 119, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 168: 4 -> 120, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 169: 4 -> 121, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 170: 4 -> 122, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 171: 4 -> 123, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
+Link 171: 4 -> 123, Rate: 98Gbps, Delay: 5us (is microseconds: yes)
 Link 172: 4 -> 124, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 173: 4 -> 125, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 174: 4 -> 126, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
@@ -226,7 +226,7 @@ Link 179: 4 -> 131, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 180: 4 -> 132, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 181: 4 -> 133, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 182: 4 -> 134, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 183: 4 -> 135, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
+Link 183: 4 -> 135, Rate: 96Gbps, Delay: 11us (is microseconds: yes)
 Link 184: 5 -> 136, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 185: 5 -> 137, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 186: 5 -> 138, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
@@ -235,14 +235,14 @@ Link 188: 5 -> 140, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 189: 5 -> 141, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 190: 5 -> 142, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 191: 5 -> 143, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 192: 5 -> 144, Rate: 92Gbps, Delay: 8us (is microseconds: yes)
+Link 192: 5 -> 144, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 193: 5 -> 145, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 194: 5 -> 146, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 195: 5 -> 147, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 196: 5 -> 148, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 197: 5 -> 149, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 198: 5 -> 150, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 199: 5 -> 151, Rate: 94Gbps, Delay: 9us (is microseconds: yes)
+Link 199: 5 -> 151, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 200: 5 -> 152, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 201: 5 -> 153, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 202: 5 -> 154, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
@@ -250,7 +250,7 @@ Link 203: 5 -> 155, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 204: 5 -> 156, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 205: 5 -> 157, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 206: 5 -> 158, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 207: 5 -> 159, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
+Link 207: 5 -> 159, Rate: 98Gbps, Delay: 6us (is microseconds: yes)
 Link 208: 6 -> 160, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 209: 6 -> 161, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 210: 6 -> 162, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
@@ -261,8 +261,8 @@ Link 214: 6 -> 166, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 215: 6 -> 167, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 216: 6 -> 168, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 217: 6 -> 169, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 218: 6 -> 170, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 219: 6 -> 171, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
+Link 218: 6 -> 170, Rate: 97Gbps, Delay: 9us (is microseconds: yes)
+Link 219: 6 -> 171, Rate: 91Gbps, Delay: 11us (is microseconds: yes)
 Link 220: 6 -> 172, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 221: 6 -> 173, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 222: 6 -> 174, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
@@ -277,14 +277,14 @@ Link 230: 6 -> 182, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 231: 6 -> 183, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 232: 7 -> 184, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 233: 7 -> 185, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 234: 7 -> 186, Rate: 91Gbps, Delay: 12us (is microseconds: yes)
+Link 234: 7 -> 186, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 235: 7 -> 187, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 236: 7 -> 188, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 237: 7 -> 189, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 238: 7 -> 190, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 239: 7 -> 191, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
+Link 239: 7 -> 191, Rate: 96Gbps, Delay: 7us (is microseconds: yes)
 Link 240: 7 -> 192, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 241: 7 -> 193, Rate: 98Gbps, Delay: 8us (is microseconds: yes)
+Link 241: 7 -> 193, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 242: 7 -> 194, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 243: 7 -> 195, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 244: 7 -> 196, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
@@ -292,8 +292,8 @@ Link 245: 7 -> 197, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 246: 7 -> 198, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 247: 7 -> 199, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 248: 7 -> 200, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
-Link 249: 7 -> 201, Rate: 95Gbps, Delay: 9us (is microseconds: yes)
-Link 250: 7 -> 202, Rate: 98Gbps, Delay: 8us (is microseconds: yes)
+Link 249: 7 -> 201, Rate: 93Gbps, Delay: 8us (is microseconds: yes)
+Link 250: 7 -> 202, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 251: 7 -> 203, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 252: 7 -> 204, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 Link 253: 7 -> 205, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
@@ -302,21 +302,30 @@ Link 255: 7 -> 207, Rate: 100Gbps, Delay: 4us (is microseconds: yes)
 === Topology Summary: ResNet with low tail ===
 Total nodes: 208, Total links: 256
 ===============================
+jobpath : ./lzy_mix/job/large_jobs_low.txt
 Setting protocol name for core aggregator 8 to: ATP
+Core switch 8 aggregator created with pool size 450 and max hosts 64
 Core switch 8 initialized as aggregator
 Setting protocol name for core aggregator 9 to: ATP
+Core switch 9 aggregator created with pool size 450 and max hosts 64
 Core switch 9 initialized as aggregator
 Setting protocol name for core aggregator 10 to: ATP
+Core switch 10 aggregator created with pool size 450 and max hosts 64
 Core switch 10 initialized as aggregator
 Setting protocol name for core aggregator 11 to: ATP
+Core switch 11 aggregator created with pool size 450 and max hosts 64
 Core switch 11 initialized as aggregator
 Setting protocol name for core aggregator 12 to: ATP
+Core switch 12 aggregator created with pool size 450 and max hosts 64
 Core switch 12 initialized as aggregator
 Setting protocol name for core aggregator 13 to: ATP
+Core switch 13 aggregator created with pool size 450 and max hosts 64
 Core switch 13 initialized as aggregator
 Setting protocol name for core aggregator 14 to: ATP
+Core switch 14 aggregator created with pool size 450 and max hosts 64
 Core switch 14 initialized as aggregator
 Setting protocol name for core aggregator 15 to: ATP
+Core switch 15 aggregator created with pool size 450 and max hosts 64
 Core switch 15 initialized as aggregator
 TOR switch 0 mapped to core switch 8
 TOR switch 1 mapped to core switch 9
@@ -326,147 +335,1136 @@ TOR switch 4 mapped to core switch 12
 TOR switch 5 mapped to core switch 13
 TOR switch 6 mapped to core switch 14
 TOR switch 7 mapped to core switch 15
+appnum__3
+Starting to process 3 applications
 StartAPP 0 start 2.000000 
-Using core switch 8 as aggregator for PS node 31 (connected to TOR 0)
-Found link from core 8 to TOR 0
-Found link from TOR 0 to PS 31
+Using core switch 15 as aggregator for PS node 204 (connected to TOR 7)
+Found link from core 15 to TOR 7
+Found link from TOR 7 to PS 204
+PS node 204 IP address: 10.1.254.2
 debug setremotes remotesize 1 port size 1 appid 0
-debug udp-aggregator.cc setremotes address 03-07-0a:01:51:02:09:00:00 appid 0
+debug udp-aggregator.cc setremotes address 03-07-0a:01:fe:02:09:00:00 appid 0
 debug udp-aggregator.cc setremotes port 9 appid 0
-Worker node 1 has ID < 16, assuming connected to TOR 0
-Worker 1 connects to core 8 through TOR 0
-App 0: Worker 1 -> TOR 0 -> Core 8 -> TOR 0 -> PS 31 (IP: 10.1.2.2)
-Worker node 2 has ID < 16, assuming connected to TOR 0
-Worker 2 connects to core 8 through TOR 0
-App 0: Worker 2 -> TOR 0 -> Core 8 -> TOR 0 -> PS 31 (IP: 10.1.2.2)
-Worker node 3 has ID < 16, assuming connected to TOR 0
-Worker 3 connects to core 8 through TOR 0
-App 0: Worker 3 -> TOR 0 -> Core 8 -> TOR 0 -> PS 31 (IP: 10.1.2.2)
-Worker node 4 has ID < 16, assuming connected to TOR 0
-Worker 4 connects to core 8 through TOR 0
-App 0: Worker 4 -> TOR 0 -> Core 8 -> TOR 0 -> PS 31 (IP: 10.1.2.2)
+PS application installed on node 204 with port 9
+Worker 179 connects to core 15 through TOR 6
+Core IP address for worker 179: 10.1.57.2
+App 0: Worker 179 -> TOR 6 -> Core 15 -> TOR 7 -> PS 204 (IP: 10.1.57.2)
+Worker settings: MaxPackets=100, Interval=1, PacketSize=256, CWND=100, HOSTID=0
+Worker 92 connects to core 15 through TOR 3
+Core IP address for worker 92: 10.1.33.2
+App 0: Worker 92 -> TOR 3 -> Core 15 -> TOR 7 -> PS 204 (IP: 10.1.33.2)
+Worker settings: MaxPackets=100, Interval=1, PacketSize=256, CWND=100, HOSTID=1
+Worker 16 connects to core 15 through TOR 0
+Core IP address for worker 16: 10.1.9.2
+App 0: Worker 16 -> TOR 0 -> Core 15 -> TOR 7 -> PS 204 (IP: 10.1.9.2)
+Worker settings: MaxPackets=100, Interval=1, PacketSize=256, CWND=100, HOSTID=2
+Worker 88 connects to core 15 through TOR 3
+Core IP address for worker 88: 10.1.33.2
+App 0: Worker 88 -> TOR 3 -> Core 15 -> TOR 7 -> PS 204 (IP: 10.1.33.2)
+Worker settings: MaxPackets=100, Interval=1, PacketSize=256, CWND=100, HOSTID=3
 StartAPP 1 start 2.000000 
-Using core switch 8 as aggregator for PS node 30 (connected to TOR 0)
-Found link from core 8 to TOR 0
-Found link from TOR 0 to PS 30
+Using core switch 13 as aggregator for PS node 136 (connected to TOR 5)
+Found link from core 13 to TOR 5
+Found link from TOR 5 to PS 136
+PS node 136 IP address: 10.1.186.2
 debug setremotes remotesize 1 port size 1 appid 1
-debug udp-aggregator.cc setremotes address 03-07-0a:01:50:02:09:00:00 appid 1
+debug udp-aggregator.cc setremotes address 03-07-0a:01:ba:02:09:00:00 appid 1
 debug udp-aggregator.cc setremotes port 9 appid 1
-Worker node 5 has ID < 16, assuming connected to TOR 0
-Worker 5 connects to core 8 through TOR 0
-App 1: Worker 5 -> TOR 0 -> Core 8 -> TOR 0 -> PS 30 (IP: 10.1.2.2)
-Worker node 6 has ID < 16, assuming connected to TOR 0
-Worker 6 connects to core 8 through TOR 0
-App 1: Worker 6 -> TOR 0 -> Core 8 -> TOR 0 -> PS 30 (IP: 10.1.2.2)
-Worker node 7 has ID < 16, assuming connected to TOR 0
-Worker 7 connects to core 8 through TOR 0
-App 1: Worker 7 -> TOR 0 -> Core 8 -> TOR 0 -> PS 30 (IP: 10.1.2.2)
-Worker node 8 has ID < 16, assuming connected to TOR 0
-Worker 8 connects to core 8 through TOR 0
-App 1: Worker 8 -> TOR 0 -> Core 8 -> TOR 0 -> PS 30 (IP: 10.1.2.2)
+PS application installed on node 136 with port 9
+Worker 106 connects to core 13 through TOR 3
+Core IP address for worker 106: 10.1.31.2
+App 1: Worker 106 -> TOR 3 -> Core 13 -> TOR 5 -> PS 136 (IP: 10.1.31.2)
+Worker settings: MaxPackets=100, Interval=1, PacketSize=256, CWND=100, HOSTID=0
+Worker 82 connects to core 13 through TOR 2
+Core IP address for worker 82: 10.1.23.2
+App 1: Worker 82 -> TOR 2 -> Core 13 -> TOR 5 -> PS 136 (IP: 10.1.23.2)
+Worker settings: MaxPackets=100, Interval=1, PacketSize=256, CWND=100, HOSTID=1
+Worker 49 connects to core 13 through TOR 1
+Core IP address for worker 49: 10.1.15.2
+App 1: Worker 49 -> TOR 1 -> Core 13 -> TOR 5 -> PS 136 (IP: 10.1.15.2)
+Worker settings: MaxPackets=100, Interval=1, PacketSize=256, CWND=100, HOSTID=2
+StartAPP 2 start 2.000000 
+Using core switch 11 as aggregator for PS node 93 (connected to TOR 3)
+Found link from core 11 to TOR 3
+Found link from TOR 3 to PS 93
+PS node 93 IP address: 10.1.143.2
+debug setremotes remotesize 1 port size 1 appid 2
+debug udp-aggregator.cc setremotes address 03-07-0a:01:8f:02:09:00:00 appid 2
+debug udp-aggregator.cc setremotes port 9 appid 2
+PS application installed on node 93 with port 9
+Worker 187 connects to core 11 through TOR 7
+Core IP address for worker 187: 10.1.61.2
+App 2: Worker 187 -> TOR 7 -> Core 11 -> TOR 3 -> PS 93 (IP: 10.1.61.2)
+Worker settings: MaxPackets=100, Interval=1, PacketSize=256, CWND=100, HOSTID=0
+Worker 175 connects to core 11 through TOR 6
+Core IP address for worker 175: 10.1.53.2
+App 2: Worker 175 -> TOR 6 -> Core 11 -> TOR 3 -> PS 93 (IP: 10.1.53.2)
+Worker settings: MaxPackets=100, Interval=1, PacketSize=256, CWND=100, HOSTID=1
+Worker 101 connects to core 11 through TOR 3
+Core IP address for worker 101: 10.1.29.2
+App 2: Worker 101 -> TOR 3 -> Core 11 -> TOR 3 -> PS 93 (IP: 10.1.29.2)
+Worker settings: MaxPackets=100, Interval=1, PacketSize=256, CWND=100, HOSTID=2
+Worker 150 connects to core 11 through TOR 5
+Core IP address for worker 150: 10.1.45.2
+App 2: Worker 150 -> TOR 5 -> Core 11 -> TOR 3 -> PS 93 (IP: 10.1.45.2)
+Worker settings: MaxPackets=100, Interval=1, PacketSize=256, CWND=100, HOSTID=3
+Worker 156 connects to core 11 through TOR 5
+Core IP address for worker 156: 10.1.45.2
+App 2: Worker 156 -> TOR 5 -> Core 11 -> TOR 3 -> PS 93 (IP: 10.1.45.2)
+Worker settings: MaxPackets=100, Interval=1, PacketSize=256, CWND=100, HOSTID=4
+Worker 89 connects to core 11 through TOR 3
+Core IP address for worker 89: 10.1.29.2
+App 2: Worker 89 -> TOR 3 -> Core 11 -> TOR 3 -> PS 93 (IP: 10.1.29.2)
+Worker settings: MaxPackets=100, Interval=1, PacketSize=256, CWND=100, HOSTID=5
 Flow monitoring output will be written to: ResNet_low_traffic.txt
-Starting UdpAggregator with timeWindow=1e-08s, pool_size=900, onofftimewindow=0
+Starting UdpAggregator with timeWindow=1e-08s, pool_size=450, onofftimewindow=0
 Successfully opened throughput log file: ATP_aggr_rate.log
-Starting UdpAggregator with timeWindow=1e-08s, pool_size=900, onofftimewindow=0
+Starting UdpAggregator with timeWindow=1e-08s, pool_size=450, onofftimewindow=0
 Successfully opened throughput log file: ATP_aggr_rate.log
-Starting UdpAggregator with timeWindow=1e-08s, pool_size=900, onofftimewindow=0
+Starting UdpAggregator with timeWindow=1e-08s, pool_size=450, onofftimewindow=0
 Successfully opened throughput log file: ATP_aggr_rate.log
-Starting UdpAggregator with timeWindow=1e-08s, pool_size=900, onofftimewindow=0
+Starting UdpAggregator with timeWindow=1e-08s, pool_size=450, onofftimewindow=0
 Successfully opened throughput log file: ATP_aggr_rate.log
-Starting UdpAggregator with timeWindow=1e-08s, pool_size=900, onofftimewindow=0
+Starting UdpAggregator with timeWindow=1e-08s, pool_size=450, onofftimewindow=0
 Successfully opened throughput log file: ATP_aggr_rate.log
-Starting UdpAggregator with timeWindow=1e-08s, pool_size=900, onofftimewindow=0
+Starting UdpAggregator with timeWindow=1e-08s, pool_size=450, onofftimewindow=0
 Successfully opened throughput log file: ATP_aggr_rate.log
-Starting UdpAggregator with timeWindow=1e-08s, pool_size=900, onofftimewindow=0
+Starting UdpAggregator with timeWindow=1e-08s, pool_size=450, onofftimewindow=0
 Successfully opened throughput log file: ATP_aggr_rate.log
-Starting UdpAggregator with timeWindow=1e-08s, pool_size=900, onofftimewindow=0
+Starting UdpAggregator with timeWindow=1e-08s, pool_size=450, onofftimewindow=0
 Successfully opened throughput log file: ATP_aggr_rate.log
 Debug - Config path value: lzy_mix/config/testatp.txt
 Debug - Config path value: lzy_mix/config/testatp.txt
-APP 0 thrtime +2s aggregate throughput 0 Gbps [(0/3907),0%]
-APP 1 thrtime +2s aggregate throughput 0 Gbps [(0/3907),0%]
-AGGR TIME +2s minutil 1
-AGGR TIME +2s minutil 1
-empty:900
+Debug - Config path value: lzy_mix/config/testatp.txt
+AGGR TIME +1.5s minutil 1
+AGGR TIME +1.5s minutil 1
+empty:450
 app0:0
 app1:0
 app2:0
 =========== 协议 [ATP] 翻台率统计 ===========
 总翻台次数: 0
 ====================================================
-AGGR TIME +2s minutil 1
-AGGR TIME +2s minutil 1
-empty:900
+AGGR TIME +1.5s minutil 1
+AGGR TIME +1.5s minutil 1
+empty:450
 app0:0
 app1:0
 app2:0
 =========== 协议 [ATP] 翻台率统计 ===========
 总翻台次数: 0
 ====================================================
-AGGR TIME +2s minutil 1
-AGGR TIME +2s minutil 1
-empty:900
+AGGR TIME +1.5s minutil 1
+AGGR TIME +1.5s minutil 1
+empty:450
 app0:0
 app1:0
 app2:0
 =========== 协议 [ATP] 翻台率统计 ===========
 总翻台次数: 0
 ====================================================
-AGGR TIME +2s minutil 1
-AGGR TIME +2s minutil 1
-empty:900
+AGGR TIME +1.5s minutil 1
+AGGR TIME +1.5s minutil 1
+empty:450
 app0:0
 app1:0
 app2:0
 =========== 协议 [ATP] 翻台率统计 ===========
 总翻台次数: 0
 ====================================================
-AGGR TIME +2s minutil 1
-AGGR TIME +2s minutil 1
-empty:900
+AGGR TIME +1.5s minutil 1
+AGGR TIME +1.5s minutil 1
+empty:450
 app0:0
 app1:0
 app2:0
 =========== 协议 [ATP] 翻台率统计 ===========
 总翻台次数: 0
 ====================================================
-AGGR TIME +2s minutil 1
-AGGR TIME +2s minutil 1
-empty:900
+AGGR TIME +1.5s minutil 1
+AGGR TIME +1.5s minutil 1
+empty:450
 app0:0
 app1:0
 app2:0
 =========== 协议 [ATP] 翻台率统计 ===========
 总翻台次数: 0
 ====================================================
-AGGR TIME +2s minutil 1
-AGGR TIME +2s minutil 1
-empty:900
+AGGR TIME +1.5s minutil 1
+AGGR TIME +1.5s minutil 1
+empty:450
 app0:0
 app1:0
 app2:0
 =========== 协议 [ATP] 翻台率统计 ===========
 总翻台次数: 0
 ====================================================
-AGGR TIME +2s minutil 1
-AGGR TIME +2s minutil 1
-empty:900
+AGGR TIME +1.5s minutil 1
+AGGR TIME +1.5s minutil 1
+empty:450
 app0:0
 app1:0
 app2:0
 =========== 协议 [ATP] 翻台率统计 ===========
 总翻台次数: 0
 ====================================================
+APP 1 thrtime +2s aggregate throughput 0 Gbps [(0/1563),0%]
+APP 0 thrtime +2s aggregate throughput 0 Gbps [(0/1563),0%]
+APP 2 thrtime +2s aggregate throughput 0 Gbps [(0/1563),0%]
 [+2s] Total Received: 0 Merged Sum: 0 mergetimes:0 ans:0
 finish_time +0s total=0
 [+2s] Total Received: 0 Merged Sum: 0 mergetimes:0 ans:0
 finish_time +0s total=0
-APP 0 thrtime +2.001s aggregate throughput 9.8304 Gbps [(1200/3907),30.7141%]
-APP 1 thrtime +2.001s aggregate throughput 9.8304 Gbps [(1200/3907),30.7141%]
-[+2.001s] Total Received: 1244 Merged Sum: 4976 mergetimes:1244 ans:3732
-finish_time +2.001s total=4976
-[+2.001s] Total Received: 1245 Merged Sum: 4980 mergetimes:1245 ans:3735
-finish_time +2.001s total=4980
-APP 0 thrtime +2.002s aggregate throughput 10.24 Gbps [(2450/3907),62.708%]
-APP 1 thrtime +2.002s aggregate throughput 10.24 Gbps [(2450/3907),62.708%]
-Interrupted 
+[+2s] Total Received: 0 Merged Sum: 0 mergetimes:0 ans:0
+finish_time +0s total=0
+Finish 1 node 106 at +2.00077s
+Finish 2 node 187 at +2.00077s
+Finish 0 node 179 at +2.0009s
+[+2.001s] Total Received: 1563 Merged Sum: 9378 mergetimes:1563 ans:7815
+finish_time +2.00075s total=9378
+[+2.001s] Total Received: 1563 Merged Sum: 4689 mergetimes:1563 ans:3126
+finish_time +2.00075s total=4689
+[+2.001s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.002s] Total Received: 1563 Merged Sum: 9378 mergetimes:1563 ans:7815
+finish_time +2.00075s total=9378
+[+2.002s] Total Received: 1563 Merged Sum: 4689 mergetimes:1563 ans:3126
+finish_time +2.00075s total=4689
+[+2.002s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.003s] Total Received: 1563 Merged Sum: 9378 mergetimes:1563 ans:7815
+finish_time +2.00075s total=9378
+[+2.003s] Total Received: 1563 Merged Sum: 4689 mergetimes:1563 ans:3126
+finish_time +2.00075s total=4689
+[+2.003s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.004s] Total Received: 1563 Merged Sum: 9378 mergetimes:1563 ans:7815
+finish_time +2.00075s total=9378
+[+2.004s] Total Received: 1563 Merged Sum: 4689 mergetimes:1563 ans:3126
+finish_time +2.00075s total=4689
+[+2.004s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.005s] Total Received: 1563 Merged Sum: 9378 mergetimes:1563 ans:7815
+finish_time +2.00075s total=9378
+[+2.005s] Total Received: 1563 Merged Sum: 4689 mergetimes:1563 ans:3126
+finish_time +2.00075s total=4689
+[+2.005s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.006s] Total Received: 1563 Merged Sum: 9378 mergetimes:1563 ans:7815
+finish_time +2.00075s total=9378
+[+2.006s] Total Received: 1563 Merged Sum: 4689 mergetimes:1563 ans:3126
+finish_time +2.00075s total=4689
+[+2.006s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.007s] Total Received: 1563 Merged Sum: 9378 mergetimes:1563 ans:7815
+finish_time +2.00075s total=9378
+[+2.007s] Total Received: 1563 Merged Sum: 4689 mergetimes:1563 ans:3126
+finish_time +2.00075s total=4689
+[+2.007s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.008s] Total Received: 1563 Merged Sum: 9378 mergetimes:1563 ans:7815
+finish_time +2.00075s total=9378
+[+2.008s] Total Received: 1563 Merged Sum: 4689 mergetimes:1563 ans:3126
+finish_time +2.00075s total=4689
+[+2.008s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.009s] Total Received: 1563 Merged Sum: 9378 mergetimes:1563 ans:7815
+finish_time +2.00075s total=9378
+[+2.009s] Total Received: 1563 Merged Sum: 4689 mergetimes:1563 ans:3126
+finish_time +2.00075s total=4689
+[+2.009s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.01s] Total Received: 1563 Merged Sum: 9378 mergetimes:1563 ans:7815
+finish_time +2.00075s total=9378
+[+2.01s] Total Received: 1563 Merged Sum: 4689 mergetimes:1563 ans:3126
+finish_time +2.00075s total=4689
+[+2.01s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+AGGR TIME +2.5s minutil 1
+AGGR TIME +2.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +2.5s minutil 1
+AGGR TIME +2.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +2.5s minutil 1
+AGGR TIME +2.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +2.5s minutil 0.00222222
+AGGR TIME +2.5s minutil 0.00222222
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+AGGR TIME +2.5s minutil 1
+AGGR TIME +2.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +2.5s minutil 0.00222222
+AGGR TIME +2.5s minutil 0.00222222
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+AGGR TIME +2.5s minutil 1
+AGGR TIME +2.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +2.5s minutil 0.00222222
+AGGR TIME +2.5s minutil 0.00222222
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+[+3s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+3s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+3s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+3s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+3s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+3s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+3s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+3s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+3s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+3s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+3s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+3s] Total Send: 1563
+finish_send_time +0s total=1232754868
+last_ack_time +2.0009s total=1232754868
+[+3s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+AGGR TIME +3.5s minutil 1
+AGGR TIME +3.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +3.5s minutil 1
+AGGR TIME +3.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +3.5s minutil 1
+AGGR TIME +3.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +3.5s minutil 1
+AGGR TIME +3.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+AGGR TIME +3.5s minutil 1
+AGGR TIME +3.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +3.5s minutil 1
+AGGR TIME +3.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+AGGR TIME +3.5s minutil 1
+AGGR TIME +3.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +3.5s minutil 1
+AGGR TIME +3.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+[+4s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+4s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+4s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+4s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+4s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+4s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+4s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+4s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+4s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+4s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+4s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+4s] Total Send: 1563
+finish_send_time +0s total=1232754868
+last_ack_time +2.0009s total=1232754868
+[+4s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+AGGR TIME +4.5s minutil 1
+AGGR TIME +4.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +4.5s minutil 1
+AGGR TIME +4.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +4.5s minutil 1
+AGGR TIME +4.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +4.5s minutil 1
+AGGR TIME +4.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+AGGR TIME +4.5s minutil 1
+AGGR TIME +4.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +4.5s minutil 1
+AGGR TIME +4.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+AGGR TIME +4.5s minutil 1
+AGGR TIME +4.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +4.5s minutil 1
+AGGR TIME +4.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+[+5s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+5s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+5s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+5s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+5s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+5s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+5s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+5s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+5s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+5s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+5s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+5s] Total Send: 1563
+finish_send_time +0s total=1232754868
+last_ack_time +2.0009s total=1232754868
+[+5s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+AGGR TIME +5.5s minutil 1
+AGGR TIME +5.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +5.5s minutil 1
+AGGR TIME +5.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +5.5s minutil 1
+AGGR TIME +5.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +5.5s minutil 1
+AGGR TIME +5.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+AGGR TIME +5.5s minutil 1
+AGGR TIME +5.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +5.5s minutil 1
+AGGR TIME +5.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+AGGR TIME +5.5s minutil 1
+AGGR TIME +5.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +5.5s minutil 1
+AGGR TIME +5.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+[+6s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+6s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+6s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+6s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+6s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+6s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+6s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+6s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+6s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+6s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+6s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+6s] Total Send: 1563
+finish_send_time +0s total=1232754868
+last_ack_time +2.0009s total=1232754868
+[+6s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+AGGR TIME +6.5s minutil 1
+AGGR TIME +6.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +6.5s minutil 1
+AGGR TIME +6.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +6.5s minutil 1
+AGGR TIME +6.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +6.5s minutil 1
+AGGR TIME +6.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+AGGR TIME +6.5s minutil 1
+AGGR TIME +6.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +6.5s minutil 1
+AGGR TIME +6.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+AGGR TIME +6.5s minutil 1
+AGGR TIME +6.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +6.5s minutil 1
+AGGR TIME +6.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+[+7s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+7s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+7s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+7s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+7s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+7s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+7s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+7s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+7s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+7s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+7s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+7s] Total Send: 1563
+finish_send_time +0s total=1232754868
+last_ack_time +2.0009s total=1232754868
+[+7s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+AGGR TIME +7.5s minutil 1
+AGGR TIME +7.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +7.5s minutil 1
+AGGR TIME +7.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +7.5s minutil 1
+AGGR TIME +7.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +7.5s minutil 1
+AGGR TIME +7.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+AGGR TIME +7.5s minutil 1
+AGGR TIME +7.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +7.5s minutil 1
+AGGR TIME +7.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+AGGR TIME +7.5s minutil 1
+AGGR TIME +7.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +7.5s minutil 1
+AGGR TIME +7.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+[+8s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+8s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+8s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+8s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+8s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+8s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+8s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+8s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+8s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+8s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+8s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+8s] Total Send: 1563
+finish_send_time +0s total=1232754868
+last_ack_time +2.0009s total=1232754868
+[+8s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+AGGR TIME +8.5s minutil 1
+AGGR TIME +8.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +8.5s minutil 1
+AGGR TIME +8.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +8.5s minutil 1
+AGGR TIME +8.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +8.5s minutil 1
+AGGR TIME +8.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+AGGR TIME +8.5s minutil 1
+AGGR TIME +8.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +8.5s minutil 1
+AGGR TIME +8.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+AGGR TIME +8.5s minutil 1
+AGGR TIME +8.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +8.5s minutil 1
+AGGR TIME +8.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+[+9s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+9s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+9s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+9s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+9s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+9s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+9s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+9s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+9s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+9s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+9s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+9s] Total Send: 1563
+finish_send_time +0s total=1232754868
+last_ack_time +2.0009s total=1232754868
+[+9s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+AGGR TIME +9.5s minutil 1
+AGGR TIME +9.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +9.5s minutil 1
+AGGR TIME +9.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +9.5s minutil 1
+AGGR TIME +9.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +9.5s minutil 1
+AGGR TIME +9.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+AGGR TIME +9.5s minutil 1
+AGGR TIME +9.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +9.5s minutil 1
+AGGR TIME +9.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+AGGR TIME +9.5s minutil 1
+AGGR TIME +9.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 0
+====================================================
+AGGR TIME +9.5s minutil 1
+AGGR TIME +9.5s minutil 1
+empty:450
+app0:0
+app1:0
+app2:0
+=========== 协议 [ATP] 翻台率统计 ===========
+总翻台次数: 1562
+====================================================
+[+10s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+10s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+10s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+10s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+10s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+10s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.0009s total=0
+[+10s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+10s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+10s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+10s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+10s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0
+[+10s] Total Send: 1563
+finish_send_time +0s total=1232754868
+last_ack_time +2.0009s total=1232754868
+[+10s] Total Send: 1563
+finish_send_time +0s total=0
+last_ack_time +2.00077s total=0

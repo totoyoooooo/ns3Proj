@@ -1,6 +1,22 @@
 [+2s] Total Received: 0 Merged Sum: 0 mergetimes:0 ans:0
 finish_time +0s total=0
-[+2.001s] Total Received: 1245 Merged Sum: 4980 mergetimes:1245 ans:3735
-finish_time +2.001s total=4980
-[+2.002s] Total Received: 2450 Merged Sum: 9800 mergetimes:2450 ans:7350
-finish_time +2.00197s total=9800
+[+2.001s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.002s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.003s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.004s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.005s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.006s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.007s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.008s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.009s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
+[+2.01s] Total Received: 1563 Merged Sum: 6252 mergetimes:1563 ans:4689
+finish_time +2.00087s total=6252
