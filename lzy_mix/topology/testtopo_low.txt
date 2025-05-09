@@ -20,23 +20,23 @@
 0 8 100Gbps 2us 0
 
 # 节点连接到 TOR 交换机 0 - 4个有拖尾问题的节点
-0 16 95Gbps 3us 0
-0 21 94Gbps 5us 0
-0 34 97Gbps 3us 0
-0 38 99Gbps 6us 0
+0 12 98Gbps 6us 0
+0 19 98Gbps 3us 0
+0 35 94Gbps 5us 0
+0 38 98Gbps 6us 0
 
 # 其余节点正常带宽
 0 9 100Gbps 2us 0
 0 10 100Gbps 2us 0
 0 11 100Gbps 2us 0
-0 12 100Gbps 2us 0
 0 13 100Gbps 2us 0
 0 14 100Gbps 2us 0
 0 15 100Gbps 2us 0
+0 16 100Gbps 2us 0
 0 17 100Gbps 2us 0
 0 18 100Gbps 2us 0
-0 19 100Gbps 2us 0
 0 20 100Gbps 2us 0
+0 21 100Gbps 2us 0
 0 22 100Gbps 2us 0
 0 23 100Gbps 2us 0
 0 24 100Gbps 2us 0
@@ -49,7 +49,7 @@
 0 31 100Gbps 2us 0
 0 32 100Gbps 2us 0
 0 33 100Gbps 2us 0
-0 35 100Gbps 2us 0
+0 34 100Gbps 2us 0
 0 36 100Gbps 2us 0
 0 37 100Gbps 2us 0
 0 39 100Gbps 2us 0

@@ -86,7 +86,7 @@ for tail in "${TAIL_INTENSITIES[@]}"; do
     
     # 生成该拖尾强度的作业文件
     echo "生成拖尾强度为 ${tail} 的作业文件..."
-    python3 generate_jobs.py --tail_intensity "$tail" --jobs 20
+    python3 generate_jobs.py --tail_intensity "$tail" --jobs 10
     
     # 更新配置文件中的拓扑文件路径
     for protocol in "${PROTOCOLS[@]}"; do
@@ -114,11 +114,11 @@ for tail in "${TAIL_INTENSITIES[@]}"; do
             OUTPUT_FILE="results/${protocol}_${tail}_round${round}.txt"
             
             # 直接在命令行打印出完整命令，以便调试
-            COMMAND="./waf --run \"testswitchml/start_test --configpath=${CONFIG_FILE} --cmd_poolsize=450 --timewindow=0.00000001 --tail=${tail} --topology=${TEST_TOPO_FILE}\""
+            COMMAND="./waf --run \"testswitchml/start_test --configpath=${CONFIG_FILE} --cmd_poolsize=450 --timewindow=0.00000001 --tail=${tail} \""
             echo "执行命令: $COMMAND"
             
             # 执行命令
-            ./waf --run "testswitchml/start_test --configpath=${CONFIG_FILE} --cmd_poolsize=450 --timewindow=0.00000001 --tail=${tail} --topology=${TEST_TOPO_FILE}" > "$OUTPUT_FILE" 2>&1
+            ./waf --run "testswitchml/start_test --configpath=${CONFIG_FILE} --cmd_poolsize=450 --timewindow=0.00000001 --tail=${tail} " > "$OUTPUT_FILE" 2>&1
             
             # 检查命令执行结果
             if [ $? -ne 0 ]; then

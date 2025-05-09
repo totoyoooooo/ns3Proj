@@ -56,7 +56,7 @@ int coloactednumber = 1;
 uint32_t onsaatp = 0;
 using namespace ns3;
 
-std::string topofile = "./lzy_mix/topology_simple.txt";
+std::string topofile = "./lzy_mix/topology/testtopo_low.txt";
 std::string jobfile = "./lzy_mix/job_simple.txt";
 std::string bgflowfile = "./lzy_mix/bgflow_simple.txt";
 std::string trace_file = "./lzy_mix/lzytrace";
@@ -164,6 +164,8 @@ main (int argc, char *argv[])
   cmd.Parse (argc, argv);
   std::cout<<"config path "<<configpath<<std::endl;
   std::cout<<"topology file from cmd line "<<topologyFile<<std::endl;
+  
+  std::cout<<"job file from cmd line "<<jobpath<<std::endl;
 
   bool topologyFromCmdLine = (topologyFile != "lzy_mix/topology/testtopo.txt");
 
@@ -290,6 +292,7 @@ main (int argc, char *argv[])
   }
   
   std::cout << "Loading topology from: " << topofile << std::endl;
+  std::cout << "Loading job from: " << jobfile << std::endl;
   topof.open(topofile.c_str());
   if (!topof.is_open()) {
     std::cerr << "ERROR: Could not open topology file: " << topofile << std::endl;
@@ -736,7 +739,7 @@ main (int argc, char *argv[])
     k++;    
   }
 
-  Simulator::Stop(Seconds(3.1));
+  Simulator::Stop(Seconds(10.1));
 
   // After Simulator::Stop but before Simulator::Run, set up flow monitoring
   // Initialize Flow Monitor
