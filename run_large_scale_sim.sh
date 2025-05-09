@@ -86,7 +86,7 @@ for tail in "${TAIL_INTENSITIES[@]}"; do
     
     # 生成该拖尾强度的作业文件
     echo "生成拖尾强度为 ${tail} 的作业文件..."
-    python3 generate_jobs.py --tail_intensity "$tail" --jobs 10
+    # python3 generate_jobs.py --tail_intensity "$tail" --jobs 10
     
     # 更新配置文件中的拓扑文件路径
     for protocol in "${PROTOCOLS[@]}"; do
